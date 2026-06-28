@@ -95,7 +95,7 @@
 
     <div class="bg-white rounded-2xl shadow-xl overflow-hidden fade-up d3">
       <div class="bg-[#2B9FB5] px-8 py-5">
-        <p class="font-display text-xs uppercase tracking-widest text-white/70 mb-1">Ejercicio</p>
+        <p class="font-display text-xs uppercase tracking-widest text-white/70 mb-1">Ejercicio detallado</p>
         <h2 class="font-display text-2xl text-white uppercase">Llenado de Vasos de Helado</h2>
       </div>
       <div class="p-8 space-y-6">
@@ -103,12 +103,12 @@
         <div class="bg-[#f0fafc] rounded-xl p-6 border-l-4 border-[#2B9FB5]">
           <p class="font-display text-sm uppercase text-[#1E7A8A] mb-3">Enunciado</p>
           <p class="text-gray-700 font-body text-sm leading-relaxed">
-            Realice un gráfico X̄ para el proceso de llenado de vasos de helado, en el cual se desconocen el promedio y la desviación estándar del peso en gramos. Se toman muestras de <strong>25 unidades</strong> durante <strong>20 días</strong> y se registran el peso promedio y el rango en gramos. Construya el gráfico X̄ y determine si el proceso está bajo control.
+            Realice un gráfico X̄ para el proceso de llenado de vasos de helado, en el cual se desconocen el promedio y la desviación estándar del peso en gramos. Se toman muestras de <strong>25 unidades</strong> durante <strong>20 días</strong> y se registran el peso promedio y el rango en gramos. [cite: 214] Construya el gráfico X̄ y determine si el proceso está bajo control.
           </p>
         </div>
 
         <div>
-          <p class="font-display text-sm uppercase text-[#2B9FB5] mb-3">Datos — 20 muestras (n = 25)</p>
+          <p class="font-display text-sm uppercase text-[#2B9FB5] mb-3">Datos recolectados — 20 muestras (n = 25)</p>
           <div class="overflow-x-auto rounded-xl border border-gray-200">
             <table>
               <thead>
@@ -131,70 +131,107 @@
               </tbody>
             </table>
           </div>
-          <p class="text-xs text-gray-400 mt-2 text-right">* Rojo indica valores fuera de los límites de control (calculados abajo).</p>
+          <p class="text-xs text-gray-400 mt-2 text-right">* Las filas rojas indican los promedios que quedaron fuera de control (explicado en el Paso 7).</p>
         </div>
 
         <div class="space-y-4">
-          <p class="font-display text-base uppercase text-[#2B9FB5]">Solución paso a paso</p>
+          <p class="font-display text-base uppercase text-[#2B9FB5]">Solución paso a paso explicada</p>
 
           <div class="step"><span class="step-num bg-[#2B9FB5]">1</span>
             <div class="w-full">
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Constante para n = 25</p>
-              <p class="text-gray-600 text-sm font-body mb-3">Dado que cada muestra tiene 25 unidades (vasos), buscamos en la tabla de factores para gráficas de control:</p>
-              <div class="grid grid-cols-1 gap-3 text-center md:w-1/3">
-                <div class="bg-white border-2 border-[#2B9FB5] rounded-xl py-3 px-2 shadow-sm">
-                  <p class="font-display text-xs uppercase text-[#1E7A8A] mb-1">A₂</p>
-                  <p class="font-display text-2xl text-gray-900">0.153</p>
-                  <p class="text-gray-400 text-xs font-body">Constante Gráfica X̄</p>
-                </div>
-              </div>
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Identificar los datos base</p>
+              <p class="text-gray-600 text-sm font-body mb-2">Primero debemos entender la estructura de nuestras muestras[cite: 215]:</p>
+              <ul class="list-disc list-inside text-gray-600 text-sm font-body ml-2 space-y-1 mb-3">
+                <li><strong>n = 25</strong>: Es el tamaño de cada muestra (se revisan 25 vasos por día).</li>
+                <li><strong>k = 20</strong>: Es la cantidad total de días o muestras tomadas.</li>
+              </ul>
+              <p class="text-gray-600 text-sm font-body">Si sumamos todos los promedios de la columna <strong>X̄</strong>, nos da un total de <strong>5081.7</strong>[cite: 216]. Y si sumamos todos los rangos de la columna <strong>R</strong>, nos da <strong>79.9</strong>[cite: 216]. Estos valores totales los usaremos ahora.</p>
             </div>
           </div>
 
           <div class="step"><span class="step-num bg-[#2B9FB5]">2</span>
             <div class="w-full">
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Calcular la Gran Media X̄̄</p>
-              <p class="text-gray-600 text-xs font-body mb-2">Sumamos todos los promedios diarios (5081.7) y dividimos entre los 20 días.</p>
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Calcular la Gran Media (X̄̄)</p>
+              <p class="text-gray-600 text-sm font-body mb-2">La gran media se calcula sumando todos los promedios diarios y dividiendo entre la cantidad de muestras (los 20 días)[cite: 217]. Este valor representará nuestra <strong>Línea Central (LC)</strong> en la gráfica.</p>
               <div class="formula text-xs">
                 ∑X̄ = <span class="v">5081.7</span><br/><br/>
-                X̄̄ = 5081.7 ÷ 20 = <span class="k">254.085</span> &nbsp;← línea central del gráfico X̄
+                X̄̄ = 5081.7 ÷ 20 = <span class="k">254.085</span> [cite: 218]
               </div>
             </div>
           </div>
 
           <div class="step"><span class="step-num bg-[#2B9FB5]">3</span>
             <div class="w-full">
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Calcular el Rango Promedio R̄</p>
-              <p class="text-gray-600 text-xs font-body mb-2">Sumamos todos los rangos (79.9) y dividimos entre los 20 días. Aunque solo construimos la gráfica X̄, el rango promedio es necesario para la fórmula de los límites.</p>
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Calcular el Rango Promedio (R̄)</p>
+              <p class="text-gray-600 text-sm font-body mb-2">Aunque el ejercicio solo nos pide realizar el gráfico X̄, necesitamos obtener obligatoriamente el rango promedio[cite: 219]. ¿Por qué? Porque la variabilidad (R̄) es parte de la fórmula matemática para calcular qué tan anchos o estrechos serán los límites de control de los promedios.</p>
               <div class="formula text-xs">
                 ∑R = <span class="v">79.9</span><br/><br/>
-                R̄ = 79.9 ÷ 20 = 3.995 ≈ <span class="k">3.996</span> &nbsp;← (redondeo usado en el problema original)
+                R̄ = 79.9 ÷ 20 = 3.995 ≈ <span class="k">3.996</span> &nbsp; (Redondeado según la tabla del ejercicio original) [cite: 220]
               </div>
             </div>
           </div>
 
           <div class="step"><span class="step-num bg-[#2B9FB5]">4</span>
             <div class="w-full">
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Límites de la Gráfica X̄</p>
-              <div class="formula">
-                LCS<sub>X̄</sub> = X̄̄ + A₂·R̄ = 254.085 + 0.153(3.996) = <span class="k">254.696</span><br/>
-                LC<sub>X̄</sub> = X̄̄ = <span class="v">254.085</span><br/>
-                LCI<sub>X̄</sub> = X̄̄ − A₂·R̄ = 254.085 − 0.153(3.996) = <span class="k">253.474</span>
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Buscar la constante de la tabla estadística</p>
+              <p class="text-gray-600 text-sm font-body mb-3">Para construir los límites de control, se utilizan constantes estadísticas que dependen directamente del tamaño de la muestra[cite: 220]. Como cada muestra tiene 25 unidades (n = 25), consultamos la tabla estándar de factores y extraemos:</p>
+              <div class="grid grid-cols-1 gap-3 text-center md:w-1/3">
+                <div class="bg-white border-2 border-[#2B9FB5] rounded-xl py-3 px-2 shadow-sm">
+                  <p class="font-display text-xs uppercase text-[#1E7A8A] mb-1">A₂ (Para n=25)</p>
+                  <p class="font-display text-2xl text-gray-900">0.153</p>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="step"><span class="step-num bg-[#2B9FB5]">5</span>
             <div class="w-full">
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Verificación — ¿Proceso bajo control?</p>
-              <div class="grid gap-4 mb-3">
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Calcular el Límite Superior de Control (LCS)</p>
+              <p class="text-gray-600 text-sm font-body mb-2">La fórmula nos dice que al promedio general debemos sumarle la variabilidad[cite: 221]. Primero multiplicamos nuestra constante A₂ por el rango promedio, y luego se lo sumamos a la Gran Media:</p>
+              <div class="formula text-xs mb-2">
+                Paso A: A₂ × R̄ = 0.153 × 3.996 = <span class="v">0.611</span><br/>
+                Paso B: LCS = X̄̄ + 0.611 = 254.085 + 0.611 = <span class="k">254.696</span> [cite: 222]
+              </div>
+            </div>
+          </div>
+
+          <div class="step"><span class="step-num bg-[#2B9FB5]">6</span>
+            <div class="w-full">
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Calcular el Límite Inferior y agrupar todo</p>
+              <p class="text-gray-600 text-sm font-body mb-2">Para el límite inferior restamos esa misma cantidad de variabilidad (0.611). Así obtenemos la "zona segura" donde el proceso está trabajando normalmente.</p>
+              <div class="formula text-xs mb-3">
+                LCI = X̄̄ - 0.611 = 254.085 - 0.611 = <span class="k">253.474</span> [cite: 222]
+              </div>
+              <div class="overflow-x-auto rounded-xl border border-gray-200 bg-white">
+                <table>
+                  <thead><tr><th class="left">Límite</th><th>Fórmula</th><th>Valor Final</th></tr></thead>
+                  <tbody>
+                    <tr><td class="left font-bold text-red-600">Superior (LCS)</td><td>X̄̄ + A₂R̄</td><td class="font-bold text-gray-800">254.696</td></tr>
+                    <tr class="bg-green-50"><td class="left font-bold text-green-700">Central (LC)</td><td>X̄̄</td><td class="font-bold text-gray-800">254.085</td></tr>
+                    <tr><td class="left font-bold text-red-600">Inferior (LCI)</td><td>X̄̄ - A₂R̄</td><td class="font-bold text-gray-800">253.474</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="step"><span class="step-num bg-[#2B9FB5]">7</span>
+            <div class="w-full">
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Verificación — ¿Quién está fuera y por qué?</p>
+              <p class="text-gray-600 text-sm font-body mb-3">Ahora tomamos <strong>cada uno de los 20 promedios diarios (X̄)</strong> de nuestra tabla inicial y verificamos matemáticamente si caen dentro de la franja permitida: <strong>253.474 ≤ X̄ ≤ 254.696</strong>[cite: 223].</p>
+              
+              <div class="grid md:grid-cols-2 gap-4 mb-3">
                 <div class="bg-red-50 border border-red-200 rounded-xl p-4">
-                  <p class="font-display text-xs uppercase text-red-700 mb-2">Análisis de Datos ❌</p>
-                  <p class="text-gray-600 text-xs font-body mb-1">Rango de control estricto: <strong>253.474 ≤ X̄ ≤ 254.696</strong></p>
-                  <p class="text-gray-600 text-xs font-body mb-3">Debido al tamaño de muestra grande (n=25), los límites de control son sumamente estrechos. Al revisar los valores de la tabla:</p>
-                  
-                  <p class="text-green-700 text-xs font-bold mb-1">✓ Días dentro del límite: <span class="text-gray-700 font-normal">8, 12, 15 y 18</span></p>
-                  <p class="text-red-700 text-xs font-bold">❌ Días fuera del límite: <span class="text-gray-700 font-normal">1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 13, 14, 16, 17, 19 y 20</span></p>
+                  <p class="font-display text-xs uppercase text-red-700 mb-2">Ejemplos Fuera de Control</p>
+                  <p class="text-gray-600 text-xs font-body mb-1">Si analizamos el <strong>Día 5</strong>, su promedio es 261.2. Al compararlo: 261.2 > 254.696, por lo que sobrepasa el límite superior[cite: 226].</p>
+                  <p class="text-gray-600 text-xs font-body mt-2">Si miramos el <strong>Día 13</strong>, su promedio es 243.8. Al compararlo: 243.8 < 253.474, por lo que cae por debajo del límite inferior[cite: 227].</p>
+                  <p class="text-red-700 text-xs font-bold mt-2">Días fuera del límite: 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 13, 14, 16, 17, 19, 20 [cite: 228]</p>
+                </div>
+
+                <div class="bg-green-50 border border-green-200 rounded-xl p-4">
+                  <p class="font-display text-xs uppercase text-green-700 mb-2">Puntos Dentro de Control</p>
+                  <p class="text-gray-600 text-xs font-body mb-1">Sólo unos pocos días produjeron promedios que lograron encajar en la estricta zona segura entre 253.474 y 254.696.</p>
+                  <p class="text-green-700 text-xs font-bold mt-2">Días dentro del límite: 8, 12, 15 y 18 [cite: 228]</p>
                 </div>
               </div>
             </div>
@@ -248,15 +285,15 @@
 
         <div class="conclusion bg-[#e11d48]">
           <p class="font-display text-xs uppercase tracking-widest opacity-80 mb-1">Conclusión</p>
-          <p class="font-display text-xl mb-3">El proceso está FUERA de control estadístico ❌</p>
+          <p class="font-display text-xl mb-3">El proceso NO ESTÁ bajo control estadístico ❌</p>
           <div class="grid gap-3 text-sm font-body">
             <div class="bg-white/10 rounded-xl p-4">
-              <p class="font-bold mb-1">Alta variabilidad detectada</p>
-              <p class="opacity-90">16 de los 20 promedios diarios evaluados (el 80%) sobrepasan de forma drástica los estrechos límites de control calculados (253.474 a 254.696).</p>
+              <p class="font-bold mb-1">Evidencia visual y matemática</p>
+              <p class="opacity-90">Al construir el gráfico de control X̄, comprobamos que 16 de los 20 promedios diarios evaluados (un 80% de los datos) quedan completamente fuera de los límites de control calculados[cite: 229].</p>
             </div>
           </div>
           <p class="text-xs opacity-90 mt-4 font-bold">Interpretación final:</p>
-          <p class="text-xs opacity-80 mt-1">El peso promedio de los vasos no se mantiene estable durante los 20 días analizados. La variación extrema no parece ser solamente una fluctuación natural del proceso, indicando que existen **causas especiales** (fallos de maquinaria, errores humanos, etc.) alterando el peso. Se recomienda revisar el proceso urgentemente antes de considerarlo estable.</p>
+          <p class="text-xs opacity-80 mt-1">El peso promedio de los vasos de helado no se mantiene estable durante los 20 días analizados[cite: 231]. La variación en la cantidad de helado que se sirve no parece ser solamente una fluctuación normal del proceso, sino que evidencia que pueden existir <strong>causas especiales</strong>[cite: 232]. Esto podría ser calibración de la máquina de llenado, cambios de viscosidad de la mezcla o turnos de operarios. Por lo tanto, se recomienda revisar y ajustar físicamente el proceso en la planta antes de considerarlo estable[cite: 233].</p>
         </div>
 
       </div>
