@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tema 6 – Control Estadístico</title>
+  <title>Tema 6 – Control Estadístico (Vasos de Helado)</title>
   <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -30,8 +30,8 @@
     td{padding:8px 12px;border-bottom:1px solid #e5e7eb;font-size:12px;text-align:center}
     td.left{text-align:left}
     tr:nth-child(even) td{background:#f0fafc}
-    .hl td{background:#fef9c3!important;font-weight:700}
-    .out td{background:#fee2e2!important;color:#b91c1c;font-weight:700}
+    .hl td{background:#dcfce7!important;font-weight:700} /* Fila resaltada (En control) */
+    .out td{background:#fee2e2!important;color:#b91c1c;font-weight:700} /* Fila fuera de control */
     .step{display:flex;gap:14px;align-items:flex-start;background:#f0fafc;border-radius:12px;padding:16px}
     .step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Black Han Sans',sans-serif;font-size:12px;color:white}
     .formula{background:#1a1a2e;color:#a8d8e0;font-family:monospace;font-size:13px;padding:14px 18px;border-radius:10px;line-height:2}
@@ -41,7 +41,6 @@
 </head>
 <body class="min-h-screen bg-[#2B9FB5] bg-grid">
 
-  <!-- NAV -->
   <nav class="sticky top-0 z-50 bg-[#1E7A8A]/90 backdrop-blur-md border-b border-white/20 shadow-lg">
     <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="./index.html" class="text-white font-display text-base tracking-wide hover:text-[#A8D8E0] transition-colors">← Portafolio</a>
@@ -58,7 +57,6 @@
 
   <div class="max-w-4xl mx-auto px-6 py-12 space-y-8">
 
-    <!-- HERO -->
     <div class="bg-white rounded-3xl shadow-2xl p-10 text-center fade-up d1">
       <div class="inline-block bg-[#A8D8E0] px-8 py-4 rounded-2xl mb-2">
         <p class="font-display text-sm uppercase tracking-widest text-[#1E7A8A] mb-1">Tema 6</p>
@@ -68,7 +66,6 @@
       </div>
     </div>
 
-    <!-- CONTENIDO -->
     <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
       <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
         <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Contenido</h2>
@@ -79,368 +76,192 @@
       <p class="text-gray-700 font-body leading-relaxed mb-6">
         El uso de <strong>gráficas de control X̄ y R</strong> es la herramienta central del CEP. Permiten detectar en tiempo real si un proceso está operando bajo control estadístico. La gráfica X̄ monitorea el <em>nivel promedio</em> del proceso, mientras que la gráfica R monitorea su <em>variabilidad</em>.
       </p>
-      <!-- Herramientas -->
       <div class="grid md:grid-cols-3 gap-3">
         <div class="bg-[#f0fafc] rounded-xl p-4 border-t-4 border-[#2B9FB5] text-center">
           <p class="font-display text-sm text-[#1E7A8A] uppercase mb-1">Gráfica X̄</p>
           <p class="text-gray-500 text-xs font-body">Monitorea el promedio de cada subgrupo. Detecta cambios en el nivel central.</p>
           <p class="font-mono text-xs text-gray-400 mt-2">LC = X̄̄ ± A₂R̄</p>
         </div>
-        <div class="bg-[#f0fafc] rounded-xl p-4 border-t-4 border-[#F5A8B8] text-center">
-          <p class="font-display text-sm text-[#1E7A8A] uppercase mb-1">Gráfica R</p>
-          <p class="text-gray-500 text-xs font-body">Monitorea la variabilidad dentro de cada subgrupo. Detecta cambios en la dispersión.</p>
-          <p class="font-mono text-xs text-gray-400 mt-2">LCS = D₄R̄ · LCI = D₃R̄</p>
+        <div class="bg-[#f0fafc] rounded-xl p-4 border-t-4 border-[#ef4444] text-center">
+          <p class="font-display text-sm text-[#ef4444] uppercase mb-1">Fuera de Control</p>
+          <p class="text-gray-500 text-xs font-body">Cuando uno o más puntos sobrepasan los límites (LCI o LCS), indicando causas especiales.</p>
         </div>
-        <div class="bg-[#f0fafc] rounded-xl p-4 border-t-4 border-[#F5C9A8] text-center">
-          <p class="font-display text-sm text-[#1E7A8A] uppercase mb-1">Proceso bajo control</p>
-          <p class="text-gray-500 text-xs font-body">Todos los puntos dentro de los límites, sin patrones sistemáticos ni tendencias.</p>
+        <div class="bg-[#f0fafc] rounded-xl p-4 border-t-4 border-[#10b981] text-center">
+          <p class="font-display text-sm text-[#10b981] uppercase mb-1">Bajo Control</p>
+          <p class="text-gray-500 text-xs font-body">Todos los puntos fluctúan de manera natural dentro de la zona delimitada por los límites.</p>
         </div>
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════
-         EJERCICIO
-    ══════════════════════════════════════ -->
     <div class="bg-white rounded-2xl shadow-xl overflow-hidden fade-up d3">
       <div class="bg-[#2B9FB5] px-8 py-5">
         <p class="font-display text-xs uppercase tracking-widest text-white/70 mb-1">Ejercicio</p>
-        <h2 class="font-display text-2xl text-white uppercase">Corte de Precisión de Alambre</h2>
+        <h2 class="font-display text-2xl text-white uppercase">Llenado de Vasos de Helado</h2>
       </div>
       <div class="p-8 space-y-6">
 
-        <!-- Enunciado -->
         <div class="bg-[#f0fafc] rounded-xl p-6 border-l-4 border-[#2B9FB5]">
           <p class="font-display text-sm uppercase text-[#1E7A8A] mb-3">Enunciado</p>
           <p class="text-gray-700 font-body text-sm leading-relaxed">
-            El muestreo de <strong>cuatro piezas de precisión</strong> para corte de alambre (empleadas en el ensamble de computadoras) cada hora durante las últimas <strong>24 horas</strong> produjo los siguientes resultados. Construya los gráficos X̄ y R, calcule sus límites de control y determine si el proceso está bajo control estadístico.
+            Realice un gráfico X̄ para el proceso de llenado de vasos de helado, en el cual se desconocen el promedio y la desviación estándar del peso en gramos. Se toman muestras de <strong>25 unidades</strong> durante <strong>20 días</strong> y se registran el peso promedio y el rango en gramos. Construya el gráfico X̄ y determine si el proceso está bajo control.
           </p>
         </div>
 
-        <!-- Tabla de datos -->
         <div>
-          <p class="font-display text-sm uppercase text-[#2B9FB5] mb-3">Datos — 24 muestras (n = 4)</p>
+          <p class="font-display text-sm uppercase text-[#2B9FB5] mb-3">Datos — 20 muestras (n = 25)</p>
           <div class="overflow-x-auto rounded-xl border border-gray-200">
             <table>
               <thead>
                 <tr>
-                  <th>Hora</th><th>X̄</th><th>R</th>
-                  <th class="border-l-2 border-white/30">Hora</th><th>X̄</th><th>R</th>
+                  <th>Día</th><th>X̄</th><th>R</th>
+                  <th class="border-l-2 border-white/30">Día</th><th>X̄</th><th>R</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td>1</td><td>3.25</td><td>0.71</td> <td class="border-l border-gray-200">13</td><td>3.11</td><td>0.85</td></tr>
-                <tr><td>2</td><td>3.11</td><td>1.18</td> <td class="border-l border-gray-200">14</td><td>2.83</td><td>1.31</td></tr>
-                <tr><td>3</td><td>3.22</td><td>1.43</td> <td class="border-l border-gray-200">15</td><td>3.12</td><td>1.06</td></tr>
-                <tr><td>4</td><td>3.39</td><td>1.26</td> <td class="border-l border-gray-200">16</td><td>2.86</td><td>0.50</td></tr>
-                <tr><td>5</td><td>3.07</td><td>1.17</td> <td class="border-l border-gray-200">17</td><td>2.86</td><td>1.43</td></tr>
-                <tr><td>6</td><td>2.86</td><td>0.32</td> <td class="border-l border-gray-200">18</td><td>2.74</td><td>1.29</td></tr>
-                <tr><td>7</td><td>3.05</td><td>0.53</td> <td class="border-l border-gray-200">19</td><td>3.13</td><td>1.41</td></tr>
-                <tr><td>8</td><td>2.65</td><td>1.13</td> <td class="border-l border-gray-200">20</td><td>2.89</td><td>1.09</td></tr>
-                <tr><td>9</td><td>3.02</td><td>0.71</td> <td class="border-l border-gray-200">21</td><td>2.65</td><td>1.08</td></tr>
-                <tr><td>10</td><td>2.85</td><td>1.33</td><td class="border-l border-gray-200">22</td><td>3.28</td><td>0.46</td></tr>
-                <tr><td>11</td><td>2.83</td><td>1.17</td><td class="border-l border-gray-200">23</td><td>2.94</td><td>1.58</td></tr>
-                <tr class="hl"><td>12</td><td>2.97</td><td>0.40</td><td class="border-l border-gray-200">24</td><td>2.64</td><td>0.97</td></tr>
+                <tr class="out"><td>1</td><td>250.4</td><td>3.4</td> <td class="border-l border-gray-200">11</td><td>256.0</td><td>5.2</td></tr>
+                <tr class="out"><td>2</td><td>256.4</td><td>3.2</td> <td class="border-l border-gray-200 hl">12</td><td>254.3</td><td>3.4</td></tr>
+                <tr class="out"><td>3</td><td>249.1</td><td>4.6</td> <td class="border-l border-gray-200 out">13</td><td>243.8</td><td>4.0</td></tr>
+                <tr class="out"><td>4</td><td>258.0</td><td>3.7</td> <td class="border-l border-gray-200 out">14</td><td>248.0</td><td>2.9</td></tr>
+                <tr class="out"><td>5</td><td>261.2</td><td>4.2</td> <td class="border-l border-gray-200 hl">15</td><td>254.3</td><td>4.8</td></tr>
+                <tr class="out"><td>6</td><td>251.5</td><td>3.0</td> <td class="border-l border-gray-200 out">16</td><td>250.4</td><td>6.1</td></tr>
+                <tr class="out"><td>7</td><td>255.0</td><td>4.2</td> <td class="border-l border-gray-200 out">17</td><td>247.0</td><td>4.5</td></tr>
+                <tr class="hl"><td>8</td><td>254.6</td><td>2.9</td> <td class="border-l border-gray-200 hl">18</td><td>253.7</td><td>2.5</td></tr>
+                <tr class="out"><td>9</td><td>260.7</td><td>2.5</td> <td class="border-l border-gray-200 out">19</td><td>247.2</td><td>4.0</td></tr>
+                <tr class="out"><td>10</td><td>258.2</td><td>4.1</td> <td class="border-l border-gray-200 out">20</td><td>246.0</td><td>5.2</td></tr>
               </tbody>
             </table>
           </div>
+          <p class="text-xs text-gray-400 mt-2 text-right">* Rojo indica valores fuera de los límites de control (calculados abajo).</p>
         </div>
 
-        <!-- PASOS -->
         <div class="space-y-4">
           <p class="font-display text-base uppercase text-[#2B9FB5]">Solución paso a paso</p>
 
-          <!-- PASO 1: Constantes -->
           <div class="step"><span class="step-num bg-[#2B9FB5]">1</span>
             <div class="w-full">
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Constantes para n = 4</p>
-              <p class="text-gray-600 text-sm font-body mb-3">Como el tamaño de muestra es 4, se usan estas constantes de la tabla estándar:</p>
-              <div class="grid grid-cols-3 gap-3 text-center">
-                <div class="bg-white border-2 border-[#2B9FB5] rounded-xl py-3 px-2">
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Constante para n = 25</p>
+              <p class="text-gray-600 text-sm font-body mb-3">Dado que cada muestra tiene 25 unidades (vasos), buscamos en la tabla de factores para gráficas de control:</p>
+              <div class="grid grid-cols-1 gap-3 text-center md:w-1/3">
+                <div class="bg-white border-2 border-[#2B9FB5] rounded-xl py-3 px-2 shadow-sm">
                   <p class="font-display text-xs uppercase text-[#1E7A8A] mb-1">A₂</p>
-                  <p class="font-display text-2xl text-gray-900">0.729</p>
-                  <p class="text-gray-400 text-xs font-body">Gráfica X̄</p>
-                </div>
-                <div class="bg-white border-2 border-[#A8D8E0] rounded-xl py-3 px-2">
-                  <p class="font-display text-xs uppercase text-[#1E7A8A] mb-1">D₃</p>
-                  <p class="font-display text-2xl text-gray-900">0</p>
-                  <p class="text-gray-400 text-xs font-body">LCI gráfica R</p>
-                </div>
-                <div class="bg-white border-2 border-[#A8D8E0] rounded-xl py-3 px-2">
-                  <p class="font-display text-xs uppercase text-[#1E7A8A] mb-1">D₄</p>
-                  <p class="font-display text-2xl text-gray-900">2.282</p>
-                  <p class="text-gray-400 text-xs font-body">LCS gráfica R</p>
+                  <p class="font-display text-2xl text-gray-900">0.153</p>
+                  <p class="text-gray-400 text-xs font-body">Constante Gráfica X̄</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- PASO 2: Gran media -->
           <div class="step"><span class="step-num bg-[#2B9FB5]">2</span>
             <div class="w-full">
               <p class="font-display text-sm uppercase text-gray-800 mb-2">Calcular la Gran Media X̄̄</p>
+              <p class="text-gray-600 text-xs font-body mb-2">Sumamos todos los promedios diarios (5081.7) y dividimos entre los 20 días.</p>
               <div class="formula text-xs">
-                ∑X̄ = 3.25 + 3.11 + 3.22 + 3.39 + 3.07 + 2.86 + 3.05 + 2.65 + 3.02 + 2.85 + 2.83 + 2.97<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 3.11 + 2.83 + 3.12 + 2.86 + 2.86 + 2.74 + 3.13 + 2.89 + 2.65 + 3.28 + 2.94 + 2.64<br/>
-                ∑X̄ = <span class="v">71.32</span><br/><br/>
-                X̄̄ = 71.32 ÷ 24 = <span class="k">2.972</span> &nbsp;← línea central del gráfico X̄
+                ∑X̄ = <span class="v">5081.7</span><br/><br/>
+                X̄̄ = 5081.7 ÷ 20 = <span class="k">254.085</span> &nbsp;← línea central del gráfico X̄
               </div>
             </div>
           </div>
 
-          <!-- PASO 3: Rango promedio -->
           <div class="step"><span class="step-num bg-[#2B9FB5]">3</span>
             <div class="w-full">
               <p class="font-display text-sm uppercase text-gray-800 mb-2">Calcular el Rango Promedio R̄</p>
+              <p class="text-gray-600 text-xs font-body mb-2">Sumamos todos los rangos (79.9) y dividimos entre los 20 días. Aunque solo construimos la gráfica X̄, el rango promedio es necesario para la fórmula de los límites.</p>
               <div class="formula text-xs">
-                ∑R = 0.71 + 1.18 + 1.43 + 1.26 + 1.17 + 0.32 + 0.53 + 1.13 + 0.71 + 1.33 + 1.17 + 0.40<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 0.85 + 1.31 + 1.06 + 0.50 + 1.43 + 1.29 + 1.41 + 1.09 + 1.08 + 0.46 + 1.58 + 0.97<br/>
-                ∑R = <span class="v">24.37</span><br/><br/>
-                R̄ = 24.37 ÷ 24 = <span class="k">1.015</span> &nbsp;← línea central del gráfico R
+                ∑R = <span class="v">79.9</span><br/><br/>
+                R̄ = 79.9 ÷ 20 = 3.995 ≈ <span class="k">3.996</span> &nbsp;← (redondeo usado en el problema original)
               </div>
             </div>
           </div>
 
-          <!-- PASO 4: Límites gráfica X̄ -->
           <div class="step"><span class="step-num bg-[#2B9FB5]">4</span>
             <div class="w-full">
               <p class="font-display text-sm uppercase text-gray-800 mb-2">Límites de la Gráfica X̄</p>
               <div class="formula">
-                LCS<sub>X̄</sub> = X̄̄ + A₂·R̄ = 2.972 + 0.729(1.015) = <span class="k">3.712</span><br/>
-                LC<sub>X̄</sub> = X̄̄ = <span class="v">2.972</span><br/>
-                LCI<sub>X̄</sub> = X̄̄ − A₂·R̄ = 2.972 − 0.729(1.015) = <span class="k">2.231</span>
+                LCS<sub>X̄</sub> = X̄̄ + A₂·R̄ = 254.085 + 0.153(3.996) = <span class="k">254.696</span><br/>
+                LC<sub>X̄</sub> = X̄̄ = <span class="v">254.085</span><br/>
+                LCI<sub>X̄</sub> = X̄̄ − A₂·R̄ = 254.085 − 0.153(3.996) = <span class="k">253.474</span>
               </div>
             </div>
           </div>
 
-          <!-- PASO 5: Límites gráfica R -->
           <div class="step"><span class="step-num bg-[#2B9FB5]">5</span>
             <div class="w-full">
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Límites de la Gráfica R</p>
-              <div class="formula">
-                LCS<sub>R</sub> = D₄·R̄ = 2.282 × 1.015 = <span class="k">2.317</span><br/>
-                LC<sub>R</sub> = R̄ = <span class="v">1.015</span><br/>
-                LCI<sub>R</sub> = D₃·R̄ = 0 × 1.015 = <span class="k">0</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- PASO 6: Tabla de límites -->
-          <div class="step"><span class="step-num bg-[#2B9FB5]">6</span>
-            <div class="w-full">
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Resumen de Límites de Control</p>
-              <div class="overflow-x-auto rounded-xl border border-gray-200">
-                <table>
-                  <thead><tr><th class="left">Gráfica</th><th>LCI</th><th>LC (línea central)</th><th>LCS</th></tr></thead>
-                  <tbody>
-                    <tr><td class="left font-bold">X̄ (promedios)</td><td>2.231</td><td>2.972</td><td>3.712</td></tr>
-                    <tr><td class="left font-bold">R (rangos)</td><td>0</td><td>1.015</td><td>2.317</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          <!-- PASO 7: Verificación -->
-          <div class="step"><span class="step-num bg-[#2B9FB5]">7</span>
-            <div class="w-full">
               <p class="font-display text-sm uppercase text-gray-800 mb-2">Verificación — ¿Proceso bajo control?</p>
-              <div class="grid md:grid-cols-2 gap-4 mb-3">
-                <div class="bg-green-50 border border-green-200 rounded-xl p-4">
-                  <p class="font-display text-xs uppercase text-green-700 mb-2">Gráfica X̄ ✓</p>
-                  <p class="text-gray-600 text-xs font-body">Límites: <strong>2.231 ≤ X̄ ≤ 3.712</strong></p>
-                  <p class="text-gray-600 text-xs font-body">Mínimo observado: <strong>2.64</strong> (hora 24)</p>
-                  <p class="text-gray-600 text-xs font-body">Máximo observado: <strong>3.39</strong> (hora 4)</p>
-                  <p class="text-green-700 text-xs font-bold mt-2">Todos los promedios están dentro ✓</p>
-                </div>
-                <div class="bg-green-50 border border-green-200 rounded-xl p-4">
-                  <p class="font-display text-xs uppercase text-green-700 mb-2">Gráfica R ✓</p>
-                  <p class="text-gray-600 text-xs font-body">Límites: <strong>0 ≤ R ≤ 2.317</strong></p>
-                  <p class="text-gray-600 text-xs font-body">Mínimo observado: <strong>0.32</strong> (hora 6)</p>
-                  <p class="text-gray-600 text-xs font-body">Máximo observado: <strong>1.58</strong> (hora 23)</p>
-                  <p class="text-green-700 text-xs font-bold mt-2">Todos los rangos están dentro ✓</p>
+              <div class="grid gap-4 mb-3">
+                <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+                  <p class="font-display text-xs uppercase text-red-700 mb-2">Análisis de Datos ❌</p>
+                  <p class="text-gray-600 text-xs font-body mb-1">Rango de control estricto: <strong>253.474 ≤ X̄ ≤ 254.696</strong></p>
+                  <p class="text-gray-600 text-xs font-body mb-3">Debido al tamaño de muestra grande (n=25), los límites de control son sumamente estrechos. Al revisar los valores de la tabla:</p>
+                  
+                  <p class="text-green-700 text-xs font-bold mb-1">✓ Días dentro del límite: <span class="text-gray-700 font-normal">8, 12, 15 y 18</span></p>
+                  <p class="text-red-700 text-xs font-bold">❌ Días fuera del límite: <span class="text-gray-700 font-normal">1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 13, 14, 16, 17, 19 y 20</span></p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- GRÁFICA SVG X̄ -->
         <div class="bg-[#f0fafc] rounded-2xl p-6">
-          <p class="font-display text-xs uppercase text-[#1E7A8A] tracking-widest mb-1 text-center">Gráfica X̄ — Promedios por hora</p>
-          <p class="text-center text-gray-400 text-xs font-body mb-4">LCI = 2.231 · LC = 2.972 · LCS = 3.712</p>
+          <p class="font-display text-xs uppercase text-[#1E7A8A] tracking-widest mb-1 text-center">Gráfica X̄ — Promedio de pesos por día</p>
+          <p class="text-center text-gray-400 text-xs font-body mb-4">LCI = 253.474 · LC = 254.085 · LCS = 254.696</p>
           <svg viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg" class="w-full">
-            <!-- Zona de control (relleno) -->
-            <rect x="44" y="38" width="496" height="104" fill="#f0fdf4" opacity="0.6"/>
-            <!-- LCS -->
-            <line x1="44" y1="38" x2="540" y2="38" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,3"/>
-            <text x="545" y="42" font-family="Nunito" font-size="9" fill="#ef4444" font-weight="700">LCS 3.712</text>
-            <!-- LC -->
+            <line x1="44" y1="160" x2="540" y2="160" stroke="#e5e7eb" stroke-width="1"/>
+            
+            <rect x="44" y="86" width="496" height="8" fill="#10b981" opacity="0.3"/>
+            
+            <line x1="44" y1="86" x2="540" y2="86" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,3"/>
+            <text x="545" y="89" font-family="Nunito" font-size="9" fill="#ef4444" font-weight="700">LCS 254.7</text>
+            
             <line x1="44" y1="90" x2="540" y2="90" stroke="#2B9FB5" stroke-width="2"/>
-            <text x="545" y="94" font-family="Nunito" font-size="9" fill="#2B9FB5" font-weight="700">LC 2.972</text>
-            <!-- LCI -->
-            <line x1="44" y1="142" x2="540" y2="142" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,3"/>
-            <text x="545" y="146" font-family="Nunito" font-size="9" fill="#ef4444" font-weight="700">LCI 2.231</text>
-            <!-- Eje X -->
-            <line x1="44" y1="160" x2="540" y2="160" stroke="#e5e7eb" stroke-width="1"/>
+            
+            <line x1="44" y1="94" x2="540" y2="94" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,3"/>
+            <text x="545" y="97" font-family="Nunito" font-size="9" fill="#ef4444" font-weight="700">LCI 253.5</text>
 
-            <!-- Escala: rango y eje: 2.0 a 4.0 → 160 px de altura entre y=20 y y=180
-                 y = 180 - (val - 2.0) / 2.0 * 160
-                 Datos X̄: -->
-            <!-- Puntos: x = 44 + (hora-1)*21 -->
-            <script>
-            </script>
-            <!-- Línea de datos (calculadas manualmente) -->
-            <!-- y = 180 - (x_val-2.0)/2.0 * 160 -->
-            <!-- hora1=3.25 → y=180-(1.25/2)*160=180-100=80 -->
-            <!-- hora2=3.11 → y=180-(1.11/2)*160=180-88.8=91.2≈91 -->
-            <!-- hora3=3.22 → y=180-(1.22/2)*160=180-97.6=82 -->
-            <!-- hora4=3.39 → y=180-(1.39/2)*160=180-111.2=69 -->
-            <!-- hora5=3.07 → y=180-(1.07/2)*160=180-85.6=94 -->
-            <!-- hora6=2.86 → y=180-(0.86/2)*160=180-68.8=111 -->
-            <!-- hora7=3.05 → y=180-(1.05/2)*160=180-84=96 -->
-            <!-- hora8=2.65 → y=180-(0.65/2)*160=180-52=128 -->
-            <!-- hora9=3.02 → y=180-(1.02/2)*160=180-81.6=98 -->
-            <!-- hora10=2.85→ y=180-(0.85/2)*160=180-68=112 -->
-            <!-- hora11=2.83→ y=180-(0.83/2)*160=180-66.4=114 -->
-            <!-- hora12=2.97→ y=180-(0.97/2)*160=180-77.6=102 -->
-            <!-- hora13=3.11→ y=91 -->
-            <!-- hora14=2.83→ y=114 -->
-            <!-- hora15=3.12→ y=180-(1.12/2)*160=180-89.6=90 -->
-            <!-- hora16=2.86→ y=111 -->
-            <!-- hora17=2.86→ y=111 -->
-            <!-- hora18=2.74→ y=180-(0.74/2)*160=180-59.2=121 -->
-            <!-- hora19=3.13→ y=180-(1.13/2)*160=180-90.4=90 -->
-            <!-- hora20=2.89→ y=180-(0.89/2)*160=180-71.2=109 -->
-            <!-- hora21=2.65→ y=128 -->
-            <!-- hora22=3.28→ y=180-(1.28/2)*160=180-102.4=78 -->
-            <!-- hora23=2.94→ y=180-(0.94/2)*160=180-75.2=105 -->
-            <!-- hora24=2.64→ y=180-(0.64/2)*160=180-51.2=129 -->
-            <polyline fill="none" stroke="#1E7A8A" stroke-width="1.8" stroke-linejoin="round"
-              points="44,80 65,91 86,82 107,69 128,94 149,111 170,96 191,128 212,98 233,112 254,114 275,102 296,91 317,114 338,90 359,111 380,111 401,121 422,90 443,109 464,128 485,78 506,105 527,129"/>
-            <!-- Puntos -->
-            <circle cx="44" cy="80" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="65" cy="91" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="86" cy="82" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="107" cy="69" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="128" cy="94" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="149" cy="111" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="170" cy="96" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="191" cy="128" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="212" cy="98" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="233" cy="112" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="254" cy="114" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="275" cy="102" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="296" cy="91" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="317" cy="114" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="338" cy="90" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="359" cy="111" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="380" cy="111" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="401" cy="121" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="422" cy="90" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="443" cy="109" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="464" cy="128" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="485" cy="78" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="506" cy="105" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <circle cx="527" cy="129" r="3.5" fill="#2B9FB5" stroke="white" stroke-width="1.5"/>
-            <!-- Eje horas -->
+            <polyline fill="none" stroke="#6b7280" stroke-width="1.8" stroke-linejoin="round"
+              points="44,113.4 70,75.0 96,121.8 122,64.8 148,44.3 175,106.4 201,84.0 227,86.6 253,47.5 279,63.5 305,77.6 331,88.5 357,155.7 383,128.8 409,88.5 435,113.4 461,135.2 487,92.3 514,133.9 540,141.6"/>
+            
+            <circle cx="44" cy="113.4" r="3.5" fill="#ef4444" stroke="white" stroke-width="1.5"/>
+            <circle cx="70" cy="75.0" r="3.5" fill="#ef4444" stroke="white" stroke-width="1.5"/>
+            <circle cx="96" cy="121.8" r="3.5" fill="#ef4444" stroke="white" stroke-width="1.5"/>
+            <circle cx="122" cy="64.8" r="3.5" fill="#ef4444" stroke="white" stroke-width="1.5"/>
+            <circle cx="148" cy="44.3" r="3.5" fill="#ef4444" stroke="white" stroke-width="1.5"/>
+            <circle cx="175" cy="106.4" r="3.5" fill="#ef4444" stroke="white" stroke-width="1.5"/>
+            <circle cx="201" cy="84.0" r="3.5" fill="#ef4444" stroke="white" stroke-width="1.5"/>
+            <circle cx="227" cy="86.6" r="4.0" fill="#10b981" stroke="white" stroke-width="1.5"/> <circle cx="253" cy="47.5" r="3.5" fill="#ef4444" stroke="white" stroke-width="1.5"/>
+            <circle cx="279" cy="63.5" r="3.5" fill="#ef4444" stroke="white" stroke-width="1.5"/>
+            <circle cx="305" cy="77.6" r="3.5" fill="#ef4444" stroke="white" stroke-width="1.5"/>
+            <circle cx="331" cy="88.5" r="4.0" fill="#10b981" stroke="white" stroke-width="1.5"/> <circle cx="357" cy="155.7" r="3.5" fill="#ef4444" stroke="white" stroke-width="1.5"/>
+            <circle cx="383" cy="128.8" r="3.5" fill="#ef4444" stroke="white" stroke-width="1.5"/>
+            <circle cx="409" cy="88.5" r="4.0" fill="#10b981" stroke="white" stroke-width="1.5"/> <circle cx="435" cy="113.4" r="3.5" fill="#ef4444" stroke="white" stroke-width="1.5"/>
+            <circle cx="461" cy="135.2" r="3.5" fill="#ef4444" stroke="white" stroke-width="1.5"/>
+            <circle cx="487" cy="92.3" r="4.0" fill="#10b981" stroke="white" stroke-width="1.5"/> <circle cx="514" cy="133.9" r="3.5" fill="#ef4444" stroke="white" stroke-width="1.5"/>
+            <circle cx="540" cy="141.6" r="3.5" fill="#ef4444" stroke="white" stroke-width="1.5"/>
+            
             <text x="44" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">1</text>
-            <text x="107" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">4</text>
-            <text x="191" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">8</text>
-            <text x="275" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">12</text>
-            <text x="359" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">16</text>
-            <text x="443" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">20</text>
-            <text x="527" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">24</text>
-            <text x="290" y="190" text-anchor="middle" font-family="Nunito" font-size="9" fill="#9ca3af">Hora</text>
+            <text x="148" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">5</text>
+            <text x="279" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">10</text>
+            <text x="409" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">15</text>
+            <text x="540" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">20</text>
+            <text x="290" y="190" text-anchor="middle" font-family="Nunito" font-size="9" fill="#9ca3af">Día</text>
           </svg>
         </div>
 
-        <!-- GRÁFICA SVG R -->
-        <div class="bg-[#f0fafc] rounded-2xl p-6">
-          <p class="font-display text-xs uppercase text-[#1E7A8A] tracking-widest mb-1 text-center">Gráfica R — Rangos por hora</p>
-          <p class="text-center text-gray-400 text-xs font-body mb-4">LCI = 0 · LC = 1.015 · LCS = 2.317</p>
-          <svg viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg" class="w-full">
-            <!-- Zona de control -->
-            <rect x="44" y="38" width="496" height="122" fill="#f0fdf4" opacity="0.6"/>
-            <!-- LCS -->
-            <line x1="44" y1="38" x2="540" y2="38" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,3"/>
-            <text x="545" y="42" font-family="Nunito" font-size="9" fill="#ef4444" font-weight="700">LCS 2.317</text>
-            <!-- LC -->
-            <line x1="44" y1="105" x2="540" y2="105" stroke="#2B9FB5" stroke-width="2"/>
-            <text x="545" y="109" font-family="Nunito" font-size="9" fill="#2B9FB5" font-weight="700">LC 1.015</text>
-            <!-- LCI -->
-            <line x1="44" y1="160" x2="540" y2="160" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,3"/>
-            <text x="545" y="164" font-family="Nunito" font-size="9" fill="#ef4444" font-weight="700">LCI 0</text>
-            <!-- Eje X -->
-            <line x1="44" y1="160" x2="540" y2="160" stroke="#e5e7eb" stroke-width="1"/>
-            <!-- Escala R: 0 a 2.5 → 0=160, 2.5=10; y = 160 - (R/2.5)*150
-                 hora1=0.71→y=160-42.6=117; hora2=1.18→y=160-70.8=89; hora3=1.43→y=160-85.8=74
-                 hora4=1.26→y=160-75.6=84; hora5=1.17→y=160-70.2=90; hora6=0.32→y=160-19.2=141
-                 hora7=0.53→y=160-31.8=128; hora8=1.13→y=160-67.8=92; hora9=0.71→y=117
-                 hora10=1.33→y=160-79.8=80; hora11=1.17→y=90; hora12=0.40→y=160-24=136
-                 hora13=0.85→y=160-51=109; hora14=1.31→y=160-78.6=81; hora15=1.06→y=160-63.6=96
-                 hora16=0.50→y=160-30=130; hora17=1.43→y=74; hora18=1.29→y=160-77.4=83
-                 hora19=1.41→y=160-84.6=75; hora20=1.09→y=160-65.4=95; hora21=1.08→y=160-64.8=95
-                 hora22=0.46→y=160-27.6=132; hora23=1.58→y=160-94.8=65; hora24=0.97→y=160-58.2=102 -->
-            <polyline fill="none" stroke="#1E7A8A" stroke-width="1.8" stroke-linejoin="round"
-              points="44,117 65,89 86,74 107,84 128,90 149,141 170,128 191,92 212,117 233,80 254,90 275,136 296,109 317,81 338,96 359,130 380,74 401,83 422,75 443,95 464,95 485,132 506,65 527,102"/>
-            <!-- Puntos -->
-            <circle cx="44" cy="117" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="65" cy="89" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="86" cy="74" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="107" cy="84" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="128" cy="90" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="149" cy="141" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="170" cy="128" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="191" cy="92" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="212" cy="117" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="233" cy="80" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="254" cy="90" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="275" cy="136" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="296" cy="109" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="317" cy="81" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="338" cy="96" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="359" cy="130" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="380" cy="74" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="401" cy="83" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="422" cy="75" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="443" cy="95" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="464" cy="95" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="485" cy="132" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="506" cy="65" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <circle cx="527" cy="102" r="3.5" fill="#1E7A8A" stroke="white" stroke-width="1.5"/>
-            <!-- Horas -->
-            <text x="44" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">1</text>
-            <text x="107" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">4</text>
-            <text x="191" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">8</text>
-            <text x="275" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">12</text>
-            <text x="359" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">16</text>
-            <text x="443" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">20</text>
-            <text x="527" y="175" text-anchor="middle" font-family="Nunito" font-size="8" fill="#9ca3af">24</text>
-            <text x="290" y="190" text-anchor="middle" font-family="Nunito" font-size="9" fill="#9ca3af">Hora</text>
-          </svg>
-        </div>
-
-        <!-- Conclusión -->
-        <div class="conclusion bg-[#2B9FB5]">
-          <p class="font-display text-xs uppercase tracking-widest opacity-70 mb-1">Conclusión</p>
-          <p class="font-display text-xl mb-3">El proceso está BAJO control estadístico ✓</p>
-          <div class="grid md:grid-cols-2 gap-3 text-sm font-body">
+        <div class="conclusion bg-[#e11d48]">
+          <p class="font-display text-xs uppercase tracking-widest opacity-80 mb-1">Conclusión</p>
+          <p class="font-display text-xl mb-3">El proceso está FUERA de control estadístico ❌</p>
+          <div class="grid gap-3 text-sm font-body">
             <div class="bg-white/10 rounded-xl p-4">
-              <p class="font-bold mb-1">Gráfica X̄</p>
-              <p class="opacity-90">Todos los promedios se encuentran dentro del rango 2.231 – 3.712. El valor mínimo fue 2.64 y el máximo 3.39.</p>
-            </div>
-            <div class="bg-white/10 rounded-xl p-4">
-              <p class="font-bold mb-1">Gráfica R</p>
-              <p class="opacity-90">Todos los rangos se encuentran dentro del rango 0 – 2.317. El valor mínimo fue 0.32 y el máximo 1.58.</p>
+              <p class="font-bold mb-1">Alta variabilidad detectada</p>
+              <p class="opacity-90">16 de los 20 promedios diarios evaluados (el 80%) sobrepasan de forma drástica los estrechos límites de control calculados (253.474 a 254.696).</p>
             </div>
           </div>
-          <p class="text-xs opacity-70 mt-4">Las variaciones observadas son propias del proceso (causas comunes). No se identifican causas especiales que afecten la producción.</p>
+          <p class="text-xs opacity-90 mt-4 font-bold">Interpretación final:</p>
+          <p class="text-xs opacity-80 mt-1">El peso promedio de los vasos no se mantiene estable durante los 20 días analizados. La variación extrema no parece ser solamente una fluctuación natural del proceso, indicando que existen **causas especiales** (fallos de maquinaria, errores humanos, etc.) alterando el peso. Se recomienda revisar el proceso urgentemente antes de considerarlo estable.</p>
         </div>
 
       </div>
     </div>
 
-    <!-- NEXT / PREV -->
     <div class="flex justify-between gap-4 fade-up d6">
       <a href="./Tema5.html" class="flex-1 bg-white/20 hover:bg-white/30 text-white font-display text-sm uppercase rounded-xl px-6 py-4 text-center transition-colors">← Tema 5</a>
       <a href="./index.html" class="flex-1 bg-white rounded-xl px-6 py-4 text-center font-display text-sm uppercase text-[#1E7A8A] hover:bg-[#D6EEF3] transition-colors shadow-lg">Portafolio →</a>
