@@ -4,9 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portafolio de Métodos Cuantitativos</title>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
   <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
   <script src="https://cdn.tailwindcss.com"></script>
+
   <script>
     tailwind.config = {
       theme: {
@@ -16,176 +20,382 @@
             body: ['Nunito', 'sans-serif'],
           },
           colors: {
-            teal: { brand: '#2B9FB5', dark: '#1E7A8A', light: '#A8D8E0', pale: '#D6EEF3' },
-            pink: { badge: '#F5A8B8', soft: '#FCE4EC' },
-            peach: { badge: '#F5C9A8' },
-            card: '#FFFFFF',
+            teal: {
+              brand: '#2B9FB5',
+              dark: '#1E7A8A',
+              light: '#A8D8E0',
+              pale: '#D6EEF3'
+            },
+            pink: {
+              badge: '#F5A8B8',
+              soft: '#FCE4EC'
+            },
+            peach: {
+              badge: '#F5C9A8'
+            },
+            card: '#FFFFFF'
           },
           backgroundImage: {
-            grid: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0z' fill='none'/%3E%3Cpath d='M0 0h40M0 40h40M0 0v40M40 0v40' stroke='%23ffffff22' stroke-width='1'/%3E%3C/svg%3E\")",
+            grid:
+              "url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0z' fill='none'/%3E%3Cpath d='M0 0h40M0 40h40M0 0v40M40 0v40' stroke='%23ffffff22' stroke-width='1'/%3E%3C/svg%3E\")",
           },
         },
       },
     }
   </script>
+
   <style>
-    body { font-family: 'Nunito', sans-serif; }
-    .card-hover { transition: transform 0.25s ease, box-shadow 0.25s ease; }
-    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-    .badge-pill { border-radius: 999px; }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-up { animation: fadeUp 0.6s ease forwards; }
-    .fade-up-d1 { animation-delay: 0.1s; opacity: 0; }
-    .fade-up-d2 { animation-delay: 0.2s; opacity: 0; }
-    .fade-up-d3 { animation-delay: 0.3s; opacity: 0; }
-    .fade-up-d4 { animation-delay: 0.4s; opacity: 0; }
-    .fade-up-d5 { animation-delay: 0.5s; opacity: 0; }
-    .fade-up-d6 { animation-delay: 0.6s; opacity: 0; }
-    .fade-up-d7 { animation-delay: 0.7s; opacity: 0; }
+
+    body{
+      font-family:'Nunito',sans-serif;
+    }
+
+    .card-hover{
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+
+    .card-hover:hover{
+      transform:translateY(-6px);
+      box-shadow:0 20px 40px rgba(0,0,0,.15);
+    }
+
+    .badge-pill{
+      border-radius:999px;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .fade-up{
+      animation:fadeUp .6s ease forwards;
+    }
+
+    .fade-up-d1{
+      animation-delay:.1s;
+      opacity:0;
+    }
+
+    .fade-up-d2{
+      animation-delay:.2s;
+      opacity:0;
+    }
+
+    .fade-up-d3{
+      animation-delay:.3s;
+      opacity:0;
+    }
+
+    .fade-up-d4{
+      animation-delay:.4s;
+      opacity:0;
+    }
+
+    .fade-up-d5{
+      animation-delay:.5s;
+      opacity:0;
+    }
+
+    .fade-up-d6{
+      animation-delay:.6s;
+      opacity:0;
+    }
+
+    .fade-up-d7{
+      animation-delay:.7s;
+      opacity:0;
+    }
+
   </style>
+
 </head>
+
 <body class="min-h-screen bg-[#2B9FB5] bg-grid">
 
-  <!-- NAV -->
-  <nav class="sticky top-0 z-50 bg-[#1E7A8A]/90 backdrop-blur-md border-b border-white/20 shadow-lg">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <span class="text-white font-display text-lg tracking-wide">Métodos Cuantitativos</span>
-      <span class="text-white/70 text-sm font-body">Keinth Viales · C28373</span>
+<!-- NAV -->
+
+<nav class="sticky top-0 z-50 bg-[#1E7A8A]/90 backdrop-blur-md border-b border-white/20 shadow-lg">
+
+<div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+
+<span class="text-white font-display text-base sm:text-lg tracking-wide text-center">
+Métodos Cuantitativos
+</span>
+
+<span class="text-white/70 text-sm text-center">
+Keinth Viales · C28373
+</span>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<div class="max-w-5xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-8">
+
+<div class="bg-white rounded-3xl shadow-2xl p-6 sm:p-10 md:p-16 text-center fade-up fade-up-d1">
+
+<div class="inline-block bg-[#F5A8B8] badge-pill px-5 sm:px-8 py-3 sm:py-4 mb-6">
+
+<h1 class="font-display text-2xl sm:text-4xl md:text-5xl text-gray-900 uppercase tracking-tight leading-tight">
+
+Portafolio de Métodos Cuantitativos
+
+</h1>
+
+</div>
+
+<p class="text-gray-500 text-base sm:text-lg mt-4">
+
+Métodos Cuantitativos · 2026
+
+</p>
+
+<div class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-3 mt-6">
+
+<span class="bg-[#D6EEF3] text-[#1E7A8A] font-bold text-sm px-4 py-2 rounded-full">
+
+Keinth Viales Reyes
+
+</span>
+
+<span class="bg-[#F5C9A8] text-orange-800 font-bold text-sm px-4 py-2 rounded-full">
+
+C28373
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- AGENDA -->
+
+<div class="max-w-5xl mx-auto px-4 sm:px-6 pb-4">
+
+<div class="text-center fade-up fade-up-d2">
+
+<div class="inline-block bg-[#F5C9A8] badge-pill px-6 sm:px-8 py-3">
+
+<span class="font-display text-lg sm:text-2xl text-gray-900 uppercase tracking-widest">
+
+Agenda de Temas
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- GRID -->
+
+<div class="max-w-5xl mx-auto px-4 sm:px-6 pb-20">
+
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+
+<!-- TEMA 1 -->
+
+<a href="./Tema1.html"
+class="block bg-white rounded-2xl shadow-xl p-6 sm:p-8 card-hover fade-up fade-up-d2 h-full flex flex-col">
+
+<div class="bg-[#A8D8E0] badge-pill inline-block px-4 py-2 mb-4 w-fit">
+
+<span class="font-display text-xs uppercase tracking-widest text-[#1E7A8A]">
+
+Tema 1
+
+</span>
+
+</div>
+
+<h2 class="font-display text-lg sm:text-xl leading-snug text-gray-900 uppercase mb-3">
+
+Modelos de Transporte y Asignación
+
+</h2>
+
+<p class="text-gray-500 text-sm leading-relaxed flex-grow">
+
+Optimización de redes para distribución eficiente de recursos entre orígenes y destinos.
+
+</p>
+
+<div class="mt-6 flex items-center gap-1 text-[#2B9FB5] font-bold text-sm">
+
+Ver tema
+
+<span class="text-lg">→</span>
+
+</div>
+
+</a>
+
+<!-- TEMA 2 -->
+ <a href="./Tema2.html"
+class="block bg-white rounded-2xl shadow-xl p-6 sm:p-8 card-hover fade-up fade-up-d3 h-full flex flex-col">
+
+    <div class="bg-[#A8D8E0] badge-pill inline-block px-4 py-2 mb-4 w-fit">
+        <span class="font-display text-xs uppercase tracking-widest text-[#1E7A8A]">
+            Tema 2
+        </span>
     </div>
-  </nav>
 
-  <!-- HERO -->
-  <div class="max-w-5xl mx-auto px-6 pt-16 pb-8">
-    <div class="bg-white rounded-3xl shadow-2xl p-10 md:p-16 text-center fade-up fade-up-d1">
-      <div class="inline-block bg-[#F5A8B8] badge-pill px-8 py-4 mb-6">
-        <h1 class="font-display text-4xl md:text-5xl text-gray-900 uppercase tracking-tight leading-tight">
-          Portafolio de Métodos Cuantitativos
-        </h1>
-      </div>
-      <p class="text-gray-500 font-body text-lg mt-4">Métodos Cuantitativos · 2026</p>
-      <div class="flex flex-wrap justify-center gap-3 mt-6">
-        <span class="bg-[#D6EEF3] text-[#1E7A8A] font-bold text-sm px-4 py-1.5 rounded-full">Keinth Viales Reyes</span>
-        <span class="bg-[#F5C9A8] text-orange-800 font-bold text-sm px-4 py-1.5 rounded-full">C28373</span>
-      </div>
+    <h2 class="font-display text-lg sm:text-xl leading-snug text-gray-900 uppercase mb-3">
+        Programación Entera, por Metas y No Lineal
+    </h2>
+
+    <p class="text-gray-500 text-sm leading-relaxed flex-grow">
+        Modelos avanzados de programación matemática para la toma de decisiones empresariales.
+    </p>
+
+    <div class="mt-6 flex items-center gap-1 text-[#2B9FB5] font-bold text-sm">
+        Ver tema
+        <span class="text-lg">→</span>
     </div>
-  </div>
 
-  <!-- AGENDA LABEL -->
-  <div class="max-w-5xl mx-auto px-6 pb-4">
-    <div class="text-center fade-up fade-up-d2">
-      <div class="inline-block bg-[#F5C9A8] badge-pill px-8 py-3">
-        <span class="font-display text-2xl text-gray-900 uppercase tracking-widest">Agenda de Temas</span>
-      </div>
+</a>
+
+<!-- TEMA 3 -->
+
+<a href="./Tema3.html"
+class="block bg-white rounded-2xl shadow-xl p-6 sm:p-8 card-hover fade-up fade-up-d4 h-full flex flex-col">
+
+    <div class="bg-[#A8D8E0] badge-pill inline-block px-4 py-2 mb-4 w-fit">
+        <span class="font-display text-xs uppercase tracking-widest text-[#1E7A8A]">
+            Tema 3
+        </span>
     </div>
-  </div>
 
-  <!-- TOPICS GRID -->
-  <div class="max-w-5xl mx-auto px-6 pb-20">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <h2 class="font-display text-lg sm:text-xl leading-snug text-gray-900 uppercase mb-3">
+        Modelo de Redes
+    </h2>
 
-      <!-- Tema 1 -->
-      <a href="./Tema1.html" class="block bg-white rounded-2xl shadow-xl p-8 card-hover fade-up fade-up-d2">
-        <div class="bg-[#A8D8E0] badge-pill inline-block px-4 py-1.5 mb-4">
-          <span class="font-display text-xs uppercase tracking-widest text-[#1E7A8A]">Tema 1</span>
-        </div>
-        <h2 class="font-display text-xl text-gray-900 uppercase leading-tight mb-3">
-          Modelos de Transporte y Asignación
-        </h2>
-        <p class="text-gray-500 text-sm font-body leading-relaxed">
-          Optimización de redes para distribución eficiente de recursos entre orígenes y destinos.
+    <p class="text-gray-500 text-sm leading-relaxed flex-grow">
+        Árbol de Expansión Mínima, Flujo Máximo y Ruta Más Corta aplicados a problemas reales.
+    </p>
+
+    <div class="mt-6 flex items-center gap-1 text-[#2B9FB5] font-bold text-sm">
+        Ver tema
+        <span class="text-lg">→</span>
+    </div>
+
+</a>
+
+<!-- TEMA 4 -->
+
+<a href="./Tema4.html"
+class="block bg-white rounded-2xl shadow-xl p-6 sm:p-8 card-hover fade-up fade-up-d5 h-full flex flex-col">
+
+    <div class="bg-[#A8D8E0] badge-pill inline-block px-4 py-2 mb-4 w-fit">
+        <span class="font-display text-xs uppercase tracking-widest text-[#1E7A8A]">
+            Tema 4
+        </span>
+    </div>
+
+    <h2 class="font-display text-lg sm:text-xl leading-snug text-gray-900 uppercase mb-3">
+        Modelo de Simulación
+    </h2>
+
+    <p class="text-gray-500 text-sm leading-relaxed flex-grow">
+        Simulación Monte Carlo y modelado estocástico para analizar procesos bajo incertidumbre.
+    </p>
+
+    <div class="mt-6 flex items-center gap-1 text-[#2B9FB5] font-bold text-sm">
+        Ver tema
+        <span class="text-lg">→</span>
+    </div>
+
+</a>
+
+<!-- TEMA 5 -->
+
+<a href="./Tema5.html"
+class="block bg-white rounded-2xl shadow-xl p-6 sm:p-8 card-hover fade-up fade-up-d6 h-full flex flex-col">
+
+    <div class="bg-[#A8D8E0] badge-pill inline-block px-4 py-2 mb-4 w-fit">
+        <span class="font-display text-xs uppercase tracking-widest text-[#1E7A8A]">
+            Tema 5
+        </span>
+    </div>
+
+    <h2 class="font-display text-lg sm:text-xl leading-snug text-gray-900 uppercase mb-3">
+        Análisis de Markov
+    </h2>
+
+    <p class="text-gray-500 text-sm leading-relaxed flex-grow">
+        Cadenas de Markov, probabilidades de transición y estados estables para pronósticos.
+    </p>
+
+    <div class="mt-6 flex items-center gap-1 text-[#2B9FB5] font-bold text-sm">
+        Ver tema
+        <span class="text-lg">→</span>
+    </div>
+
+</a>
+
+<!-- TEMA 6 -->
+ <a href="./Tema6.html"
+class="block bg-white rounded-2xl shadow-xl p-6 sm:p-8 card-hover fade-up fade-up-d7 h-full flex flex-col">
+
+    <div class="bg-[#A8D8E0] badge-pill inline-block px-4 py-2 mb-4 w-fit">
+        <span class="font-display text-xs uppercase tracking-widest text-[#1E7A8A]">
+            Tema 6
+        </span>
+    </div>
+
+    <h2 class="font-display text-lg sm:text-xl leading-snug text-gray-900 uppercase mb-3">
+        Control Estadístico
+    </h2>
+
+    <p class="text-gray-500 text-sm leading-relaxed flex-grow">
+        Herramientas estadísticas para el control de calidad y monitoreo de procesos productivos.
+    </p>
+
+    <div class="mt-6 flex items-center gap-1 text-[#2B9FB5] font-bold text-sm">
+        Ver tema
+        <span class="text-lg">→</span>
+    </div>
+
+</a>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer class="bg-[#1E7A8A]/50 border-t border-white/20 py-6 px-4">
+
+    <div class="max-w-6xl mx-auto">
+
+        <p class="text-center text-white/70 text-sm leading-relaxed">
+
+            Keinth Viales Reyes · C28373
+
         </p>
-        <div class="mt-6 flex items-center text-[#2B9FB5] font-bold text-sm gap-1">
-          Ver tema <span class="text-lg">→</span>
-        </div>
-      </a>
 
-      <!-- Tema 2 -->
-      <a href="./Tema2.html" class="block bg-white rounded-2xl shadow-xl p-8 card-hover fade-up fade-up-d3">
-        <div class="bg-[#A8D8E0] badge-pill inline-block px-4 py-1.5 mb-4">
-          <span class="font-display text-xs uppercase tracking-widest text-[#1E7A8A]">Tema 2</span>
-        </div>
-        <h2 class="font-display text-xl text-gray-900 uppercase leading-tight mb-3">
-          Programación Entera, por Metas y No Lineal
-        </h2>
-        <p class="text-gray-500 text-sm font-body leading-relaxed">
-          Modelos avanzados de programación matemática para la toma de decisiones empresariales.
-        </p>
-        <div class="mt-6 flex items-center text-[#2B9FB5] font-bold text-sm gap-1">
-          Ver tema <span class="text-lg">→</span>
-        </div>
-      </a>
+        <p class="text-center text-white/60 text-xs mt-2">
 
-      <!-- Tema 3 -->
-      <a href="./Tema3.html" class="block bg-white rounded-2xl shadow-xl p-8 card-hover fade-up fade-up-d4">
-        <div class="bg-[#A8D8E0] badge-pill inline-block px-4 py-1.5 mb-4">
-          <span class="font-display text-xs uppercase tracking-widest text-[#1E7A8A]">Tema 3</span>
-        </div>
-        <h2 class="font-display text-xl text-gray-900 uppercase leading-tight mb-3">
-          Modelo de Redes
-        </h2>
-        <p class="text-gray-500 text-sm font-body leading-relaxed">
-          Árbol de Expansión Mínima, Flujo Máximo y Ruta Más Corta aplicados a problemas reales.
-        </p>
-        <div class="mt-6 flex items-center text-[#2B9FB5] font-bold text-sm gap-1">
-          Ver tema <span class="text-lg">→</span>
-        </div>
-      </a>
+            Portafolio de Métodos Cuantitativos · 2026
 
-      <!-- Tema 4 -->
-      <a href="./Tema4.html" class="block bg-white rounded-2xl shadow-xl p-8 card-hover fade-up fade-up-d5">
-        <div class="bg-[#A8D8E0] badge-pill inline-block px-4 py-1.5 mb-4">
-          <span class="font-display text-xs uppercase tracking-widest text-[#1E7A8A]">Tema 4</span>
-        </div>
-        <h2 class="font-display text-xl text-gray-900 uppercase leading-tight mb-3">
-          Modelo de Simulación
-        </h2>
-        <p class="text-gray-500 text-sm font-body leading-relaxed">
-          Simulación Monte Carlo y modelado estocástico para analizar procesos bajo incertidumbre.
         </p>
-        <div class="mt-6 flex items-center text-[#2B9FB5] font-bold text-sm gap-1">
-          Ver tema <span class="text-lg">→</span>
-        </div>
-      </a>
-
-      <!-- Tema 5 -->
-      <a href="./Tema5.html" class="block bg-white rounded-2xl shadow-xl p-8 card-hover fade-up fade-up-d6">
-        <div class="bg-[#A8D8E0] badge-pill inline-block px-4 py-1.5 mb-4">
-          <span class="font-display text-xs uppercase tracking-widest text-[#1E7A8A]">Tema 5</span>
-        </div>
-        <h2 class="font-display text-xl text-gray-900 uppercase leading-tight mb-3">
-          Análisis de Markov
-        </h2>
-        <p class="text-gray-500 text-sm font-body leading-relaxed">
-          Cadenas de Markov, probabilidades de transición y estados estables para pronósticos.
-        </p>
-        <div class="mt-6 flex items-center text-[#2B9FB5] font-bold text-sm gap-1">
-          Ver tema <span class="text-lg">→</span>
-        </div>
-      </a>
-
-      <!-- Tema 6 -->
-      <a href="./Tema6.html" class="block bg-white rounded-2xl shadow-xl p-8 card-hover fade-up fade-up-d7">
-        <div class="bg-[#A8D8E0] badge-pill inline-block px-4 py-1.5 mb-4">
-          <span class="font-display text-xs uppercase tracking-widest text-[#1E7A8A]">Tema 6</span>
-        </div>
-        <h2 class="font-display text-xl text-gray-900 uppercase leading-tight mb-3">
-          Control Estadístico
-        </h2>
-        <p class="text-gray-500 text-sm font-body leading-relaxed">
-          Herramientas estadísticas para el control de calidad y monitoreo de procesos productivos.
-        </p>
-        <div class="mt-6 flex items-center text-[#2B9FB5] font-bold text-sm gap-1">
-          Ver tema <span class="text-lg">→</span>
-        </div>
-      </a>
 
     </div>
-  </div>
 
-  <!-- FOOTER -->
-  <footer class="bg-[#1E7A8A]/50 border-t border-white/20 py-6 text-center">
-    <p class="text-white/70 text-sm font-body">Keinth Viales Reyes · C28373 · Métodos Cuantitativos 2024–2025</p>
-  </footer>
+</footer>
 
 </body>
+
 </html>
