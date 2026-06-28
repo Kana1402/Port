@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tema 1 – Modelos de Transporte y Asignación</title>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { display: ['"Black Han Sans"', 'sans-serif'], body: ['Nunito', 'sans-serif'] },
+          backgroundImage: {
+            grid: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40M0 40h40M0 0v40M40 0v40' stroke='%23ffffff22' stroke-width='1'/%3E%3C/svg%3E\")",
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'Nunito', sans-serif; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.5s ease forwards; }
+    .d1{animation-delay:.05s;opacity:0} .d2{animation-delay:.15s;opacity:0} .d3{animation-delay:.25s;opacity:0} .d4{animation-delay:.35s;opacity:0} .d5{animation-delay:.45s;opacity:0}
+    table { border-collapse: collapse; width: 100%; }
+    th { background: #2B9FB5; color: white; padding: 10px 14px; text-align: left; font-family: 'Black Han Sans', sans-serif; letter-spacing: .04em; }
+    td { padding: 9px 14px; border-bottom: 1px solid #e5e7eb; }
+    tr:nth-child(even) td { background: #f0fafc; }
+  </style>
+</head>
+<body class="min-h-screen bg-[#2B9FB5] bg-grid">
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 bg-[#1E7A8A]/90 backdrop-blur-md border-b border-white/20 shadow-lg">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="./index.html" class="text-white font-display text-base tracking-wide hover:text-[#A8D8E0] transition-colors">← Portafolio</a>
+      <div class="flex gap-2 flex-wrap justify-end">
+        <a href="./Tema1.html" class="bg-white text-[#1E7A8A] text-xs font-bold px-3 py-1 rounded-full">T1</a>
+        <a href="./Tema2.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T2</a>
+        <a href="./Tema3.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T3</a>
+        <a href="./Tema4.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T4</a>
+        <a href="./Tema5.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T5</a>
+        <a href="./Tema6.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T6</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-6 py-12 space-y-8">
+
+    <!-- HERO CARD -->
+    <div class="bg-white rounded-3xl shadow-2xl p-10 text-center fade-up d1">
+      <div class="inline-block bg-[#A8D8E0] px-8 py-4 rounded-2xl mb-2">
+        <p class="font-display text-sm uppercase tracking-widest text-[#1E7A8A] mb-1">Tema 1</p>
+        <h1 class="font-display text-3xl md:text-4xl text-gray-900 uppercase leading-tight">
+          Modelos de Transporte<br/>y Asignación
+        </h1>
+      </div>
+    </div>
+
+    <!-- CONTENIDO -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
+      <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
+        <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Contenido</h2>
+      </div>
+      <p class="text-gray-700 font-body leading-relaxed mb-4">
+        La presentación se enfocó en los modelos de transporte y asignación, herramientas de la investigación de operaciones utilizadas para optimizar la distribución de recursos. Se explicó cómo estos modelos permiten encontrar la manera más eficiente de trasladar recursos entre diferentes orígenes y destinos, considerando las restricciones de oferta y demanda.
+      </p>
+      <p class="text-gray-700 font-body leading-relaxed">
+        También se presentaron métodos de resolución como la <strong>Aproximación de Vogel</strong> y el procedimiento del <strong>Salto de Piedra</strong>, utilizados para obtener y mejorar soluciones óptimas. Además, se desarrolló un caso práctico relacionado con la distribución de equipo tecnológico en centros educativos, lo que permitió comprender la aplicación de estos métodos en situaciones reales. Finalmente, se explicó la diferencia entre los modelos de transporte y asignación, destacando sus principales características y usos.
+      </p>
+    </div>
+
+    <!-- CONCEPTOS CLAVE -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d3">
+      <div class="inline-block bg-[#F5A8B8] rounded-xl px-6 py-2 mb-6">
+        <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Conceptos Clave</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-[#f0fafc] rounded-xl p-5 border-l-4 border-[#2B9FB5]">
+          <h3 class="font-display text-base uppercase text-[#1E7A8A] mb-2">Modelo de Transporte</h3>
+          <p class="text-gray-600 text-sm font-body leading-relaxed">Minimiza el costo total de transportar bienes desde múltiples orígenes hacia múltiples destinos, sujeto a restricciones de oferta y demanda.</p>
+        </div>
+        <div class="bg-[#f0fafc] rounded-xl p-5 border-l-4 border-[#2B9FB5]">
+          <h3 class="font-display text-base uppercase text-[#1E7A8A] mb-2">Modelo de Asignación</h3>
+          <p class="text-gray-600 text-sm font-body leading-relaxed">Caso especial del transporte donde cada origen se asigna a exactamente un destino. Resuelto mediante el Método Húngaro.</p>
+        </div>
+        <div class="bg-[#f0fafc] rounded-xl p-5 border-l-4 border-[#F5A8B8]">
+          <h3 class="font-display text-base uppercase text-[#1E7A8A] mb-2">Aproximación de Vogel</h3>
+          <p class="text-gray-600 text-sm font-body leading-relaxed">Método heurístico para encontrar una solución básica factible inicial de alta calidad, calculando penalizaciones por fila y columna.</p>
+        </div>
+        <div class="bg-[#f0fafc] rounded-xl p-5 border-l-4 border-[#F5A8B8]">
+          <h3 class="font-display text-base uppercase text-[#1E7A8A] mb-2">Salto de Piedra</h3>
+          <p class="text-gray-600 text-sm font-body leading-relaxed">Método iterativo para mejorar la solución básica factible inicial hasta alcanzar el óptimo global del problema de transporte.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- EJERCICIO -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d4">
+      <div class="inline-block bg-[#F5C9A8] rounded-xl px-6 py-2 mb-6">
+        <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Ejercicio a Resolver</h2>
+      </div>
+      <p class="text-gray-700 font-body leading-relaxed mb-6">
+        Se presentó un caso práctico de distribución de equipo tecnológico (computadoras) desde bodegas en distintas ciudades hacia colegios que las solicitan, considerando la capacidad de cada bodega, la demanda de cada colegio y los costos de transporte por unidad.
+      </p>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table>
+          <thead>
+            <tr>
+              <th>Origen / Destino</th>
+              <th>Colegio A</th>
+              <th>Colegio B</th>
+              <th>Colegio C</th>
+              <th>Oferta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="font-bold">Bodega San José</td><td>₡4</td><td>₡8</td><td>₡6</td><td>120</td></tr>
+            <tr><td class="font-bold">Bodega Heredia</td><td>₡7</td><td>₡3</td><td>₡5</td><td>80</td></tr>
+            <tr><td class="font-bold">Bodega Alajuela</td><td>₡5</td><td>₡6</td><td>₡2</td><td>100</td></tr>
+            <tr class="bg-[#D6EEF3]"><td class="font-bold">Demanda</td><td>90</td><td>110</td><td>100</td><td>300</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-gray-500 text-xs mt-3 font-body italic">* Costos en miles de colones por unidad transportada.</p>
+    </div>
+
+    <!-- APLICACIÓN REAL -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d5">
+      <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
+        <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Aplicación Real: Transporte en Limón</h2>
+      </div>
+      <p class="text-gray-700 font-body leading-relaxed">
+        Mediante un caso práctico relacionado con el transporte de carga en la <strong>provincia de Limón</strong>, se ilustró la aplicación de técnicas de optimización de redes como el Árbol de Expansión Mínima, el Flujo Máximo y la Ruta Más Corta. Se demostró cómo estas herramientas permiten reducir costos, identificar cuellos de botella y encontrar recorridos más eficientes, apoyando la toma de decisiones basadas en análisis cuantitativos.
+      </p>
+    </div>
+
+    <!-- NEXT / PREV -->
+    <div class="flex justify-between gap-4 fade-up d5">
+      <a href="./index.html" class="flex-1 bg-white/20 hover:bg-white/30 text-white font-display text-sm uppercase rounded-xl px-6 py-4 text-center transition-colors">
+        ← Portafolio
+      </a>
+      <a href="./Tema2.html" class="flex-1 bg-white rounded-xl px-6 py-4 text-center font-display text-sm uppercase text-[#1E7A8A] hover:bg-[#D6EEF3] transition-colors shadow-lg">
+        Tema 2 →
+      </a>
+    </div>
+
+  </div>
+
+  <footer class="bg-[#1E7A8A]/50 border-t border-white/20 py-6 text-center">
+    <p class="text-white/70 text-sm font-body">Keinth Viales Reyes · C28373 · Métodos Cuantitativos 2024–2025</p>
+  </footer>
+
+</body>
+</html>

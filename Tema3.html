@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tema 3 – Modelo de Redes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { display: ['"Black Han Sans"', 'sans-serif'], body: ['Nunito', 'sans-serif'] },
+          backgroundImage: {
+            grid: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40M0 40h40M0 0v40M40 0v40' stroke='%23ffffff22' stroke-width='1'/%3E%3C/svg%3E\")",
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'Nunito', sans-serif; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.5s ease forwards; }
+    .d1{animation-delay:.05s;opacity:0} .d2{animation-delay:.15s;opacity:0} .d3{animation-delay:.25s;opacity:0} .d4{animation-delay:.35s;opacity:0} .d5{animation-delay:.45s;opacity:0} .d6{animation-delay:.55s;opacity:0}
+    table { border-collapse: collapse; width: 100%; }
+    th { background: #2B9FB5; color: white; padding: 10px 14px; text-align: left; font-family: 'Black Han Sans', sans-serif; letter-spacing: .04em; font-size: 13px; }
+    td { padding: 9px 14px; border-bottom: 1px solid #e5e7eb; font-size: 13px; }
+    tr:nth-child(even) td { background: #f0fafc; }
+    .hl td { background: #fef9c3 !important; font-weight: 700; }
+    .step-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-family: 'Black Han Sans', sans-serif; font-size: 13px; flex-shrink: 0; }
+  </style>
+</head>
+<body class="min-h-screen bg-[#2B9FB5] bg-grid">
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 bg-[#1E7A8A]/90 backdrop-blur-md border-b border-white/20 shadow-lg">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="./index.html" class="text-white font-display text-base tracking-wide hover:text-[#A8D8E0] transition-colors">← Portafolio</a>
+      <div class="flex gap-2 flex-wrap justify-end">
+        <a href="./Tema1.html" class="bg-white text-[#1E7A8A] text-xs font-bold px-3 py-1 rounded-full">T1</a>
+        <a href="./Tema2.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T2</a>
+        <a href="./Tema3.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T3</a>
+        <a href="./Tema4.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T4</a>
+        <a href="./Tema5.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T5</a>
+        <a href="./Tema6.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T6</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-6 py-12 space-y-8">
+
+    <!-- HERO -->
+    <div class="bg-white rounded-3xl shadow-2xl p-10 text-center fade-up d1">
+      <div class="inline-block bg-[#A8D8E0] px-8 py-4 rounded-2xl mb-2">
+        <p class="font-display text-sm uppercase tracking-widest text-[#1E7A8A] mb-1">Tema 3</p>
+        <h1 class="font-display text-3xl md:text-4xl text-gray-900 uppercase leading-tight">
+          Modelo de Redes
+        </h1>
+      </div>
+    </div>
+
+    <!-- CONTENIDO -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
+      <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
+        <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Contenido</h2>
+      </div>
+      <p class="text-gray-700 font-body leading-relaxed mb-4">
+        La presentación se enfocó en las técnicas de optimización de redes utilizadas para resolver problemas relacionados con la conexión, el transporte y la distribución eficiente de recursos. Se explicaron herramientas como el <strong>Árbol de Expansión Mínima</strong>, el <strong>Flujo Máximo</strong> y la <strong>Ruta Más Corta</strong>, destacando sus diferentes objetivos y aplicaciones dentro de una red.
+      </p>
+      <p class="text-gray-700 font-body leading-relaxed">
+        Además, se mostró cómo estos modelos permiten reducir costos, identificar cuellos de botella y encontrar recorridos más eficientes. A través de un caso práctico relacionado con el transporte de carga en la <strong>provincia de Limón</strong>, se ilustró la aplicación de estas técnicas mediante algoritmos y herramientas informáticas.
+      </p>
+    </div>
+
+    <!-- PROBLEMA -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
+      <div class="inline-block bg-[#F5C9A8] rounded-xl px-6 py-2 mb-6">
+        <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Problema</h2>
+      </div>
+      <p class="text-gray-700 font-body leading-relaxed mb-6">
+        Una empresa de transporte debe enviar mercancía desde el <strong>Puerto de Limón (A)</strong> hasta el <strong>Centro de Distribución en San José (F)</strong>. Los números representan la distancia en kilómetros entre cada punto (conexiones bidireccionales).
+      </p>
+
+      <!-- MAPA SVG -->
+      <div class="bg-[#f0fafc] rounded-2xl p-6 mb-6">
+        <p class="text-[#1E7A8A] font-display text-xs uppercase tracking-widest mb-4 text-center">Red de conexiones</p>
+        <svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-lg mx-auto">
+          <defs>
+            <marker id="arb" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L7,3 z" fill="#9ca3af"/>
+            </marker>
+          </defs>
+
+          <!-- Todas las aristas (gris) -->
+          <!-- A-B -->
+          <line x1="90" y1="135" x2="220" y2="75" stroke="#9ca3af" stroke-width="2"/>
+          <text x="148" y="96" font-family="Nunito" font-size="11" fill="#6b7280" font-weight="700" text-anchor="middle">7</text>
+          <!-- A-C -->
+          <line x1="90" y1="135" x2="265" y2="140" stroke="#9ca3af" stroke-width="2"/>
+          <text x="175" y="130" font-family="Nunito" font-size="11" fill="#6b7280" font-weight="700" text-anchor="middle">5</text>
+          <!-- A-D -->
+          <line x1="90" y1="135" x2="220" y2="205" stroke="#9ca3af" stroke-width="2"/>
+          <text x="148" y="183" font-family="Nunito" font-size="11" fill="#6b7280" font-weight="700" text-anchor="middle">6</text>
+          <!-- B-C -->
+          <line x1="220" y1="75" x2="265" y2="140" stroke="#9ca3af" stroke-width="2"/>
+          <text x="252" y="101" font-family="Nunito" font-size="11" fill="#6b7280" font-weight="700" text-anchor="middle">2</text>
+          <!-- B-E -->
+          <line x1="220" y1="75" x2="375" y2="75" stroke="#9ca3af" stroke-width="2"/>
+          <text x="297" y="65" font-family="Nunito" font-size="11" fill="#6b7280" font-weight="700" text-anchor="middle">4</text>
+          <!-- C-E -->
+          <line x1="265" y1="140" x2="375" y2="75" stroke="#9ca3af" stroke-width="2"/>
+          <text x="328" y="98" font-family="Nunito" font-size="11" fill="#6b7280" font-weight="700" text-anchor="middle">6</text>
+          <!-- C-F -->
+          <line x1="265" y1="140" x2="400" y2="145" stroke="#9ca3af" stroke-width="2"/>
+          <text x="332" y="135" font-family="Nunito" font-size="11" fill="#6b7280" font-weight="700" text-anchor="middle">4</text>
+          <!-- D-C -->
+          <line x1="220" y1="205" x2="265" y2="140" stroke="#9ca3af" stroke-width="2"/>
+          <text x="237" y="178" font-family="Nunito" font-size="11" fill="#6b7280" font-weight="700" text-anchor="middle">3</text>
+          <!-- D-F -->
+          <line x1="220" y1="205" x2="400" y2="145" stroke="#9ca3af" stroke-width="2"/>
+          <text x="316" y="192" font-family="Nunito" font-size="11" fill="#6b7280" font-weight="700" text-anchor="middle">8</text>
+          <!-- E-F -->
+          <line x1="375" y1="75" x2="400" y2="145" stroke="#9ca3af" stroke-width="2"/>
+          <text x="400" y="105" font-family="Nunito" font-size="11" fill="#6b7280" font-weight="700" text-anchor="middle">3</text>
+
+          <!-- Nodos -->
+          <circle cx="90" cy="135" r="26" fill="#2B9FB5" stroke="white" stroke-width="2.5"/>
+          <text x="90" y="131" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="14">A</text>
+          <text x="90" y="148" text-anchor="middle" fill="white" font-family="Nunito" font-size="8" font-weight="700">Limón</text>
+
+          <circle cx="220" cy="75" r="22" fill="#64b5c4" stroke="white" stroke-width="2"/>
+          <text x="220" y="75" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="15">B</text>
+
+          <circle cx="265" cy="140" r="22" fill="#64b5c4" stroke="white" stroke-width="2"/>
+          <text x="265" y="140" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="15">C</text>
+
+          <circle cx="220" cy="205" r="22" fill="#64b5c4" stroke="white" stroke-width="2"/>
+          <text x="220" y="205" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="15">D</text>
+
+          <circle cx="375" cy="75" r="22" fill="#64b5c4" stroke="white" stroke-width="2"/>
+          <text x="375" y="75" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="15">E</text>
+
+          <circle cx="400" cy="145" r="26" fill="#1E7A8A" stroke="white" stroke-width="2.5"/>
+          <text x="400" y="141" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="14">F</text>
+          <text x="400" y="158" text-anchor="middle" fill="white" font-family="Nunito" font-size="8" font-weight="700">San José</text>
+        </svg>
+      </div>
+
+      <!-- Tabla de conexiones -->
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table>
+          <thead><tr><th>Conexión</th><th>Distancia (km)</th><th>Conexión</th><th>Distancia (km)</th></tr></thead>
+          <tbody>
+            <tr><td>A – B</td><td>7</td><td>C – E</td><td>6</td></tr>
+            <tr><td>A – C</td><td>5</td><td>C – F</td><td>4</td></tr>
+            <tr><td>A – D</td><td>6</td><td>D – C</td><td>3</td></tr>
+            <tr><td>B – C</td><td>2</td><td>D – F</td><td>8</td></tr>
+            <tr><td>B – E</td><td>4</td><td>E – F</td><td>3</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PARTE 1: RUTA MÁS CORTA -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d3">
+      <div class="inline-block bg-[#F5A8B8] rounded-xl px-6 py-2 mb-2">
+        <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Parte 1 — Ruta Más Corta</h2>
+      </div>
+      <p class="text-gray-500 text-sm font-body mb-6">Algoritmo de Dijkstra · Objetivo: camino más eficiente de A a F</p>
+
+      <!-- Pasos -->
+      <div class="space-y-4 mb-6">
+
+        <div class="flex gap-4 items-start bg-[#f0fafc] rounded-xl p-5">
+          <span class="step-badge bg-[#2B9FB5] text-white">1</span>
+          <div>
+            <p class="font-display text-sm uppercase text-gray-800 mb-2">Inicio en el Origen (A) — Distancia acumulada: 0 km</p>
+            <p class="text-gray-600 text-sm font-body mb-2">Evaluamos los 3 caminos posibles de salida:</p>
+            <div class="flex flex-wrap gap-2 text-xs font-body">
+              <span class="bg-white border border-gray-200 px-3 py-1 rounded-full">A → B: 7 km</span>
+              <span class="bg-[#2B9FB5] text-white px-3 py-1 rounded-full font-bold">A → C: 5 km ✓ elegido</span>
+              <span class="bg-white border border-gray-200 px-3 py-1 rounded-full">A → D: 6 km</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-4 items-start bg-[#f0fafc] rounded-xl p-5">
+          <span class="step-badge bg-[#2B9FB5] text-white">2</span>
+          <div>
+            <p class="font-display text-sm uppercase text-gray-800 mb-2">Evaluación desde el Nodo C — Acumulado: 5 km</p>
+            <p class="text-gray-600 text-sm font-body mb-2">Sumamos los 5 km ya recorridos a cada nueva ruta:</p>
+            <div class="flex flex-wrap gap-2 text-xs font-body mb-2">
+              <span class="bg-white border border-gray-200 px-3 py-1 rounded-full">C → B: 5+2 = 7 km (igual que A→B, no ganamos)</span>
+              <span class="bg-white border border-gray-200 px-3 py-1 rounded-full">C → D: 5+3 = 8 km</span>
+              <span class="bg-white border border-gray-200 px-3 py-1 rounded-full">C → E: 5+6 = 11 km</span>
+              <span class="bg-[#2B9FB5] text-white px-3 py-1 rounded-full font-bold">C → F: 5+4 = 9 km ✓ destino alcanzado</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-4 items-start bg-[#f0fafc] rounded-xl p-5">
+          <span class="step-badge bg-gray-300 text-gray-700">3</span>
+          <div>
+            <p class="font-display text-sm uppercase text-gray-800 mb-2">Comprobación de otras rutas</p>
+            <div class="space-y-1 text-sm font-body text-gray-600">
+              <p>• <strong>Ruta por D:</strong> A→D (6) + D→F (8) = <span class="text-red-500 font-bold">14 km</span> — descartada</p>
+              <p>• <strong>Ruta por B:</strong> A→B (7) + B→E (4) + E→F (3) = <span class="text-red-500 font-bold">14 km</span> — descartada</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conclusión P1 -->
+      <div class="bg-[#2B9FB5] rounded-xl p-6 text-white">
+        <p class="font-display text-sm uppercase tracking-widest mb-2 opacity-80">Conclusión Parte 1</p>
+        <p class="font-display text-2xl mb-1">Ruta: A → C → F</p>
+        <p class="text-3xl font-display">9 km <span class="text-base font-body font-normal opacity-80">distancia total</span></p>
+      </div>
+
+      <!-- SVG Ruta óptima -->
+      <div class="mt-6 bg-[#f0fafc] rounded-2xl p-6">
+        <p class="text-[#1E7A8A] font-display text-xs uppercase tracking-widest mb-4 text-center">Ruta óptima resaltada</p>
+        <svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-lg mx-auto">
+          <!-- Aristas inactivas -->
+          <line x1="90" y1="135" x2="220" y2="75" stroke="#d1d5db" stroke-width="1.5"/>
+          <line x1="90" y1="135" x2="220" y2="205" stroke="#d1d5db" stroke-width="1.5"/>
+          <line x1="220" y1="75" x2="265" y2="140" stroke="#d1d5db" stroke-width="1.5"/>
+          <line x1="220" y1="75" x2="375" y2="75" stroke="#d1d5db" stroke-width="1.5"/>
+          <line x1="265" y1="140" x2="375" y2="75" stroke="#d1d5db" stroke-width="1.5"/>
+          <line x1="220" y1="205" x2="265" y2="140" stroke="#d1d5db" stroke-width="1.5"/>
+          <line x1="220" y1="205" x2="400" y2="145" stroke="#d1d5db" stroke-width="1.5"/>
+          <line x1="375" y1="75" x2="400" y2="145" stroke="#d1d5db" stroke-width="1.5"/>
+          <!-- Ruta óptima A-C-F -->
+          <line x1="90" y1="135" x2="265" y2="140" stroke="#e879a0" stroke-width="4" stroke-linecap="round"/>
+          <text x="175" y="127" font-family="Nunito" font-size="12" fill="#e879a0" font-weight="800" text-anchor="middle">5 km</text>
+          <line x1="265" y1="140" x2="400" y2="145" stroke="#e879a0" stroke-width="4" stroke-linecap="round"/>
+          <text x="332" y="128" font-family="Nunito" font-size="12" fill="#e879a0" font-weight="800" text-anchor="middle">4 km</text>
+          <!-- Nodos -->
+          <circle cx="220" cy="75" r="22" fill="#d1d5db" stroke="white" stroke-width="2"/>
+          <text x="220" y="75" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="15">B</text>
+          <circle cx="220" cy="205" r="22" fill="#d1d5db" stroke="white" stroke-width="2"/>
+          <text x="220" y="205" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="15">D</text>
+          <circle cx="375" cy="75" r="22" fill="#d1d5db" stroke="white" stroke-width="2"/>
+          <text x="375" y="75" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="15">E</text>
+          <!-- Nodos de la ruta óptima -->
+          <circle cx="90" cy="135" r="28" fill="#2B9FB5" stroke="#e879a0" stroke-width="3"/>
+          <text x="90" y="131" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="14">A</text>
+          <text x="90" y="148" text-anchor="middle" fill="white" font-family="Nunito" font-size="8" font-weight="700">Limón</text>
+          <circle cx="265" cy="140" r="28" fill="#2B9FB5" stroke="#e879a0" stroke-width="3"/>
+          <text x="265" y="140" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="15">C</text>
+          <circle cx="400" cy="145" r="28" fill="#1E7A8A" stroke="#e879a0" stroke-width="3"/>
+          <text x="400" y="141" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="14">F</text>
+          <text x="400" y="158" text-anchor="middle" fill="white" font-family="Nunito" font-size="8" font-weight="700">San José</text>
+        </svg>
+        <div class="flex gap-4 justify-center text-xs font-body mt-2 flex-wrap">
+          <span class="flex items-center gap-1"><span class="w-6 h-1 bg-[#e879a0] rounded inline-block"></span> Ruta óptima A→C→F (9 km)</span>
+          <span class="flex items-center gap-1"><span class="w-6 h-1 bg-[#d1d5db] rounded inline-block"></span> Rutas descartadas</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARTE 2: ÁRBOL DE EXPANSIÓN MÍNIMA -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d4">
+      <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-2">
+        <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Parte 2 — Árbol de Expansión Mínima</h2>
+      </div>
+      <p class="text-gray-500 text-sm font-body mb-6">Algoritmo de Kruskal · Objetivo: conectar todos los nodos con el menor costo total</p>
+
+      <!-- Pasos -->
+      <div class="space-y-4 mb-6">
+
+        <div class="flex gap-4 items-start bg-[#f0fafc] rounded-xl p-5">
+          <span class="step-badge bg-[#1E7A8A] text-white">1</span>
+          <div>
+            <p class="font-display text-sm uppercase text-gray-800 mb-1">Conexión más corta de todo el mapa</p>
+            <p class="text-gray-600 text-sm font-body">Es <strong>B–C con 2 km</strong>. La construimos. Acumulado: <strong>2 km</strong>.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 items-start bg-[#f0fafc] rounded-xl p-5">
+          <span class="step-badge bg-[#1E7A8A] text-white">2</span>
+          <div>
+            <p class="font-display text-sm uppercase text-gray-800 mb-1">Siguiente conexión más corta</p>
+            <p class="text-gray-600 text-sm font-body mb-2">Empate en <strong>3 km</strong>: conexiones C–D y E–F. Ninguna forma un ciclo, construimos ambas.</p>
+            <p class="text-gray-500 text-xs font-body">Acumulado: 2 + 3 + 3 = <strong>8 km</strong>. Estado: grupos (B–C–D) y (E–F) separados.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 items-start bg-[#f0fafc] rounded-xl p-5">
+          <span class="step-badge bg-[#1E7A8A] text-white">3</span>
+          <div>
+            <p class="font-display text-sm uppercase text-gray-800 mb-1">Unir los dos grupos</p>
+            <p class="text-gray-600 text-sm font-body mb-2">Opciones de <strong>4 km</strong>: B–E y C–F. Elegimos <strong>C–F</strong> para conectar (B–C–D) con (E–F).</p>
+            <p class="text-gray-500 text-xs font-body">Acumulado: 8 + 4 = <strong>12 km</strong>. B–E se descarta porque formaría el ciclo B–C–F–E.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 items-start bg-[#f0fafc] rounded-xl p-5">
+          <span class="step-badge bg-[#1E7A8A] text-white">4</span>
+          <div>
+            <p class="font-display text-sm uppercase text-gray-800 mb-1">Conectar el origen (A)</p>
+            <p class="text-gray-600 text-sm font-body mb-2">Nodos B, C, D, E y F ya están conectados. Falta incluir a <strong>A (Puerto de Limón)</strong>.</p>
+            <div class="flex flex-wrap gap-2 text-xs font-body">
+              <span class="bg-[#1E7A8A] text-white px-3 py-1 rounded-full font-bold">A–C: 5 km ✓ elegida (más corta)</span>
+              <span class="bg-white border border-gray-200 px-3 py-1 rounded-full">A–D: 6 km</span>
+              <span class="bg-white border border-gray-200 px-3 py-1 rounded-full">A–B: 7 km</span>
+            </div>
+            <p class="text-gray-500 text-xs font-body mt-2">Acumulado: 12 + 5 = <strong>17 km</strong>.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 items-start bg-green-50 border border-green-200 rounded-xl p-5">
+          <span class="step-badge bg-green-500 text-white">5</span>
+          <div>
+            <p class="font-display text-sm uppercase text-gray-800 mb-1">Verificación final</p>
+            <p class="text-gray-600 text-sm font-body">Todos los nodos (A, B, C, D, E, F) están conectados. No hay ciclos cerrados. ✓</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conclusión P2 -->
+      <div class="bg-[#1E7A8A] rounded-xl p-6 text-white mb-6">
+        <p class="font-display text-sm uppercase tracking-widest mb-2 opacity-80">Conclusión Parte 2</p>
+        <p class="font-display text-lg mb-1">Rutas construidas: B–C · C–D · E–F · C–F · A–C</p>
+        <p class="text-3xl font-display">17 km <span class="text-base font-body font-normal opacity-80">distancia total del árbol</span></p>
+      </div>
+
+      <!-- SVG Árbol de expansión mínima -->
+      <div class="bg-[#f0fafc] rounded-2xl p-6">
+        <p class="text-[#1E7A8A] font-display text-xs uppercase tracking-widest mb-4 text-center">Árbol de Expansión Mínima</p>
+        <svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-lg mx-auto">
+          <!-- Aristas descartadas -->
+          <line x1="90" y1="135" x2="220" y2="75" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="5,4"/>
+          <line x1="90" y1="135" x2="220" y2="205" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="5,4"/>
+          <line x1="220" y1="75" x2="375" y2="75" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="5,4"/>
+          <line x1="265" y1="140" x2="375" y2="75" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="5,4"/>
+          <line x1="220" y1="205" x2="400" y2="145" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="5,4"/>
+          <!-- Árbol mínimo: B-C, C-D, E-F, C-F, A-C -->
+          <line x1="90" y1="135" x2="265" y2="140" stroke="#1E7A8A" stroke-width="3.5" stroke-linecap="round"/>
+          <text x="175" y="127" font-family="Nunito" font-size="11" fill="#1E7A8A" font-weight="800" text-anchor="middle">5 km</text>
+          <line x1="220" y1="75" x2="265" y2="140" stroke="#1E7A8A" stroke-width="3.5" stroke-linecap="round"/>
+          <text x="236" y="100" font-family="Nunito" font-size="11" fill="#1E7A8A" font-weight="800" text-anchor="middle">2 km</text>
+          <line x1="220" y1="205" x2="265" y2="140" stroke="#1E7A8A" stroke-width="3.5" stroke-linecap="round"/>
+          <text x="234" y="181" font-family="Nunito" font-size="11" fill="#1E7A8A" font-weight="800" text-anchor="middle">3 km</text>
+          <line x1="265" y1="140" x2="400" y2="145" stroke="#1E7A8A" stroke-width="3.5" stroke-linecap="round"/>
+          <text x="332" y="128" font-family="Nunito" font-size="11" fill="#1E7A8A" font-weight="800" text-anchor="middle">4 km</text>
+          <line x1="375" y1="75" x2="400" y2="145" stroke="#1E7A8A" stroke-width="3.5" stroke-linecap="round"/>
+          <text x="402" y="106" font-family="Nunito" font-size="11" fill="#1E7A8A" font-weight="800" text-anchor="middle">3 km</text>
+          <!-- Nodos -->
+          <circle cx="90" cy="135" r="28" fill="#2B9FB5" stroke="#1E7A8A" stroke-width="3"/>
+          <text x="90" y="131" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="14">A</text>
+          <text x="90" y="148" text-anchor="middle" fill="white" font-family="Nunito" font-size="8" font-weight="700">Limón</text>
+          <circle cx="220" cy="75" r="22" fill="#2B9FB5" stroke="#1E7A8A" stroke-width="2"/>
+          <text x="220" y="75" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="15">B</text>
+          <circle cx="265" cy="140" r="22" fill="#2B9FB5" stroke="#1E7A8A" stroke-width="2"/>
+          <text x="265" y="140" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="15">C</text>
+          <circle cx="220" cy="205" r="22" fill="#2B9FB5" stroke="#1E7A8A" stroke-width="2"/>
+          <text x="220" y="205" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="15">D</text>
+          <circle cx="375" cy="75" r="22" fill="#2B9FB5" stroke="#1E7A8A" stroke-width="2"/>
+          <text x="375" y="75" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="15">E</text>
+          <circle cx="400" cy="145" r="28" fill="#1E7A8A" stroke="#2B9FB5" stroke-width="3"/>
+          <text x="400" y="141" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Black Han Sans" font-size="14">F</text>
+          <text x="400" y="158" text-anchor="middle" fill="white" font-family="Nunito" font-size="8" font-weight="700">San José</text>
+        </svg>
+        <div class="flex gap-4 justify-center text-xs font-body mt-2 flex-wrap">
+          <span class="flex items-center gap-1"><span class="w-6 h-1 bg-[#1E7A8A] rounded inline-block"></span> Árbol mínimo (17 km)</span>
+          <span class="flex items-center gap-1"><span class="w-6 h-1 bg-[#d1d5db] rounded inline-block" style="border-top:2px dashed #d1d5db;height:0"></span> Aristas descartadas</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESUMEN COMPARATIVO -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d5">
+      <div class="inline-block bg-[#F5A8B8] rounded-xl px-6 py-2 mb-6">
+        <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Resumen Comparativo</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-[#FFF0F5] border-2 border-[#F5A8B8] rounded-xl p-6 text-center">
+          <p class="font-display text-xs uppercase text-[#e879a0] mb-2 tracking-widest">Ruta Más Corta (Dijkstra)</p>
+          <p class="font-display text-4xl text-gray-900 mb-1">9 km</p>
+          <p class="text-gray-600 text-sm font-body">A → C → F</p>
+          <p class="text-gray-400 text-xs font-body mt-2">Objetivo: camino óptimo de origen a destino</p>
+        </div>
+        <div class="bg-[#f0fafc] border-2 border-[#2B9FB5] rounded-xl p-6 text-center">
+          <p class="font-display text-xs uppercase text-[#1E7A8A] mb-2 tracking-widest">Árbol de Expansión Mínima (Kruskal)</p>
+          <p class="font-display text-4xl text-gray-900 mb-1">17 km</p>
+          <p class="text-gray-600 text-sm font-body">B–C · C–D · E–F · C–F · A–C</p>
+          <p class="text-gray-400 text-xs font-body mt-2">Objetivo: conectar todos los nodos al menor costo</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEXT / PREV -->
+    <div class="flex justify-between gap-4 fade-up d6">
+      <a href="./Tema2.html" class="flex-1 bg-white/20 hover:bg-white/30 text-white font-display text-sm uppercase rounded-xl px-6 py-4 text-center transition-colors">← Tema 2</a>
+      <a href="./Tema4.html" class="flex-1 bg-white rounded-xl px-6 py-4 text-center font-display text-sm uppercase text-[#1E7A8A] hover:bg-[#D6EEF3] transition-colors shadow-lg">Tema 4 →</a>
+    </div>
+
+  </div>
+
+  <footer class="bg-[#1E7A8A]/50 border-t border-white/20 py-6 text-center">
+    <p class="text-white/70 text-sm font-body">Keinth Viales Reyes · C28373 · Métodos Cuantitativos 2024–2025</p>
+  </footer>
+
+</body>
+</html>

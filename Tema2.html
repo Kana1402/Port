@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tema 2 – Programación Entera, por Metas y No Lineal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { display: ['"Black Han Sans"', 'sans-serif'], body: ['Nunito', 'sans-serif'] },
+          backgroundImage: {
+            grid: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40M0 40h40M0 0v40M40 0v40' stroke='%23ffffff22' stroke-width='1'/%3E%3C/svg%3E\")",
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'Nunito', sans-serif; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+    .fade-up { animation: fadeUp 0.5s ease forwards; }
+    .d1{animation-delay:.05s;opacity:0}.d2{animation-delay:.15s;opacity:0}.d3{animation-delay:.25s;opacity:0}
+    .d4{animation-delay:.35s;opacity:0}.d5{animation-delay:.45s;opacity:0}.d6{animation-delay:.55s;opacity:0}
+    table { border-collapse:collapse; width:100%; }
+    th { background:#2B9FB5; color:white; padding:10px 14px; text-align:left; font-family:'Black Han Sans',sans-serif; letter-spacing:.04em; font-size:13px; }
+    td { padding:9px 14px; border-bottom:1px solid #e5e7eb; font-size:13px; }
+    tr:nth-child(even) td { background:#f0fafc; }
+    .hl td { background:#fef9c3!important; font-weight:700; }
+    .tab-btn { cursor:pointer; transition:all .2s; }
+    .tab-btn.active { background:#2B9FB5; color:white; }
+    .tab-btn:not(.active) { background:#f0fafc; color:#1E7A8A; }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; }
+    .step { display:flex; gap:16px; align-items:flex-start; background:#f0fafc; border-radius:12px; padding:18px; }
+    .step-num { flex-shrink:0; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Black Han Sans',sans-serif; font-size:13px; color:white; }
+    .formula { background:#1a1a2e; color:#a8d8e0; font-family:monospace; font-size:13px; padding:14px 18px; border-radius:10px; line-height:1.8; }
+    .formula span.key { color:#f5a8b8; }
+    .formula span.val { color:#fef9c3; }
+    .conclusion { border-radius:14px; padding:22px 24px; color:white; }
+  </style>
+</head>
+<body class="min-h-screen bg-[#2B9FB5] bg-grid">
+
+  <!-- NAV -->
+   <nav class="sticky top-0 z-50 bg-[#1E7A8A]/90 backdrop-blur-md border-b border-white/20 shadow-lg">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="./index.html" class="text-white font-display text-base tracking-wide hover:text-[#A8D8E0] transition-colors">← Portafolio</a>
+      <div class="flex gap-2 flex-wrap justify-end">
+        <a href="./Tema1.html" class="bg-white text-[#1E7A8A] text-xs font-bold px-3 py-1 rounded-full">T1</a>
+        <a href="./Tema2.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T2</a>
+        <a href="./Tema3.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T3</a>
+        <a href="./Tema4.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T4</a>
+        <a href="./Tema5.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T5</a>
+        <a href="./Tema6.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T6</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-6 py-12 space-y-8">
+
+    <!-- HERO -->
+    <div class="bg-white rounded-3xl shadow-2xl p-10 text-center fade-up d1">
+      <div class="inline-block bg-[#A8D8E0] px-8 py-4 rounded-2xl mb-2">
+        <p class="font-display text-sm uppercase tracking-widest text-[#1E7A8A] mb-1">Tema 2</p>
+        <h1 class="font-display text-3xl md:text-4xl text-gray-900 uppercase leading-tight">
+          Programación Entera,<br/>por Metas y No Lineal
+        </h1>
+      </div>
+    </div>
+
+    <!-- CONTENIDO GENERAL -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
+      <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
+        <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Contenido</h2>
+      </div>
+      <p class="text-gray-700 font-body leading-relaxed mb-4">
+        La presentación abordó los fundamentos de la programación matemática avanzada, incluyendo la <strong>programación entera</strong>, <strong>por metas</strong> y <strong>no lineal</strong>. Se explicó cómo estos modelos permiten resolver problemas de toma de decisiones en entornos empresariales, considerando diferentes restricciones y objetivos.
+      </p>
+      <p class="text-gray-700 font-body leading-relaxed mb-6">
+        Además, se presentaron métodos y conceptos para encontrar soluciones óptimas, así como herramientas computacionales que facilitan su resolución. A través de casos prácticos reales se mostró cómo aplicar cada técnica para optimizar recursos, mejorar la rentabilidad y equilibrar distintos objetivos organizacionales.
+      </p>
+      <!-- Tres badges -->
+      <div class="grid grid-cols-3 gap-3 text-center">
+        <div class="bg-[#2B9FB5] text-white rounded-xl py-4 px-2">
+          <p class="font-display text-xs uppercase tracking-wide mb-1">Método 1</p>
+          <p class="font-display text-sm">Programación<br/>Entera</p>
+        </div>
+        <div class="bg-[#F5A8B8] text-gray-800 rounded-xl py-4 px-2">
+          <p class="font-display text-xs uppercase tracking-wide mb-1">Método 2</p>
+          <p class="font-display text-sm">Programación<br/>por Metas</p>
+        </div>
+        <div class="bg-[#F5C9A8] text-gray-800 rounded-xl py-4 px-2">
+          <p class="font-display text-xs uppercase tracking-wide mb-1">Método 3</p>
+          <p class="font-display text-sm">Programación<br/>No Lineal</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         MÉTODO 1: PROGRAMACIÓN ENTERA
+    ══════════════════════════════════════ -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden fade-up d3">
+      <div class="bg-[#2B9FB5] px-8 py-5">
+        <p class="font-display text-xs uppercase tracking-widest text-white/70 mb-1">Método 1</p>
+        <h2 class="font-display text-2xl text-white uppercase">Programación Entera</h2>
+      </div>
+      <div class="p-8 space-y-6">
+
+        <!-- Descripción -->
+        <p class="text-gray-700 font-body leading-relaxed">
+          La programación entera es una extensión de la programación lineal donde las variables de decisión deben tomar valores <strong>enteros</strong> (0, 1, 2, 3…). Es esencial cuando no se pueden fraccionar unidades físicas, como número de prendas, máquinas o trabajadores.
+        </p>
+
+        <!-- Enunciado -->
+        <div class="bg-[#f0fafc] rounded-xl p-6 border-l-4 border-[#2B9FB5]">
+          <p class="font-display text-sm uppercase text-[#1E7A8A] mb-3">Problema — Taller Textil</p>
+          <p class="text-gray-700 font-body text-sm leading-relaxed mb-4">
+            Un taller textil confecciona <strong>camisas (x₁)</strong> y <strong>pantalones (x₂)</strong>. Cada camisa deja una ganancia de $60 y cada pantalón $50. Los recursos disponibles por semana son:
+          </p>
+          <div class="overflow-x-auto rounded-xl border border-gray-200 mb-3">
+            <table>
+              <thead><tr><th>Recurso</th><th>Por camisa</th><th>Por pantalón</th><th>Disponible</th></tr></thead>
+              <tbody>
+                <tr><td>Tela (metros)</td><td>1</td><td>2</td><td>10</td></tr>
+                <tr><td>Tiempo (horas)</td><td>2</td><td>1</td><td>11</td></tr>
+                <tr><td>Botones (cajas)</td><td>1</td><td>1</td><td>9</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-gray-600 font-body text-sm">Las prendas se confeccionan completas → las cantidades <strong>deben ser enteros</strong>.</p>
+        </div>
+
+        <!-- Solución paso a paso -->
+        <div class="space-y-3">
+          <p class="font-display text-base uppercase text-[#2B9FB5]">Solución paso a paso</p>
+
+          <div class="step"><span class="step-num bg-[#2B9FB5]">1</span>
+            <div>
+              <p class="font-display text-sm uppercase text-gray-800 mb-1">Identificación de variables</p>
+              <p class="text-gray-600 text-sm font-body">x₁ = número de camisas a producir &nbsp;|&nbsp; x₂ = número de pantalones a producir</p>
+            </div>
+          </div>
+
+          <div class="step"><span class="step-num bg-[#2B9FB5]">2</span>
+            <div>
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Función objetivo</p>
+              <div class="formula"><span class="key">Máx Z</span> = <span class="val">60</span>x₁ + <span class="val">50</span>x₂</div>
+            </div>
+          </div>
+
+          <div class="step"><span class="step-num bg-[#2B9FB5]">3</span>
+            <div>
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Restricciones</p>
+              <div class="formula">
+                x₁ + 2x₂ ≤ 10 &nbsp;&nbsp;<span class="key">(tela)</span><br/>
+                2x₁ + x₂ ≤ 11 &nbsp;&nbsp;<span class="key">(tiempo)</span><br/>
+                x₁ + x₂ ≤ 9 &nbsp;&nbsp;&nbsp;<span class="key">(botones)</span><br/>
+                x₁, x₂ ≥ 0 y enteros
+              </div>
+            </div>
+          </div>
+
+          <div class="step"><span class="step-num bg-[#2B9FB5]">4</span>
+            <div>
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Conversión de restricciones en rectas</p>
+              <ul class="text-gray-600 text-sm font-body space-y-1">
+                <li>R1 (tela): x₁ + 2x₂ = 10 → puntos (0, 5) y (10, 0)</li>
+                <li>R2 (tiempo): 2x₁ + x₂ = 11 → puntos (0, 11) y (5.5, 0)</li>
+                <li>R3 (botones): x₁ + x₂ = 9 → puntos (0, 9) y (9, 0)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="step"><span class="step-num bg-[#2B9FB5]">5</span>
+            <div>
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Vértices de la región factible (R1 ∩ R2)</p>
+              <div class="formula text-xs">
+                De R2: x₂ = 11 − 2x₁<br/>
+                Sustituyendo en R1: x₁ + 2(11 − 2x₁) = 10<br/>
+                &nbsp;&nbsp;→ x₁ + 22 − 4x₁ = 10 → −3x₁ = −12 → <span class="val">x₁ = 4</span><br/>
+                &nbsp;&nbsp;→ x₂ = 11 − 2(4) = <span class="val">3</span><br/>
+                Verificación botones: 4 + 3 = 7 ≤ 9 ✓<br/>
+                Vértices factibles: (0,0) · (5.5, 0) · (4, 3) · (0, 5)
+              </div>
+            </div>
+          </div>
+
+          <div class="step"><span class="step-num bg-[#2B9FB5]">6</span>
+            <div class="w-full">
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Evaluación de Z en cada vértice</p>
+              <div class="overflow-x-auto rounded-xl border border-gray-200">
+                <table>
+                  <thead><tr><th>Vértice (x₁, x₂)</th><th>Z = 60x₁ + 50x₂</th><th>Resultado</th></tr></thead>
+                  <tbody>
+                    <tr><td>(0, 0)</td><td>0</td><td>$0</td></tr>
+                    <tr><td>(5.5, 0)</td><td>60(5.5)</td><td>$330</td></tr>
+                    <tr><td>(0, 5)</td><td>50(5)</td><td>$250</td></tr>
+                    <tr class="hl"><td>(4, 3)</td><td>60(4) + 50(3) = 240 + 150</td><td>$390 ✓</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="text-gray-600 text-xs font-body mt-2">El punto (4, 3) ya tiene valores enteros → no se requiere redondeo.</p>
+            </div>
+          </div>
+
+          <div class="step"><span class="step-num bg-[#2B9FB5]">7</span>
+            <div class="w-full">
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Solución final y verificación</p>
+              <div class="overflow-x-auto rounded-xl border border-gray-200 mb-3">
+                <table>
+                  <thead><tr><th>Variable</th><th>Valor óptimo</th></tr></thead>
+                  <tbody>
+                    <tr><td>Camisas (x₁)</td><td><strong>4</strong></td></tr>
+                    <tr><td>Pantalones (x₂)</td><td><strong>3</strong></td></tr>
+                    <tr class="hl"><td>Ganancia total (Z)</td><td><strong>$390 por semana</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="bg-[#f0fafc] rounded-xl p-4 text-sm font-body space-y-1">
+                <p>• Tela: 4 + 2(3) = 10 ≤ 10 ✓ (recurso activo, cuello de botella)</p>
+                <p>• Tiempo: 2(4) + 3 = 11 ≤ 11 ✓ (recurso activo, cuello de botella)</p>
+                <p>• Botones: 4 + 3 = 7 ≤ 9 ✓ (sobran 2 cajas)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="conclusion bg-[#2B9FB5]">
+          <p class="font-display text-xs uppercase tracking-widest opacity-70 mb-1">Conclusión</p>
+          <p class="font-display text-xl mb-1">Producir 4 camisas y 3 pantalones</p>
+          <p class="text-2xl font-display">$390 <span class="text-sm font-body font-normal opacity-80">de ganancia semanal máxima</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         MÉTODO 2: PROGRAMACIÓN POR METAS
+    ══════════════════════════════════════ -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden fade-up d4">
+      <div class="bg-[#c2637a] px-8 py-5">
+        <p class="font-display text-xs uppercase tracking-widest text-white/70 mb-1">Método 2</p>
+        <h2 class="font-display text-2xl text-white uppercase">Programación por Metas</h2>
+      </div>
+      <div class="p-8 space-y-6">
+
+        <p class="text-gray-700 font-body leading-relaxed">
+          La programación por metas permite manejar <strong>múltiples objetivos</strong> que pueden ser contradictorios, minimizando las desviaciones respecto a cada meta según su nivel de prioridad. En lugar de restricciones rígidas, se definen variables de desviación (d⁻ y d⁺) que miden el faltante y el exceso respecto a cada meta.
+        </p>
+
+        <!-- Enunciado -->
+        <div class="bg-[#FFF0F5] rounded-xl p-6 border-l-4 border-[#F5A8B8]">
+          <p class="font-display text-sm uppercase text-[#c2637a] mb-3">Problema — Panadería La Espiga Dorada S.A.</p>
+          <p class="text-gray-700 font-body text-sm leading-relaxed mb-4">
+            Una panadería artesanal en Grecia, Alajuela produce <strong>pan artesanal (x)</strong> y <strong>repostería fina (y)</strong>. La gerencia debe planificar la producción semanal cumpliendo tres metas con orden estricto de prioridad:
+          </p>
+          <div class="overflow-x-auto rounded-xl border border-gray-200 mb-4">
+            <table>
+              <thead><tr><th>Tipo de producto</th><th>Variable</th><th>Ganancia/lote</th><th>Horas</th><th>Energía (kWh)</th></tr></thead>
+              <tbody>
+                <tr><td>Pan artesanal</td><td>x</td><td>$30</td><td>2 h</td><td>5 kWh</td></tr>
+                <tr><td>Repostería fina</td><td>y</td><td>$50</td><td>4 h</td><td>8 kWh</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="overflow-x-auto rounded-xl border border-gray-200">
+            <table>
+              <thead><tr><th>Prioridad</th><th>Meta</th><th>Condición</th><th>Desviación a minimizar</th></tr></thead>
+              <tbody>
+                <tr><td><strong>P1</strong></td><td>Rentabilidad</td><td>Alcanzar $2,200</td><td>d1⁻ (faltante de dinero)</td></tr>
+                <tr><td><strong>P2</strong></td><td>Acuerdo laboral</td><td>Exactamente 160 horas</td><td>d2⁻ y d2⁺ (faltante y exceso)</td></tr>
+                <tr><td><strong>P3</strong></td><td>Política ambiental</td><td>No exceder 300 kWh</td><td>d3⁺ (exceso de energía)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Pasos -->
+        <div class="space-y-3">
+          <p class="font-display text-base uppercase text-[#c2637a]">Solución paso a paso</p>
+
+          <div class="step" style="background:#fff0f5"><span class="step-num bg-[#c2637a]">1</span>
+            <div>
+              <p class="font-display text-sm uppercase text-gray-800 mb-1">Variables de decisión</p>
+              <p class="text-gray-600 text-sm font-body">x = lotes de pan artesanal &nbsp;|&nbsp; y = lotes de repostería fina</p>
+            </div>
+          </div>
+
+          <div class="step" style="background:#fff0f5"><span class="step-num bg-[#c2637a]">2</span>
+            <div>
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Restricciones estructurales (como PL tradicional)</p>
+              <div class="formula">
+                30x + 50y ≥ 2200 &nbsp;<span class="key">(ganancia)</span><br/>
+                2x + 4y = 160 &nbsp;&nbsp;&nbsp;<span class="key">(horas exactas)</span><br/>
+                5x + 8y ≤ 300 &nbsp;&nbsp;&nbsp;<span class="key">(energía máx.)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step" style="background:#fff0f5"><span class="step-num bg-[#c2637a]">3</span>
+            <div>
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Variables de desviación</p>
+              <div class="grid grid-cols-2 gap-2 text-xs font-body text-gray-600">
+                <span class="bg-white border border-pink-100 rounded-lg p-2">d1⁻: dólares que faltan para la meta de ganancia</span>
+                <span class="bg-white border border-pink-100 rounded-lg p-2">d1⁺: dólares en exceso sobre la meta</span>
+                <span class="bg-white border border-pink-100 rounded-lg p-2">d2⁻: horas que faltan para la meta laboral</span>
+                <span class="bg-white border border-pink-100 rounded-lg p-2">d2⁺: horas extra sobre la meta laboral</span>
+                <span class="bg-white border border-pink-100 rounded-lg p-2">d3⁻: kWh ahorrados bajo la meta</span>
+                <span class="bg-white border border-pink-100 rounded-lg p-2">d3⁺: kWh consumidos en exceso</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step" style="background:#fff0f5"><span class="step-num bg-[#c2637a]">4</span>
+            <div>
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Restricciones por metas (con desviaciones)</p>
+              <div class="formula">
+                30x + 50y + d1⁻ − d1⁺ = 2200 &nbsp;<span class="key">(meta 1)</span><br/>
+                2x + 4y + d2⁻ − d2⁺ = 160 &nbsp;&nbsp;&nbsp;<span class="key">(meta 2)</span><br/>
+                5x + 8y + d3⁻ − d3⁺ = 300 &nbsp;&nbsp;&nbsp;<span class="key">(meta 3)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step" style="background:#fff0f5"><span class="step-num bg-[#c2637a]">5</span>
+            <div>
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Función objetivo</p>
+              <div class="formula"><span class="key">Minimizar Z</span> = P1(d1⁻) + P2(d2⁻ + d2⁺) + P3(d3⁺)</div>
+              <p class="text-gray-500 text-xs font-body mt-2">No queremos que falte dinero, ni desviaciones en horas, ni exceso de energía.</p>
+            </div>
+          </div>
+
+          <div class="step" style="background:#fff0f5"><span class="step-num bg-[#c2637a]">6</span>
+            <div class="w-full">
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Solución por sustitución (asumiendo P1 y P2 = 0)</p>
+              <div class="formula text-xs">
+                Sistema: 30x + 50y = 2200 y 2x + 4y = 160<br/>
+                Simplificando: 3x + 5y = 220 y x + 2y = 80<br/>
+                Despejando: x = 80 − 2y<br/>
+                Sustituyendo: 3(80 − 2y) + 5y = 220<br/>
+                &nbsp;&nbsp;→ 240 − 6y + 5y = 220 → 240 − 220 = y → <span class="val">y = 20</span><br/>
+                &nbsp;&nbsp;→ x = 80 − 2(20) = <span class="val">x = 40</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step" style="background:#fff0f5"><span class="step-num bg-[#c2637a]">7</span>
+            <div class="w-full">
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Evaluación de las metas</p>
+              <div class="space-y-2 text-sm font-body">
+                <div class="flex items-start gap-2">
+                  <span class="bg-green-100 text-green-700 font-bold text-xs px-2 py-0.5 rounded-full mt-0.5 flex-shrink-0">P1 ✓</span>
+                  <p class="text-gray-600">Ganancia: 30(40) + 50(20) = 1200 + 1000 = <strong>$2,200</strong>. Se cumple exactamente. d1⁻ = 0.</p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="bg-green-100 text-green-700 font-bold text-xs px-2 py-0.5 rounded-full mt-0.5 flex-shrink-0">P2 ✓</span>
+                  <p class="text-gray-600">Horas: 2(40) + 4(20) = 80 + 80 = <strong>160 horas</strong>. Exactamente la meta. d2⁻ = d2⁺ = 0.</p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="bg-red-100 text-red-700 font-bold text-xs px-2 py-0.5 rounded-full mt-0.5 flex-shrink-0">P3 ✗</span>
+                  <p class="text-gray-600">Energía: 5(40) + 8(20) = 200 + 160 = <strong>360 kWh</strong>. Excede el límite por <strong>60 kWh</strong>. d3⁺ = 60.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabla resumen QM -->
+        <div>
+          <p class="font-display text-sm uppercase text-[#c2637a] mb-3">Resultados (QM for Windows)</p>
+          <div class="overflow-x-auto rounded-xl border border-gray-200 mb-3">
+            <table>
+              <thead><tr><th>Análisis</th><th>Variable</th><th>Valor</th></tr></thead>
+              <tbody>
+                <tr><td>Decision variable</td><td>X1 (pan artesanal)</td><td><strong>40 lotes</strong></td></tr>
+                <tr><td>Decision variable</td><td>X2 (repostería fina)</td><td><strong>20 lotes</strong></td></tr>
+                <tr><td>Priority 1</td><td>Incumplimiento</td><td>0</td></tr>
+                <tr><td>Priority 2</td><td>Incumplimiento</td><td>0</td></tr>
+                <tr class="hl"><td>Priority 3</td><td>Incumplimiento (d3⁺)</td><td>60 kWh exceso</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="conclusion bg-[#c2637a]">
+          <p class="font-display text-xs uppercase tracking-widest opacity-70 mb-1">Conclusión</p>
+          <p class="font-display text-xl mb-1">40 lotes de pan artesanal + 20 lotes de repostería</p>
+          <p class="text-sm font-body opacity-90">P1 ✓ $2,200 ganancia &nbsp;|&nbsp; P2 ✓ 160 horas exactas &nbsp;|&nbsp; P3 ✗ exceso inevitable de 60 kWh</p>
+          <p class="text-xs font-body opacity-70 mt-2">Al ser un modelo de compromisos, lograr P1 y P2 implica aceptar el exceso de energía en P3.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         MÉTODO 3: PROGRAMACIÓN NO LINEAL
+    ══════════════════════════════════════ -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden fade-up d5">
+      <div class="bg-[#b5742a] px-8 py-5">
+        <p class="font-display text-xs uppercase tracking-widest text-white/70 mb-1">Método 3</p>
+        <h2 class="font-display text-2xl text-white uppercase">Programación No Lineal</h2>
+      </div>
+      <div class="p-8 space-y-6">
+
+        <p class="text-gray-700 font-body leading-relaxed">
+          La programación no lineal se utiliza cuando la función objetivo o alguna restricción contiene <strong>relaciones no lineales</strong> (potencias, productos de variables, funciones exponenciales). Refleja situaciones reales donde los ingresos presentan <em>rendimientos decrecientes</em>, es decir, cada unidad adicional genera menos ingreso que la anterior.
+        </p>
+
+        <!-- Enunciado -->
+        <div class="bg-[#FFF8F0] rounded-xl p-6 border-l-4 border-[#F5C9A8]">
+          <p class="font-display text-sm uppercase text-[#b5742a] mb-3">Problema — Fábrica de Productos A y B</p>
+          <p class="text-gray-700 font-body text-sm leading-relaxed mb-4">
+            Una fábrica produce dos productos: <strong>A (x)</strong> y <strong>B (y)</strong>. Los ingresos presentan rendimientos decrecientes por la elasticidad de la demanda:
+          </p>
+          <div class="overflow-x-auto rounded-xl border border-gray-200 mb-4">
+            <table>
+              <thead><tr><th>Concepto</th><th>Producto A</th><th>Producto B</th></tr></thead>
+              <tbody>
+                <tr><td>Ingreso por ventas</td><td>40x − x²</td><td>50y − 2y²</td></tr>
+                <tr><td>Costo de producción</td><td>5x</td><td>8y</td></tr>
+                <tr><td>Beneficio neto</td><td>35x − x²</td><td>42y − 2y²</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-gray-700 font-body text-sm leading-relaxed mb-3">Restricciones del problema:</p>
+          <div class="formula text-sm">
+            2x + 3y ≤ 120 &nbsp;<span class="key">(horas de máquina)</span><br/>
+            x + 2y ≤ 80 &nbsp;&nbsp;&nbsp;<span class="key">(materia prima)</span><br/>
+            x ≥ 0, y ≥ 0
+          </div>
+        </div>
+
+        <!-- Pasos -->
+        <div class="space-y-3">
+          <p class="font-display text-base uppercase text-[#b5742a]">Solución paso a paso</p>
+
+          <div class="step" style="background:#fff8f0"><span class="step-num bg-[#b5742a]">1</span>
+            <div>
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Función objetivo</p>
+              <div class="formula">
+                Z(x,y) = (40x − x² − 5x) + (50y − 2y² − 8y)<br/>
+                <span class="key">Z(x,y) = 35x − x² + 42y − 2y²</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step" style="background:#fff8f0"><span class="step-num bg-[#b5742a]">2</span>
+            <div>
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Derivadas parciales e igualar a cero</p>
+              <p class="text-gray-600 text-xs font-body mb-2">Separamos la función en sus componentes y derivamos cada una para encontrar el máximo sin restricciones:</p>
+              <div class="formula">
+                f(x) = 35x − x² &nbsp;&nbsp;&nbsp;→ <span class="key">f'(x) = 35 − 2x</span><br/>
+                f(y) = 42y − 2y² &nbsp;→ <span class="key">f'(y) = 42 − 4y</span><br/><br/>
+                Igualando a 0:<br/>
+                35 − 2x = 0 → x = 35/2 = <span class="val">17.5</span><br/>
+                42 − 4y = 0 → y = 42/4 = <span class="val">10.5</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step" style="background:#fff8f0"><span class="step-num bg-[#b5742a]">3</span>
+            <div>
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Verificación de factibilidad</p>
+              <div class="space-y-2 text-sm font-body">
+                <div class="flex items-center gap-2">
+                  <span class="bg-green-100 text-green-700 font-bold text-xs px-2 py-0.5 rounded-full">R1 ✓</span>
+                  <p class="text-gray-600">Horas máquina: 2(17.5) + 3(10.5) = 35 + 31.5 = <strong>66.5 ≤ 120</strong></p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="bg-green-100 text-green-700 font-bold text-xs px-2 py-0.5 rounded-full">R2 ✓</span>
+                  <p class="text-gray-600">Materia prima: 17.5 + 2(10.5) = 17.5 + 21 = <strong>38.5 ≤ 80</strong></p>
+                </div>
+              </div>
+              <p class="text-gray-500 text-xs font-body mt-2">El punto sin restricciones cumple todas las restricciones → es directamente la solución óptima.</p>
+            </div>
+          </div>
+
+          <div class="step" style="background:#fff8f0"><span class="step-num bg-[#b5742a]">4</span>
+            <div class="w-full">
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Cálculo del beneficio máximo Z*</p>
+              <div class="formula">
+                Z* = 35(17.5) − (17.5)² + 42(10.5) − 2(10.5)²<br/>
+                Z* = 612.5 − 306.25 + 441 − 220.5<br/>
+                <span class="key">Z* = 526.75</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step" style="background:#fff8f0"><span class="step-num bg-[#b5742a]">5</span>
+            <div class="w-full">
+              <p class="font-display text-sm uppercase text-gray-800 mb-2">Tabla resumen de la solución</p>
+              <div class="overflow-x-auto rounded-xl border border-gray-200">
+                <table>
+                  <thead><tr><th>Variable / Concepto</th><th>Valor Óptimo</th><th>Interpretación</th></tr></thead>
+                  <tbody>
+                    <tr><td>x (Producto A)</td><td><strong>17.5 unidades</strong></td><td>Cantidad óptima de A</td></tr>
+                    <tr><td>y (Producto B)</td><td><strong>10.5 unidades</strong></td><td>Cantidad óptima de B</td></tr>
+                    <tr><td>Ingreso total A</td><td>$612.50</td><td>35 × 17.5</td></tr>
+                    <tr><td>Ingreso total B</td><td>$441.00</td><td>42 × 10.5</td></tr>
+                    <tr class="hl"><td>Beneficio total Z*</td><td><strong>$526.75</strong></td><td>Beneficio máximo alcanzable</td></tr>
+                    <tr><td>Horas máquina usadas</td><td>66.5 de 120</td><td>Recurso no saturado</td></tr>
+                    <tr><td>Materia prima usada</td><td>38.5 de 80</td><td>Recurso no saturado</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="conclusion bg-[#b5742a]">
+          <p class="font-display text-xs uppercase tracking-widest opacity-70 mb-1">Conclusión</p>
+          <p class="font-display text-xl mb-1">Producir 17.5 unidades de A + 10.5 unidades de B</p>
+          <p class="text-2xl font-display">$526.75 <span class="text-sm font-body font-normal opacity-80">de beneficio máximo</span></p>
+          <p class="text-xs font-body opacity-70 mt-2">Ambas restricciones tienen holgura — los recursos no están saturados en el óptimo.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARATIVA FINAL -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d6">
+      <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
+        <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Comparativa de los Tres Métodos</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4 text-center">
+        <div class="bg-[#EBF8FB] rounded-xl p-5 border-t-4 border-[#2B9FB5]">
+          <p class="font-display text-xs uppercase text-[#2B9FB5] mb-2">Programación Entera</p>
+          <p class="font-display text-3xl text-gray-900 mb-1">$390</p>
+          <p class="text-gray-500 text-xs font-body">Taller textil: 4 camisas + 3 pantalones</p>
+          <p class="text-gray-400 text-xs mt-2">Variables enteras · 1 objetivo</p>
+        </div>
+        <div class="bg-[#FFF0F5] rounded-xl p-5 border-t-4 border-[#c2637a]">
+          <p class="font-display text-xs uppercase text-[#c2637a] mb-2">Por Metas</p>
+          <p class="font-display text-3xl text-gray-900 mb-1">3 metas</p>
+          <p class="text-gray-500 text-xs font-body">Panadería: 40 pan + 20 repostería</p>
+          <p class="text-gray-400 text-xs mt-2">Múltiples objetivos priorizados</p>
+        </div>
+        <div class="bg-[#FFF8F0] rounded-xl p-5 border-t-4 border-[#b5742a]">
+          <p class="font-display text-xs uppercase text-[#b5742a] mb-2">No Lineal</p>
+          <p class="font-display text-3xl text-gray-900 mb-1">$526.75</p>
+          <p class="text-gray-500 text-xs font-body">Fábrica: 17.5 de A + 10.5 de B</p>
+          <p class="text-gray-400 text-xs mt-2">Derivadas parciales · Rendimiento decreciente</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAV PREV / NEXT -->
+    <div class="flex justify-between gap-4 fade-up d6">
+      <a href="./Tema1.html" class="flex-1 bg-white/20 hover:bg-white/30 text-white font-display text-sm uppercase rounded-xl px-6 py-4 text-center transition-colors">← Tema 1</a>
+      <a href="./Tema3.html" class="flex-1 bg-white rounded-xl px-6 py-4 text-center font-display text-sm uppercase text-[#1E7A8A] hover:bg-[#D6EEF3] transition-colors shadow-lg">Tema 3 →</a>
+    </div>
+
+  </div>
+
+  <footer class="bg-[#1E7A8A]/50 border-t border-white/20 py-6 text-center">
+    <p class="text-white/70 text-sm font-body">Keinth Viales Reyes · C28373 · Métodos Cuantitativos 2024–2025</p>
+  </footer>
+
+</body>
+</html>

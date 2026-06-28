@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tema 5 – Análisis de Markov</title>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { display: ['"Black Han Sans"', 'sans-serif'], body: ['Nunito', 'sans-serif'] },
+          backgroundImage: {
+            grid: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40M0 40h40M0 0v40M40 0v40' stroke='%23ffffff22' stroke-width='1'/%3E%3C/svg%3E\")",
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'Nunito', sans-serif; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.5s ease forwards; }
+    .d1{animation-delay:.05s;opacity:0} .d2{animation-delay:.15s;opacity:0} .d3{animation-delay:.25s;opacity:0} .d4{animation-delay:.35s;opacity:0} .d5{animation-delay:.45s;opacity:0} .d6{animation-delay:.55s;opacity:0}
+    table { border-collapse: collapse; width: 100%; }
+    th { background: #2B9FB5; color: white; padding: 10px 14px; text-align: center; font-family: 'Black Han Sans', sans-serif; letter-spacing: .04em; font-size: 13px; }
+    td { padding: 9px 14px; border-bottom: 1px solid #e5e7eb; text-align: center; font-size: 13px; }
+    td:first-child { text-align: left; font-weight: 700; }
+    tr:nth-child(even) td { background: #f0fafc; }
+  </style>
+</head>
+<body class="min-h-screen bg-[#2B9FB5] bg-grid">
+
+ <nav class="sticky top-0 z-50 bg-[#1E7A8A]/90 backdrop-blur-md border-b border-white/20 shadow-lg">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="./index.html" class="text-white font-display text-base tracking-wide hover:text-[#A8D8E0] transition-colors">← Portafolio</a>
+      <div class="flex gap-2 flex-wrap justify-end">
+        <a href="./Tema1.html" class="bg-white text-[#1E7A8A] text-xs font-bold px-3 py-1 rounded-full">T1</a>
+        <a href="./Tema2.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T2</a>
+        <a href="./Tema3.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T3</a>
+        <a href="./Tema4.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T4</a>
+        <a href="./Tema5.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T5</a>
+        <a href="./Tema6.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T6</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-6 py-12 space-y-8">
+
+    <div class="bg-white rounded-3xl shadow-2xl p-10 text-center fade-up d1">
+      <div class="inline-block bg-[#A8D8E0] px-8 py-4 rounded-2xl mb-2">
+        <p class="font-display text-sm uppercase tracking-widest text-[#1E7A8A] mb-1">Tema 5</p>
+        <h1 class="font-display text-3xl md:text-4xl text-gray-900 uppercase leading-tight">
+          Análisis de Markov
+        </h1>
+      </div>
+      <p class="text-gray-500 text-sm font-body max-w-xl mx-auto mt-4">
+        Caso de Estudio: Pronóstico y Estado Estable de Cadenas de Supermercados en Limón
+      </p>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
+      <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
+        <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Contenido</h2>
+      </div>
+      <p class="text-gray-700 font-body leading-relaxed mb-4 text-sm">
+        La presentación abordó el análisis de Markov como una herramienta para estudiar y predecir el comportamiento de sistemas que cambian con el tiempo a través de diferentes estados. Se explicó cómo este método utiliza <strong>probabilidades de transición</strong> para estimar la evolución de un sistema, basándose únicamente en su estado actual.
+      </p>
+      <p class="text-gray-700 font-body leading-relaxed text-sm">
+        Además, se presentaron conceptos como el <strong>vector inicial de estado</strong>, la <strong>matriz de probabilidades de transición</strong> y el <strong>estado estable</strong>, los cuales permiten realizar pronósticos y analizar el comportamiento a largo plazo. Mediante ejemplos prácticos relacionados con la competencia entre empresas y el mantenimiento de maquinaria, se mostró cómo el análisis de Markov puede apoyar la toma de decisiones estratégicas mediante el uso de modelos probabilísticos.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d3">
+      <div class="inline-block bg-[#F5A8B8] rounded-xl px-6 py-2 mb-6">
+        <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Conceptos Fundamentales</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-[#f0fafc] rounded-xl p-5 border-l-4 border-[#2B9FB5]">
+          <h3 class="font-display text-sm uppercase text-[#1E7A8A] mb-2">Estado</h3>
+          <p class="text-gray-600 text-sm font-body">Condición en que puede encontrarse el sistema en un momento dado. Ejemplos: clientes fidelizados en Maxi Palí, Megasuper o Comercios Locales.</p>
+        </div>
+        <div class="bg-[#f0fafc] rounded-xl p-5 border-l-4 border-[#2B9FB5]">
+          <h3 class="font-display text-sm uppercase text-[#1E7A8A] mb-2">Probabilidad de Transición</h3>
+          <p class="text-gray-600 text-sm font-body">La probabilidad de migrar de una alternativa comercial a otra en el período siguiente. La suma matemática de cada fila de la matriz siempre debe ser igual a 1.</p>
+        </div>
+        <div class="bg-[#f0fafc] rounded-xl p-5 border-l-4 border-[#F5A8B8]">
+          <h3 class="font-display text-sm uppercase text-[#1E7A8A] mb-2">Vector de Estado</h3>
+          <p class="text-gray-600 text-sm font-body">Distribución porcentual de la participación de mercado en un punto temporal de control (t). Se actualiza secuencialmente mediante multiplicación matricial.</p>
+        </div>
+        <div class="bg-[#f0fafc] rounded-xl p-5 border-l-4 border-[#F5A8B8]">
+          <h3 class="font-display text-sm uppercase text-[#1E7A8A] mb-2">Estado Estable</h3>
+          <p class="text-gray-600 text-sm font-body">Punto de equilibrio en el largo plazo donde las probabilidades ya no experimentan variaciones (π), permitiendo proyectar el ordenamiento final del mercado.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d3 space-y-6">
+      <div class="inline-block bg-[#F5C9A8] rounded-xl px-6 py-2 mb-2">
+        <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Caso Práctico: Minoristas en Limón</h2>
+      </div>
+      <p class="text-gray-700 font-body text-sm leading-relaxed">
+        El comercio minorista de la región de Limón se divide en tres alternativas principales: <strong>Maxi Palí (M)</strong>, <strong>Megasuper (G)</strong> y <strong>Comercios Locales (L)</strong>. Las familias varían sus preferencias anualmente basándose en precios, promociones, cercanía y filas.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-4 text-xs font-body">
+        <div class="md:col-span-1 bg-gray-50 border border-gray-200 p-4 rounded-xl space-y-2">
+          <p class="font-display text-sm uppercase text-gray-700 border-b pb-1">Participación Inicial π(0)</p>
+          <p>• <strong>Maxi Palí (M):</strong> 45% (0.45)</p>
+          <p>• <strong>Megasuper (G):</strong> 35% (0.35)</p>
+          <p>• <strong>Comercios Locales (L):</strong> 20% (0.20)</p>
+        </div>
+        <div class="md:col-span-2 overflow-x-auto rounded-xl border border-gray-200">
+          <table>
+            <thead>
+              <tr><th class="text-left">Desde \ Hacia</th><th>M</th><th>G</th><th>L</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Maxi Palí (M)</td><td class="font-bold text-[#1E7A8A]">0.88</td><td>0.07</td><td>0.05</td></tr>
+              <tr><td>Megasuper (G)</td><td>0.10</td><td class="font-bold text-[#1E7A8A]">0.85</td><td>0.05</td></tr>
+              <tr><td>Locales (L)</td><td>0.15</td><td>0.10</td><td class="font-bold text-[#1E7A8A]">0.75</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="space-y-4 pt-2">
+        <h3 class="font-display text-base uppercase text-gray-800">Cálculo de Proyecciones Anuales</h3>
+        
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-3 text-xs font-body">
+          <p class="font-bold text-[#2B9FB5] uppercase text-sm font-display">Período 1: π(1) = π(0) · P</p>
+          <p class="font-mono bg-white p-2 rounded border border-gray-100 leading-relaxed">
+            M = 0.45(0.88) + 0.35(0.10) + 0.20(0.15) = <strong>0.4610 (46.10%)</strong><br>
+            G = 0.45(0.07) + 0.35(0.85) + 0.20(0.10) = <strong>0.3490 (34.90%)</strong><br>
+            L = 0.45(0.05) + 0.35(0.05) + 0.20(0.75) = <strong>0.1900 (19.00%)</strong>
+          </p>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-3 text-xs font-body">
+          <p class="font-bold text-[#2B9FB5] uppercase text-sm font-display">Período 2: π(2) = π(1) · P</p>
+          <p class="font-mono bg-white p-2 rounded border border-gray-100 leading-relaxed">
+            M = 0.4610(0.88) + 0.3490(0.10) + 0.1900(0.15) = <strong>0.46908 (46.91%)</strong><br>
+            G = 0.4610(0.07) + 0.3490(0.85) + 0.1900(0.10) = <strong>0.34792 (34.79%)</strong><br>
+            L = 0.4610(0.05) + 0.3490(0.05) + 0.1900(0.75) = <strong>0.18300 (18.30%)</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <h3 class="font-display text-sm uppercase text-gray-800">Tabla de Pronóstico Consolidada</h3>
+        <div class="overflow-x-auto rounded-xl border border-gray-200">
+          <table>
+            <thead>
+              <tr><th>Periodo</th><th>Maxi Palí (M)</th><th>Megasuper (G)</th><th>Locales (L)</th><th>Suma</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Año 0</td><td>45.00% (0.45000)</td><td>35.00% (0.35000)</td><td>20.00% (0.20000)</td><td class="font-bold">1.00</td></tr>
+              <tr><td>Año 1</td><td>46.10% (0.46100)</td><td>34.90% (0.34900)</td><td>19.00% (0.19000)</td><td class="font-bold">1.00</td></tr>
+              <tr><td>Año 2</td><td>46.91% (0.46908)</td><td>34.79% (0.34792)</td><td>18.30% (0.18300)</td><td class="font-bold">1.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d4 space-y-6">
+      <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2">
+        <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Planteamiento del Estado Estable</h2>
+      </div>
+      <p class="text-gray-700 font-body text-sm leading-relaxed">
+        Para calcular la distribución permanente a largo plazo de forma práctica con una calculadora matricial, se estructuran las ecuaciones del sistema de transiciones dinámicas (despejando a cero) y se sustituye una de ellas por la condición restrictiva de mercado total igual a 1 (<span class="font-mono">M + G + L = 1</span>).
+      </p>
+
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table>
+          <thead>
+            <tr><th>Ecuación</th><th>Coef. M</th><th>Coef. G</th><th>Coef. L</th><th>Resultado</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="font-bold">1 (Despeje M)</td><td>0.12</td><td>-0.10</td><td>-0.15</td><td>0</td></tr>
+            <tr><td class="font-bold">2 (Despeje G)</td><td>-0.07</td><td>0.15</td><td>-0.10</td><td>0</td></tr>
+            <tr><td class="font-bold">3 (Mercado Total)</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="font-display text-sm uppercase text-[#1E7A8A] mb-3">Convergencia de Largo Plazo (Resultados)</h3>
+      <div class="grid grid-cols-3 gap-3">
+        <div class="bg-[#2B9FB5] text-white rounded-xl p-4 text-center shadow-md">
+          <p class="font-display text-xs uppercase mb-1">Maxi Palí (M)</p>
+          <p class="font-display text-2xl">49.24%</p>
+          <p class="text-[10px] opacity-75 font-mono">π = 0.4924</p>
+        </div>
+        <div class="bg-[#1E7A8A] text-white rounded-xl p-4 text-center shadow-md">
+          <p class="font-display text-xs uppercase mb-1">Megasuper (G)</p>
+          <p class="font-display text-2xl">34.09%</p>
+          <p class="text-[10px] opacity-75 font-mono">π = 0.3409</p>
+        </div>
+        <div class="bg-[#A8D8E0] text-[#1E7A8A] rounded-xl p-4 text-center shadow-md">
+          <p class="font-display text-xs uppercase mb-1">Locales (L)</p>
+          <p class="font-display text-2xl">16.67%</p>
+          <p class="text-[10px] opacity-75 font-mono">π = 0.1667</p>
+        </div>
+      </div>
+
+      <div class="bg-[#f0fafc] rounded-xl p-4 border border-gray-100 text-xs text-gray-700 leading-relaxed font-body">
+        <strong>Interpretación Final Estratégica:</strong> 
+        En el largo plazo, si las condiciones comerciales permanecen estables, la cadena dominante de la zona es <strong>Maxi Palí</strong> al acaparar el 49.24% del mercado total. Por el contrario, la cadena <strong>Megasuper</strong> debe implementar urgentemente estrategias de fidelización y promociones para mitigar la fuga de clientes hacia su competidor principal.
+      </div>
+    </div>
+
+
+    <div class="flex justify-between gap-4 fade-up d6">
+      <a href="./Tema4.html" class="flex-1 bg-white/20 hover:bg-white/30 text-white font-display text-sm uppercase rounded-xl px-6 py-4 text-center transition-colors">
+        ← Tema 4
+      </a>
+      <a href="./Tema6.html" class="flex-1 bg-white rounded-xl px-6 py-4 text-center font-display text-sm uppercase text-[#1E7A8A] hover:bg-[#D6EEF3] transition-colors shadow-lg">
+        Tema 6 →
+      </a>
+    </div>
+
+  </div>
+
+  <footer class="bg-[#1E7A8A]/50 border-t border-white/20 py-6 text-center">
+    <p class="text-white/70 text-sm font-body">Keinth Viales Reyes · C28373 · Métodos Cuantitativos 2024–2025</p>
+  </footer>
+
+</body>
+</html>
