@@ -45,19 +45,99 @@
 <body class="min-h-screen bg-[#2B9FB5] bg-grid">
 
   <!-- NAV -->
-   <nav class="sticky top-0 z-50 bg-[#1E7A8A]/90 backdrop-blur-md border-b border-white/20 shadow-lg">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="./index.html" class="text-white font-display text-base tracking-wide hover:text-[#A8D8E0] transition-colors">← Portafolio</a>
-      <div class="flex gap-2 flex-wrap justify-end">
-        <a href="./Tema1.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T1</a>
-        <a href="./Tema2.html" class="bg-white text-[#1E7A8A] text-xs font-bold px-3 py-1 rounded-full">T2</a>
-        <a href="./Tema3.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T3</a>
-        <a href="./Tema4.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T4</a>
-        <a href="./Tema5.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T5</a>
-        <a href="./Tema6.html" class="text-white/70 hover:text-white text-xs font-bold px-3 py-1 rounded-full transition-colors">T6</a>
-      </div>
+ <nav class="sticky top-0 z-50 bg-[#1E7A8A]/90 backdrop-blur-md border-b border-white/20 shadow-lg">
+
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <!-- Logo -->
+        <a href="./index.html"
+            class="text-white font-display text-lg tracking-wide hover:text-[#A8D8E0] transition">
+            ← Portafolio
+        </a>
+
+        <!-- Menú desplegable -->
+        <div class="relative group">
+
+            <button
+                class="flex items-center gap-2 bg-white/10 hover:bg-white hover:text-[#1E7A8A] text-white font-bold px-5 py-2 rounded-full transition duration-300">
+
+                📚 Temas
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4 transition-transform group-hover:rotate-180"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+
+                    <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"/>
+
+                </svg>
+
+            </button>
+
+            <!-- Dropdown -->
+
+            <div
+                class="absolute right-0 mt-3 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+
+                <a href="./Tema1.html"
+                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
+                    <p class="font-bold text-[#1E7A8A]">Tema 1</p>
+                    <p class="text-sm text-gray-500">
+                        Modelos de Transporte y Asignación
+                    </p>
+                </a>
+
+                <a href="./Tema2.html"
+                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
+                    <p class="font-bold text-[#1E7A8A]">Tema 2</p>
+                    <p class="text-sm text-gray-500">
+                        Programación por Metas y No Lineal
+                    </p>
+                </a>
+
+                <a href="./Tema3.html"
+                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
+                    <p class="font-bold text-[#1E7A8A]">Tema 3</p>
+                    <p class="text-sm text-gray-500">
+                        Modelo de Redes
+                    </p>
+                </a>
+
+                <a href="./Tema4.html"
+                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
+                    <p class="font-bold text-[#1E7A8A]">Tema 4</p>
+                    <p class="text-sm text-gray-500">
+                        Modelo de Simulación
+                    </p>
+                </a>
+
+                <a href="./Tema5.html"
+                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
+                    <p class="font-bold text-[#1E7A8A]">Tema 5</p>
+                    <p class="text-sm text-gray-500">
+                        Análisis de Markov
+                    </p>
+                </a>
+
+                <a href="./Tema6.html"
+                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
+                    <p class="font-bold text-[#1E7A8A]">Tema 6</p>
+                    <p class="text-sm text-gray-500">
+                        Control Estadístico
+                    </p>
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
-  </nav>
+
+</nav>
 
   <div class="max-w-4xl mx-auto px-6 py-12 space-y-8">
 
