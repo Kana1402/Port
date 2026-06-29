@@ -22,124 +22,58 @@
     body { font-family: 'Nunito', sans-serif; }
     @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
     .fade-up { animation: fadeUp 0.5s ease forwards; }
-    .d1{animation-delay:.05s;opacity:0}.d2{animation-delay:.15s;opacity:0}.d3{animation-delay:.25s;opacity:0}
-    .d4{animation-delay:.35s;opacity:0}.d5{animation-delay:.45s;opacity:0}.d6{animation-delay:.55s;opacity:0}
+    .d1{animation-delay:.05s;opacity:0} .d2{animation-delay:.15s;opacity:0} .d3{animation-delay:.25s;opacity:0}
+    .d4{animation-delay:.35s;opacity:0} .d5{animation-delay:.45s;opacity:0} .d6{animation-delay:.55s;opacity:0}
+
     table { border-collapse:collapse; width:100%; }
     th { background:#2B9FB5; color:white; padding:10px 14px; text-align:left; font-family:'Black Han Sans',sans-serif; letter-spacing:.04em; font-size:13px; }
     td { padding:9px 14px; border-bottom:1px solid #e5e7eb; font-size:13px; }
     tr:nth-child(even) td { background:#f0fafc; }
     .hl td { background:#fef9c3!important; font-weight:700; }
-    .tab-btn { cursor:pointer; transition:all .2s; }
-    .tab-btn.active { background:#2B9FB5; color:white; }
-    .tab-btn:not(.active) { background:#f0fafc; color:#1E7A8A; }
-    .tab-panel { display:none; }
-    .tab-panel.active { display:block; }
-    .step { display:flex; gap:16px; align-items:flex-start; background:#f0fafc; border-radius:12px; padding:18px; }
-    .step-num { flex-shrink:0; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Black Han Sans',sans-serif; font-size:13px; color:white; }
-    .formula { background:#1a1a2e; color:#a8d8e0; font-family:monospace; font-size:13px; padding:14px 18px; border-radius:10px; line-height:1.8; }
-    .formula span.key { color:#f5a8b8; }
-    .formula span.val { color:#fef9c3; }
+
+    .step { display:flex; gap:16px; align-items:flex-start; border-radius:12px; padding:18px; }
+    .step-num { flex-shrink:0; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Black Han Sans',sans-serif; font-size:13px; color:white; }
+
+    .formula { background:#1a1a2e; color:#a8d8e0; font-family:monospace; font-size:13px; padding:14px 18px; border-radius:10px; line-height:2; }
+    .formula .key { color:#f5a8b8; font-weight:bold; }
+    .formula .val { color:#fef08a; font-weight:bold; }
+    .formula .gray { color:#6b7280; }
+    .formula .ok { color:#86efac; font-weight:bold; }
+
     .conclusion { border-radius:14px; padding:22px 24px; color:white; }
+
+    .why-box { background: linear-gradient(135deg, #fef9e7, #fef3c7); border-left: 4px solid #f59e0b; border-radius: 12px; padding: 14px 18px; }
+    .how-box { background: linear-gradient(135deg, #eff6ff, #dbeafe); border-left: 4px solid #3b82f6; border-radius: 12px; padding: 14px 18px; }
+    .example-box { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-left: 4px solid #22c55e; border-radius: 12px; padding: 14px 18px; }
+    .key-box { background: linear-gradient(135deg, #fdf4ff, #f3e8ff); border-left: 4px solid #a855f7; border-radius: 12px; padding: 14px 18px; }
   </style>
 </head>
 <body class="min-h-screen bg-[#2B9FB5] bg-grid">
 
   <!-- NAV -->
- <nav class="sticky top-0 z-50 bg-[#1E7A8A]/90 backdrop-blur-md border-b border-white/20 shadow-lg">
-
+  <nav class="sticky top-0 z-50 bg-[#1E7A8A]/90 backdrop-blur-md border-b border-white/20 shadow-lg">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-
-        <!-- Logo -->
-        <a href="./index.html"
-            class="text-white font-display text-lg tracking-wide hover:text-[#A8D8E0] transition">
-            ← Portafolio
-        </a>
-
-        <!-- Menú desplegable -->
-        <div class="relative group">
-
-            <button
-                class="flex items-center gap-2 bg-white/10 hover:bg-white hover:text-[#1E7A8A] text-white font-bold px-5 py-2 rounded-full transition duration-300">
-
-                📚 Temas
-
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4 transition-transform group-hover:rotate-180"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-
-                    <path stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 9l-7 7-7-7"/>
-
-                </svg>
-
-            </button>
-
-            <!-- Dropdown -->
-
-            <div
-                class="absolute right-0 mt-3 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-
-                <a href="./Tema1.html"
-                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
-                    <p class="font-bold text-[#1E7A8A]">Tema 1</p>
-                    <p class="text-sm text-gray-500">
-                        Modelos de Transporte y Asignación
-                    </p>
-                </a>
-
-                <a href="./Tema2.html"
-                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
-                    <p class="font-bold text-[#1E7A8A]">Tema 2</p>
-                    <p class="text-sm text-gray-500">
-                        Programación por Metas y No Lineal
-                    </p>
-                </a>
-
-                <a href="./Tema3.html"
-                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
-                    <p class="font-bold text-[#1E7A8A]">Tema 3</p>
-                    <p class="text-sm text-gray-500">
-                        Modelo de Redes
-                    </p>
-                </a>
-
-                <a href="./Tema4.html"
-                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
-                    <p class="font-bold text-[#1E7A8A]">Tema 4</p>
-                    <p class="text-sm text-gray-500">
-                        Modelo de Simulación
-                    </p>
-                </a>
-
-                <a href="./Tema5.html"
-                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
-                    <p class="font-bold text-[#1E7A8A]">Tema 5</p>
-                    <p class="text-sm text-gray-500">
-                        Análisis de Markov
-                    </p>
-                </a>
-
-                <a href="./Tema6.html"
-                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
-                    <p class="font-bold text-[#1E7A8A]">Tema 6</p>
-                    <p class="text-sm text-gray-500">
-                        Control Estadístico
-                    </p>
-                </a>
-
-            </div>
-
+      <a href="./index.html" class="text-white font-display text-lg tracking-wide hover:text-[#A8D8E0] transition">← Portafolio</a>
+      <div class="relative group">
+        <button class="flex items-center gap-2 bg-white/10 hover:bg-white hover:text-[#1E7A8A] text-white font-bold px-5 py-2 rounded-full transition duration-300">
+          📚 Temas
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div class="absolute right-0 mt-3 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+          <a href="./Tema1.html" class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition"><p class="font-bold text-[#1E7A8A]">Tema 1</p><p class="text-sm text-gray-500">Modelos de Transporte y Asignación</p></a>
+          <a href="./Tema2.html" class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition"><p class="font-bold text-[#1E7A8A]">Tema 2</p><p class="text-sm text-gray-500">Programación por Metas y No Lineal</p></a>
+          <a href="./Tema3.html" class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition"><p class="font-bold text-[#1E7A8A]">Tema 3</p><p class="text-sm text-gray-500">Modelo de Redes</p></a>
+          <a href="./Tema4.html" class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition"><p class="font-bold text-[#1E7A8A]">Tema 4</p><p class="text-sm text-gray-500">Modelo de Simulación</p></a>
+          <a href="./Tema5.html" class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition"><p class="font-bold text-[#1E7A8A]">Tema 5</p><p class="text-sm text-gray-500">Análisis de Markov</p></a>
+          <a href="./Tema6.html" class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition"><p class="font-bold text-[#1E7A8A]">Tema 6</p><p class="text-sm text-gray-500">Control Estadístico</p></a>
         </div>
-
+      </div>
     </div>
+  </nav>
 
-</nav>
-
-  <div class="max-w-4xl mx-auto px-6 py-12 space-y-8">
+  <div class="max-w-4xl mx-auto px-6 py-12 space-y-10">
 
     <!-- HERO -->
     <div class="bg-white rounded-3xl shadow-2xl p-10 text-center fade-up d1">
@@ -149,69 +83,44 @@
           Programación Entera,<br/>por Metas y No Lineal
         </h1>
       </div>
+      <p class="text-gray-500 text-sm font-body max-w-xl mx-auto mt-4">Tres enfoques de optimización para decisiones reales: enteros, múltiples objetivos y funciones con rendimiento decreciente.</p>
     </div>
 
     <!-- CONTENIDO GENERAL -->
-  <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
-  
-  <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
-    <h2 class="font-display text-xl text-gray-900 uppercase">Contenido</h2>
-  </div>
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
+      <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
+        <h2 class="font-display text-xl text-gray-900 uppercase">Contenido</h2>
+      </div>
+      <div class="text-gray-700 font-body leading-relaxed space-y-4 text-justify">
+        <p>En esta presentación se explora cómo se pueden usar modelos matemáticos para tomar mejores decisiones en logística. Se trabajaron tres enfoques principales: <strong>programación entera</strong>, <strong>programación por metas</strong> y <strong>programación no lineal</strong>. Cada uno aborda el problema desde una perspectiva diferente dependiendo de lo que se quiera priorizar.</p>
+        <p>La <strong>programación entera</strong> se usa cuando las decisiones deben ser números enteros (cantidad de prendas, viajes, máquinas). La <strong>programación por metas</strong> no busca una sola solución óptima, sino cumplir varias metas simultáneamente con orden de prioridad. La <strong>programación no lineal</strong> refleja situaciones reales donde los ingresos presentan rendimientos decrecientes.</p>
+        <p>La idea clave es que no existe una única respuesta correcta: todo depende de qué se quiera priorizar en la toma de decisiones.</p>
+      </div>
+    </div>
 
-  <div class="text-gray-700 font-body leading-relaxed space-y-4 text-justify">
-
-    <p>
-      En esta presentación se explora cómo se pueden usar modelos matemáticos para tomar mejores decisiones en logística dentro de una empresa real (Transportes Logísticos del Caribe S.A. en Limón). La idea general es ver cómo la investigación de operaciones ayuda a resolver problemas complejos de transporte de forma más estructurada.
-    </p>
-
-    <p>
-      Se trabajaron tres enfoques principales: <strong>programación entera</strong>, <strong>programación por metas</strong> y <strong>programación no lineal</strong>. Cada uno aborda el problema desde una perspectiva diferente dependiendo de lo que se quiera priorizar.
-    </p>
-
-    <p>
-      La programación entera se usa cuando las decisiones deben ser números reales del mundo (por ejemplo, cantidad de viajes completos). Aquí se aplican métodos como <strong>Branch and Bound</strong> o <strong>Gomory</strong> para encontrar soluciones válidas y prácticas.
-    </p>
-
-    <p>
-      En la programación por metas la idea cambia un poco: no se busca una sola “mejor” solución, sino cumplir varias metas al mismo tiempo (ganancias, horas de trabajo, ambiente, etc.). Se usan prioridades y desviaciones para ver qué tan lejos o cerca se está de cada objetivo.
-    </p>
-
-    <p>
-      La programación no lineal se vuelve más realista porque los costos no siempre crecen de forma constante. Por ejemplo, el desgaste de los camiones o el mantenimiento. Para resolver esto se usan herramientas como el Solver con el método GRG Nonlinear.
-    </p>
-
-    <p>
-      En el caso práctico, se analiza el transporte de contenedores desde Matina hasta Moín. Con programación entera se obtiene una ganancia de aproximadamente <strong>$2,350</strong> con una combinación de viajes secos y refrigerados.
-    </p>
-
-    <p>
-      Con programación por metas, en cambio, se prioriza cumplir objetivos como rentabilidad y horas de trabajo, ajustando la solución aunque implique superar un poco otros límites como el consumo de combustible.
-    </p>
-
-    <p>
-      Finalmente, la programación no lineal muestra una visión más conservadora al incluir costos de desgaste, dando una utilidad menor pero más realista. Al final, la idea clave es que no existe una única respuesta correcta: todo depende de qué se quiera priorizar en la toma de decisiones.
-    </p>
-
-  </div>
-
-</div>
-
-    <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════
          MÉTODO 1: PROGRAMACIÓN ENTERA
-    ══════════════════════════════════════ -->
+    ══════════════════════════════ -->
     <div class="bg-white rounded-2xl shadow-xl overflow-hidden fade-up d3">
       <div class="bg-[#2B9FB5] px-8 py-5">
         <p class="font-display text-xs uppercase tracking-widest text-white/70 mb-1">Método 1</p>
         <h2 class="font-display text-2xl text-white uppercase">Programación Entera</h2>
       </div>
-      <div class="p-8 space-y-6">
+      <div class="p-8 space-y-8">
 
-        <!-- Descripción -->
+        <!-- QUÉ ES -->
         <p class="text-gray-700 font-body leading-relaxed">
           La programación entera es una extensión de la programación lineal donde las variables de decisión deben tomar valores <strong>enteros</strong> (0, 1, 2, 3…). Es esencial cuando no se pueden fraccionar unidades físicas, como número de prendas, máquinas o trabajadores.
         </p>
 
-        <!-- Enunciado -->
+        <!-- POR QUÉ -->
+        <div class="why-box text-sm font-body text-gray-800 space-y-2">
+          <p class="font-bold text-amber-700 uppercase text-xs tracking-wider mb-2">🤔 ¿Por qué no simplemente usar Programación Lineal normal?</p>
+          <p>La Programación Lineal (PL) puede darte soluciones como "produce 4.7 camisas" o "compra 2.3 camiones". En la vida real eso no existe: no puedes hacer 0.7 de una camisa. Si redondeas sin cuidado, la solución resultante puede <strong>violar las restricciones</strong> o no ser la verdaderamente óptima.</p>
+          <p class="mt-1">La Programación Entera resuelve esto correctamente: busca la mejor combinación de valores enteros que maximice la ganancia <strong>sin violar ningún límite</strong>.</p>
+        </div>
+
+        <!-- ENUNCIADO -->
         <div class="bg-[#f0fafc] rounded-xl p-6 border-l-4 border-[#2B9FB5]">
           <p class="font-display text-sm uppercase text-[#1E7A8A] mb-3">Problema — Taller Textil</p>
           <p class="text-gray-700 font-body text-sm leading-relaxed mb-4">
@@ -219,139 +128,204 @@
           </p>
           <div class="overflow-x-auto rounded-xl border border-gray-200 mb-3">
             <table>
-              <thead><tr><th>Recurso</th><th>Por camisa</th><th>Por pantalón</th><th>Disponible</th></tr></thead>
+              <thead><tr><th>Recurso</th><th>Por camisa (x₁)</th><th>Por pantalón (x₂)</th><th>Disponible (máx.)</th></tr></thead>
               <tbody>
-                <tr><td>Tela (metros)</td><td>1</td><td>2</td><td>10</td></tr>
-                <tr><td>Tiempo (horas)</td><td>2</td><td>1</td><td>11</td></tr>
-                <tr><td>Botones (cajas)</td><td>1</td><td>1</td><td>9</td></tr>
+                <tr><td>Tela (metros)</td><td>1 m</td><td>2 m</td><td>10 m</td></tr>
+                <tr><td>Tiempo (horas)</td><td>2 h</td><td>1 h</td><td>11 h</td></tr>
+                <tr><td>Botones (cajas)</td><td>1 caja</td><td>1 caja</td><td>9 cajas</td></tr>
               </tbody>
             </table>
           </div>
-          <p class="text-gray-600 font-body text-sm">Las prendas se confeccionan completas → las cantidades <strong>deben ser enteros</strong>.</p>
+          <p class="text-gray-600 font-body text-sm">Las prendas se confeccionan completas → las cantidades <strong>deben ser números enteros</strong> (no se pueden hacer "media camisa").</p>
         </div>
 
-        <!-- Solución paso a paso -->
-        <div class="space-y-3">
+        <!-- PASOS -->
+        <div class="space-y-4">
           <p class="font-display text-base uppercase text-[#2B9FB5]">Solución paso a paso</p>
 
-          <div class="step"><span class="step-num bg-[#2B9FB5]">1</span>
-            <div>
-              <p class="font-display text-sm uppercase text-gray-800 mb-1">Identificación de variables</p>
-              <p class="text-gray-600 text-sm font-body">x₁ = número de camisas a producir &nbsp;|&nbsp; x₂ = número de pantalones a producir</p>
+          <!-- PASO 1 -->
+          <div class="step bg-[#f0fafc]">
+            <span class="step-num bg-[#2B9FB5]">1</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Identificar las variables de decisión</p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-1">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-1">📋 ¿Qué son y cómo se definen?</p>
+                <p>Las <strong>variables de decisión</strong> son las incógnitas del problema: lo que queremos decidir. En este caso, queremos saber <em>cuánto producir de cada prenda</em>.</p>
+              </div>
+              <div class="formula text-sm">
+                x₁ = número de <span class="val">camisas</span> a producir por semana<br>
+                x₂ = número de <span class="val">pantalones</span> a producir por semana<br>
+                <span class="gray">// Ambas deben ser enteras: x₁, x₂ ∈ {0, 1, 2, 3, ...}</span>
+              </div>
             </div>
           </div>
 
-          <div class="step"><span class="step-num bg-[#2B9FB5]">2</span>
-            <div>
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Función objetivo</p>
-              <div class="formula"><span class="key">Máx Z</span> = <span class="val">60</span>x₁ + <span class="val">50</span>x₂</div>
-            </div>
-          </div>
-
-          <div class="step"><span class="step-num bg-[#2B9FB5]">3</span>
-            <div>
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Restricciones</p>
+          <!-- PASO 2 -->
+          <div class="step bg-[#f0fafc]">
+            <span class="step-num bg-[#2B9FB5]">2</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Escribir la Función Objetivo</p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-1">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-1">📋 ¿Qué es y cómo se construye?</p>
+                <p>La <strong>función objetivo</strong> es la fórmula que queremos maximizar (o minimizar). Aquí queremos la <em>ganancia total</em>, que es la suma de lo que gana cada producto multiplicado por su cantidad.</p>
+                <p>Ganancia = $60 por camisa × cantidad de camisas + $50 por pantalón × cantidad de pantalones.</p>
+              </div>
               <div class="formula">
-                x₁ + 2x₂ ≤ 10 &nbsp;&nbsp;<span class="key">(tela)</span><br/>
-                2x₁ + x₂ ≤ 11 &nbsp;&nbsp;<span class="key">(tiempo)</span><br/>
-                x₁ + x₂ ≤ 9 &nbsp;&nbsp;&nbsp;<span class="key">(botones)</span><br/>
-                x₁, x₂ ≥ 0 y enteros
+                <span class="key">Máx Z</span> = <span class="val">60</span>·x₁ + <span class="val">50</span>·x₂<br>
+                <span class="gray">// Queremos el valor más GRANDE posible de Z</span>
               </div>
             </div>
           </div>
 
-          <div class="step"><span class="step-num bg-[#2B9FB5]">4</span>
-            <div>
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Conversión de restricciones en rectas</p>
-              <ul class="text-gray-600 text-sm font-body space-y-1">
-                <li>R1 (tela): x₁ + 2x₂ = 10 → puntos (0, 5) y (10, 0)</li>
-                <li>R2 (tiempo): 2x₁ + x₂ = 11 → puntos (0, 11) y (5.5, 0)</li>
-                <li>R3 (botones): x₁ + x₂ = 9 → puntos (0, 9) y (9, 0)</li>
-              </ul>
+          <!-- PASO 3 -->
+          <div class="step bg-[#f0fafc]">
+            <span class="step-num bg-[#2B9FB5]">3</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Plantear las Restricciones</p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-1">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-1">📋 ¿Qué son las restricciones y cómo se leen?</p>
+                <p>Las <strong>restricciones</strong> son los límites físicos del problema: no podemos usar más tela, tiempo o botones de los que tenemos disponibles.</p>
+                <p class="mt-1">Para cada recurso: <strong>(consumo por camisa × x₁) + (consumo por pantalón × x₂) ≤ cantidad disponible</strong>.</p>
+              </div>
+              <div class="formula">
+                x₁ + 2x₂ ≤ 10 &nbsp; <span class="key">(tela: 1m×camisas + 2m×pantalones ≤ 10m disponibles)</span><br>
+                2x₁ + x₂ ≤ 11 &nbsp; <span class="key">(tiempo: 2h×camisas + 1h×pantalones ≤ 11h disponibles)</span><br>
+                x₁ + x₂ &nbsp;≤ 9 &nbsp;&nbsp; <span class="key">(botones: 1caja×camisas + 1caja×pantalones ≤ 9 cajas)</span><br>
+                x₁, x₂ ≥ 0 y <span class="val">enteros</span>
+              </div>
             </div>
           </div>
 
-          <div class="step"><span class="step-num bg-[#2B9FB5]">5</span>
-            <div>
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Vértices de la región factible (R1 ∩ R2)</p>
+          <!-- PASO 4 -->
+          <div class="step bg-[#f0fafc]">
+            <span class="step-num bg-[#2B9FB5]">4</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Convertir restricciones en rectas (para graficar)</p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-1">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-1">📋 ¿Por qué hacemos esto?</p>
+                <p>Para encontrar la <strong>región factible</strong> (el espacio de soluciones posibles), convertimos cada restricción de desigualdad (≤) en una ecuación (=) y encontramos dos puntos para poder dibujar la recta. El área que cumple todas las restricciones simultáneamente es donde viven las soluciones válidas.</p>
+              </div>
               <div class="formula text-xs">
-                De R2: x₂ = 11 − 2x₁<br/>
-                Sustituyendo en R1: x₁ + 2(11 − 2x₁) = 10<br/>
-                &nbsp;&nbsp;→ x₁ + 22 − 4x₁ = 10 → −3x₁ = −12 → <span class="val">x₁ = 4</span><br/>
-                &nbsp;&nbsp;→ x₂ = 11 − 2(4) = <span class="val">3</span><br/>
-                Verificación botones: 4 + 3 = 7 ≤ 9 ✓<br/>
-                Vértices factibles: (0,0) · (5.5, 0) · (4, 3) · (0, 5)
+                <span class="gray">// Ponemos = en lugar de ≤ y buscamos interceptos en x₁=0 y x₂=0</span><br><br>
+                R1 (tela): &nbsp;&nbsp;x₁ + 2x₂ = 10 → si x₁=0 → x₂=5 &nbsp;| si x₂=0 → x₁=10 → puntos: <span class="val">(0,5) y (10,0)</span><br>
+                R2 (tiempo): 2x₁ + x₂ = 11 → si x₁=0 → x₂=11 | si x₂=0 → x₁=5.5 → puntos: <span class="val">(0,11) y (5.5,0)</span><br>
+                R3 (botones): x₁ + x₂ &nbsp;= 9 &nbsp;→ si x₁=0 → x₂=9 &nbsp;| si x₂=0 → x₁=9 &nbsp;&nbsp;→ puntos: <span class="val">(0,9) y (9,0)</span>
               </div>
             </div>
           </div>
 
-          <div class="step"><span class="step-num bg-[#2B9FB5]">6</span>
-            <div class="w-full">
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Evaluación de Z en cada vértice</p>
+          <!-- PASO 5 -->
+          <div class="step bg-[#f0fafc]">
+            <span class="step-num bg-[#2B9FB5]">5</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Encontrar los vértices de la región factible</p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-1">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-1">📋 ¿Por qué buscamos los vértices?</p>
+                <p>En programación lineal (y entera), el <strong>valor máximo de Z siempre ocurre en un vértice</strong> (esquina) de la región factible. Por eso no necesitamos revisar todos los puntos posibles, solo las esquinas.</p>
+                <p class="mt-1">Los vértices se encuentran resolviendo sistemas de ecuaciones: igualamos dos restricciones y despejamos.</p>
+              </div>
+              <div class="formula text-xs">
+                <span class="gray">// Intersección de R1 y R2: resolvemos el sistema simultáneamente</span><br>
+                De R2: x₂ = 11 − 2x₁<br>
+                Sustituimos en R1: x₁ + 2(11 − 2x₁) = 10<br>
+                &nbsp;&nbsp;→ x₁ + 22 − 4x₁ = 10<br>
+                &nbsp;&nbsp;→ −3x₁ = −12<br>
+                &nbsp;&nbsp;→ <span class="val">x₁ = 4</span><br>
+                &nbsp;&nbsp;→ x₂ = 11 − 2(4) = <span class="val">x₂ = 3</span><br><br>
+                <span class="gray">// Verificamos que no viola R3 (botones):</span><br>
+                4 + 3 = 7 ≤ 9 <span class="ok">✓ cumple</span><br><br>
+                <span class="gray">// Vértices de la región factible:</span><br>
+                (0, 0) · (5.5, 0) · <span class="val">(4, 3)</span> · (0, 5)
+              </div>
+            </div>
+          </div>
+
+          <!-- PASO 6 -->
+          <div class="step bg-[#f0fafc]">
+            <span class="step-num bg-[#2B9FB5]">6</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Evaluar Z en cada vértice</p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-1">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-1">📋 ¿Cómo se hace y por qué?</p>
+                <p>Sustituimos las coordenadas de cada vértice en la función objetivo <strong>Z = 60x₁ + 50x₂</strong>. El vértice que dé el <em>mayor valor de Z</em> es la solución óptima.</p>
+                <p class="mt-1">Nota: (5.5, 0) no es un entero. Por eso en Programación Entera debemos verificar que el punto óptimo tenga valores enteros. En este caso, (4, 3) ya los tiene ✅.</p>
+              </div>
               <div class="overflow-x-auto rounded-xl border border-gray-200">
                 <table>
-                  <thead><tr><th>Vértice (x₁, x₂)</th><th>Z = 60x₁ + 50x₂</th><th>Resultado</th></tr></thead>
+                  <thead><tr><th>Vértice (x₁, x₂)</th><th>Cálculo de Z</th><th>Ganancia</th><th>¿Es entero?</th></tr></thead>
                   <tbody>
-                    <tr><td>(0, 0)</td><td>0</td><td>$0</td></tr>
-                    <tr><td>(5.5, 0)</td><td>60(5.5)</td><td>$330</td></tr>
-                    <tr><td>(0, 5)</td><td>50(5)</td><td>$250</td></tr>
-                    <tr class="hl"><td>(4, 3)</td><td>60(4) + 50(3) = 240 + 150</td><td>$390 ✓</td></tr>
+                    <tr><td>(0, 0)</td><td>60(0) + 50(0)</td><td>$0</td><td>✅ Sí</td></tr>
+                    <tr><td>(5.5, 0)</td><td>60(5.5) + 50(0)</td><td>$330</td><td>❌ No (5.5 no es entero)</td></tr>
+                    <tr><td>(0, 5)</td><td>60(0) + 50(5)</td><td>$250</td><td>✅ Sí</td></tr>
+                    <tr class="hl"><td>(4, 3) ← ÓPTIMO</td><td>60(4) + 50(3) = 240 + 150</td><td>$390 ✓</td><td>✅ Sí — es el mayor con enteros</td></tr>
                   </tbody>
                 </table>
               </div>
-              <p class="text-gray-600 text-xs font-body mt-2">El punto (4, 3) ya tiene valores enteros → no se requiere redondeo.</p>
             </div>
           </div>
 
-          <div class="step"><span class="step-num bg-[#2B9FB5]">7</span>
-            <div class="w-full">
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Solución final y verificación</p>
-              <div class="overflow-x-auto rounded-xl border border-gray-200 mb-3">
-                <table>
-                  <thead><tr><th>Variable</th><th>Valor óptimo</th></tr></thead>
-                  <tbody>
-                    <tr><td>Camisas (x₁)</td><td><strong>4</strong></td></tr>
-                    <tr><td>Pantalones (x₂)</td><td><strong>3</strong></td></tr>
-                    <tr class="hl"><td>Ganancia total (Z)</td><td><strong>$390 por semana</strong></td></tr>
-                  </tbody>
-                </table>
+          <!-- PASO 7 -->
+          <div class="step bg-[#f0fafc]">
+            <span class="step-num bg-[#2B9FB5]">7</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Verificar que la solución cumple todas las restricciones</p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-1">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-1">📋 ¿Por qué verificamos? ¿No es obvio?</p>
+                <p>Siempre hay que verificar porque en problemas enteros podríamos haber necesitado probar puntos cercanos (como (4,2) o (5,2)) si el vértice exacto no fuera entero. La verificación confirma que la solución no viola ningún recurso.</p>
               </div>
-              <div class="bg-[#f0fafc] rounded-xl p-4 text-sm font-body space-y-1">
-                <p>• Tela: 4 + 2(3) = 10 ≤ 10 ✓ (recurso activo, cuello de botella)</p>
-                <p>• Tiempo: 2(4) + 3 = 11 ≤ 11 ✓ (recurso activo, cuello de botella)</p>
-                <p>• Botones: 4 + 3 = 7 ≤ 9 ✓ (sobran 2 cajas)</p>
+              <div class="formula text-sm">
+                Con x₁=4, x₂=3:<br><br>
+                Tela: &nbsp;&nbsp;&nbsp;4 + 2(3) = 4+6 = <span class="key">10 ≤ 10</span> <span class="ok">✓ agota exactamente (recurso activo)</span><br>
+                Tiempo: 2(4) + 3 = 8+3 = <span class="key">11 ≤ 11</span> <span class="ok">✓ agota exactamente (recurso activo)</span><br>
+                Botones: 4 + 3 = <span class="key">7 ≤ 9</span> <span class="ok">✓ sobran 2 cajas (recurso con holgura)</span>
+              </div>
+              <div class="example-box text-sm font-body text-gray-800">
+                <p class="font-bold text-green-700 uppercase text-xs tracking-wider mb-2">✅ Interpretación del resultado</p>
+                <p>La tela y el tiempo son los <strong>cuellos de botella</strong>: se agotan completamente. Los botones tienen holgura (sobran 2 cajas), lo que significa que no son el factor limitante. Si quisiéramos producir más, necesitaríamos más tela y más tiempo, no más botones.</p>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- CONCLUSIÓN -->
         <div class="conclusion bg-[#2B9FB5]">
           <p class="font-display text-xs uppercase tracking-widest opacity-70 mb-1">Conclusión</p>
-          <p class="font-display text-xl mb-1">Producir 4 camisas y 3 pantalones</p>
+          <p class="font-display text-xl mb-1">Producir 4 camisas + 3 pantalones por semana</p>
           <p class="text-2xl font-display">$390 <span class="text-sm font-body font-normal opacity-80">de ganancia semanal máxima</span></p>
+          <div class="bg-white/10 rounded-xl p-4 mt-3 text-sm font-body">
+            <p class="font-bold mb-1">💡 ¿Por qué no producir solo camisas (que dan $60 c/u)?</p>
+            <p>Con solo camisas: máximo 5 camisas (limitado por botones: 5+0=5 ≤ 9 ✓, tiempo: 10 ≤ 11 ✓, tela: 5 ≤ 10 ✓) → Z = $300. La combinación (4,3) da $390 porque los pantalones usan recursos distintos (2h tiempo pero solo 1m tela), permitiendo un mejor aprovechamiento total.</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════
          MÉTODO 2: PROGRAMACIÓN POR METAS
-    ══════════════════════════════════════ -->
+    ══════════════════════════════ -->
     <div class="bg-white rounded-2xl shadow-xl overflow-hidden fade-up d4">
       <div class="bg-[#c2637a] px-8 py-5">
         <p class="font-display text-xs uppercase tracking-widest text-white/70 mb-1">Método 2</p>
         <h2 class="font-display text-2xl text-white uppercase">Programación por Metas</h2>
       </div>
-      <div class="p-8 space-y-6">
+      <div class="p-8 space-y-8">
 
         <p class="text-gray-700 font-body leading-relaxed">
-          La programación por metas permite manejar <strong>múltiples objetivos</strong> que pueden ser contradictorios, minimizando las desviaciones respecto a cada meta según su nivel de prioridad. En lugar de restricciones rígidas, se definen variables de desviación (d⁻ y d⁺) que miden el faltante y el exceso respecto a cada meta.
+          La programación por metas permite manejar <strong>múltiples objetivos</strong> que pueden ser contradictorios, minimizando las desviaciones respecto a cada meta según su nivel de prioridad.
         </p>
 
-        <!-- Enunciado -->
+        <!-- POR QUÉ -->
+        <div class="why-box text-sm font-body text-gray-800 space-y-2">
+          <p class="font-bold text-amber-700 uppercase text-xs tracking-wider mb-2">🤔 ¿Por qué usar Programación por Metas en lugar de PL normal?</p>
+          <p>En la vida real, una empresa no solo tiene un objetivo. Una panadería quiere <em>ganar dinero</em>, pero también quiere <em>cumplir el acuerdo con sus trabajadores</em> de horas de trabajo, y además quiere ser <em>responsable con el ambiente</em> sin exceder el consumo de energía.</p>
+          <p class="mt-1">El problema es que estas metas pueden ser <strong>contradictorias</strong>: producir más para ganar más dinero podría requerir más horas o más energía. La Programación por Metas acepta esta realidad y te dice: <em>"Aquí tienes la mejor solución posible cumpliendo las metas más importantes primero."</em></p>
+        </div>
+
+        <!-- ENUNCIADO -->
         <div class="bg-[#FFF0F5] rounded-xl p-6 border-l-4 border-[#F5A8B8]">
           <p class="font-display text-sm uppercase text-[#c2637a] mb-3">Problema — Panadería La Espiga Dorada S.A.</p>
           <p class="text-gray-700 font-body text-sm leading-relaxed mb-4">
-            Una panadería artesanal en Grecia, Alajuela produce <strong>pan artesanal (x)</strong> y <strong>repostería fina (y)</strong>. La gerencia debe planificar la producción semanal cumpliendo tres metas con orden estricto de prioridad:
+            Una panadería artesanal produce <strong>pan artesanal (x)</strong> y <strong>repostería fina (y)</strong>. La gerencia debe planificar la producción semanal cumpliendo tres metas con orden estricto de prioridad:
           </p>
           <div class="overflow-x-auto rounded-xl border border-gray-200 mb-4">
             <table>
@@ -364,118 +338,213 @@
           </div>
           <div class="overflow-x-auto rounded-xl border border-gray-200">
             <table>
-              <thead><tr><th>Prioridad</th><th>Meta</th><th>Condición</th><th>Desviación a minimizar</th></tr></thead>
+              <thead><tr><th>Prioridad</th><th>Meta</th><th>Condición</th><th>¿Qué se minimiza?</th></tr></thead>
               <tbody>
-                <tr><td><strong>P1</strong></td><td>Rentabilidad</td><td>Alcanzar $2,200</td><td>d1⁻ (faltante de dinero)</td></tr>
-                <tr><td><strong>P2</strong></td><td>Acuerdo laboral</td><td>Exactamente 160 horas</td><td>d2⁻ y d2⁺ (faltante y exceso)</td></tr>
-                <tr><td><strong>P3</strong></td><td>Política ambiental</td><td>No exceder 300 kWh</td><td>d3⁺ (exceso de energía)</td></tr>
+                <tr><td><strong>P1 (más importante)</strong></td><td>Rentabilidad</td><td>Alcanzar al menos $2,200</td><td>d1⁻ = lo que falta para llegar a $2,200</td></tr>
+                <tr><td><strong>P2</strong></td><td>Acuerdo laboral</td><td>Exactamente 160 horas</td><td>d2⁻ y d2⁺ (tanto el faltante como el exceso)</td></tr>
+                <tr><td><strong>P3 (menos importante)</strong></td><td>Política ambiental</td><td>No exceder 300 kWh</td><td>d3⁺ = kWh que se pasan del límite</td></tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        <!-- Pasos -->
-        <div class="space-y-3">
+        <!-- PASOS -->
+        <div class="space-y-4">
           <p class="font-display text-base uppercase text-[#c2637a]">Solución paso a paso</p>
 
-          <div class="step" style="background:#fff0f5"><span class="step-num bg-[#c2637a]">1</span>
-            <div>
-              <p class="font-display text-sm uppercase text-gray-800 mb-1">Variables de decisión</p>
-              <p class="text-gray-600 text-sm font-body">x = lotes de pan artesanal &nbsp;|&nbsp; y = lotes de repostería fina</p>
+          <!-- PASO 1 -->
+          <div class="step" style="background:#fff0f5">
+            <span class="step-num bg-[#c2637a]">1</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Variables de decisión</p>
+              <div class="formula text-sm">
+                x = lotes de <span class="val">pan artesanal</span> a producir por semana<br>
+                y = lotes de <span class="val">repostería fina</span> a producir por semana
+              </div>
             </div>
           </div>
 
-          <div class="step" style="background:#fff0f5"><span class="step-num bg-[#c2637a]">2</span>
-            <div>
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Restricciones estructurales (como PL tradicional)</p>
+          <!-- PASO 2 -->
+          <div class="step" style="background:#fff0f5">
+            <span class="step-num bg-[#c2637a]">2</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Entender las Variables de Desviación (d⁻ y d⁺)</p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-2">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-2">📋 ¿Qué son d⁻ y d⁺? — La clave de toda la programación por metas</p>
+                <p>En lugar de restricciones rígidas (≤ o =), usamos variables que miden la <strong>distancia</strong> entre lo que se logra y la meta:</p>
+                <ul class="list-disc list-inside ml-2 mt-1 space-y-1">
+                  <li><strong>d⁻ (desviación negativa)</strong> = cuánto FALTA para llegar a la meta. Si gané $1,800 y la meta era $2,200 → d1⁻ = $400.</li>
+                  <li><strong>d⁺ (desviación positiva)</strong> = cuánto se EXCEDE la meta. Si usé 370 kWh y el límite era 300 → d3⁺ = 70 kWh.</li>
+                </ul>
+                <p class="mt-2 font-bold">Regla importante: d⁻ × d⁺ = 0 siempre. No puedes estar al mismo tiempo por debajo Y por encima de una meta.</p>
+              </div>
+              <div class="grid grid-cols-2 gap-2 text-xs font-body text-gray-700">
+                <div class="bg-white border border-pink-200 rounded-xl p-3">
+                  <p class="font-bold text-pink-700 mb-1">d1⁻</p>
+                  <p>Dólares que FALTAN para llegar a $2,200</p>
+                  <p class="text-gray-400 italic mt-1">Si se cumple: d1⁻ = 0</p>
+                </div>
+                <div class="bg-white border border-pink-200 rounded-xl p-3">
+                  <p class="font-bold text-pink-700 mb-1">d1⁺</p>
+                  <p>Dólares en EXCESO sobre $2,200</p>
+                  <p class="text-gray-400 italic mt-1">Si no se supera: d1⁺ = 0</p>
+                </div>
+                <div class="bg-white border border-pink-200 rounded-xl p-3">
+                  <p class="font-bold text-pink-700 mb-1">d2⁻</p>
+                  <p>Horas que FALTAN para llegar a 160h</p>
+                  <p class="text-gray-400 italic mt-1">Si se cumple: d2⁻ = 0</p>
+                </div>
+                <div class="bg-white border border-pink-200 rounded-xl p-3">
+                  <p class="font-bold text-pink-700 mb-1">d2⁺</p>
+                  <p>Horas de EXCESO sobre 160h</p>
+                  <p class="text-gray-400 italic mt-1">Si no se excede: d2⁺ = 0</p>
+                </div>
+                <div class="bg-white border border-pink-200 rounded-xl p-3">
+                  <p class="font-bold text-pink-700 mb-1">d3⁻</p>
+                  <p>kWh ahorrados BAJO el límite de 300</p>
+                  <p class="text-gray-400 italic mt-1">(No importa minimizarla)</p>
+                </div>
+                <div class="bg-white border border-pink-200 rounded-xl p-3">
+                  <p class="font-bold text-pink-700 mb-1">d3⁺</p>
+                  <p>kWh en EXCESO sobre 300 kWh</p>
+                  <p class="text-red-500 font-bold mt-1">⚠️ Esta sí queremos minimizar</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PASO 3 -->
+          <div class="step" style="background:#fff0f5">
+            <span class="step-num bg-[#c2637a]">3</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Escribir las Restricciones de Metas (con desviaciones)</p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-2">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-2">📋 ¿Cómo se construye cada ecuación de meta?</p>
+                <p>La estructura siempre es: <strong>[lo que produces] + d⁻ − d⁺ = [valor de la meta]</strong></p>
+                <p>Lógica: lo que produces + lo que te falta − lo que te sobra = exactamente la meta. Así la ecuación siempre cierra, independientemente de si cumpliste o no.</p>
+              </div>
               <div class="formula">
-                30x + 50y ≥ 2200 &nbsp;<span class="key">(ganancia)</span><br/>
-                2x + 4y = 160 &nbsp;&nbsp;&nbsp;<span class="key">(horas exactas)</span><br/>
-                5x + 8y ≤ 300 &nbsp;&nbsp;&nbsp;<span class="key">(energía máx.)</span>
+                <span class="gray">// Meta 1: Ganancia = $2,200</span><br>
+                30x + 50y + <span class="key">d1⁻</span> − d1⁺ = <span class="val">2200</span><br>
+                <span class="gray">// Lectura: lo que gano + lo que me falta − lo que excedo = 2200</span><br><br>
+
+                <span class="gray">// Meta 2: Horas = exactamente 160</span><br>
+                2x + 4y + <span class="key">d2⁻</span> − <span class="key">d2⁺</span> = <span class="val">160</span><br>
+                <span class="gray">// Aquí minimizamos AMBAS desviaciones (no debe faltar ni sobrar)</span><br><br>
+
+                <span class="gray">// Meta 3: Energía ≤ 300 kWh</span><br>
+                5x + 8y + d3⁻ − <span class="key">d3⁺</span> = <span class="val">300</span><br>
+                <span class="gray">// Solo minimizamos d3⁺ (no queremos exceder, pero si sobra energía, no importa)</span>
               </div>
             </div>
           </div>
 
-          <div class="step" style="background:#fff0f5"><span class="step-num bg-[#c2637a]">3</span>
-            <div>
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Variables de desviación</p>
-              <div class="grid grid-cols-2 gap-2 text-xs font-body text-gray-600">
-                <span class="bg-white border border-pink-100 rounded-lg p-2">d1⁻: dólares que faltan para la meta de ganancia</span>
-                <span class="bg-white border border-pink-100 rounded-lg p-2">d1⁺: dólares en exceso sobre la meta</span>
-                <span class="bg-white border border-pink-100 rounded-lg p-2">d2⁻: horas que faltan para la meta laboral</span>
-                <span class="bg-white border border-pink-100 rounded-lg p-2">d2⁺: horas extra sobre la meta laboral</span>
-                <span class="bg-white border border-pink-100 rounded-lg p-2">d3⁻: kWh ahorrados bajo la meta</span>
-                <span class="bg-white border border-pink-100 rounded-lg p-2">d3⁺: kWh consumidos en exceso</span>
+          <!-- PASO 4 -->
+          <div class="step" style="background:#fff0f5">
+            <span class="step-num bg-[#c2637a]">4</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Función Objetivo (minimizar desviaciones por prioridad)</p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-2">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-2">📋 ¿Qué se minimiza y en qué orden?</p>
+                <p>No maximizamos ganancia — minimizamos el <em>incumplimiento</em> de metas, empezando por las más importantes:</p>
+                <ul class="list-disc list-inside ml-2 space-y-1 mt-1">
+                  <li><strong>P1:</strong> Minimizar d1⁻ → que no falte dinero (queremos al menos $2,200)</li>
+                  <li><strong>P2:</strong> Minimizar d2⁻ + d2⁺ → que las horas sean exactamente 160 (ni más ni menos)</li>
+                  <li><strong>P3:</strong> Minimizar d3⁺ → que no se exceda el consumo de energía</li>
+                </ul>
               </div>
-            </div>
-          </div>
-
-          <div class="step" style="background:#fff0f5"><span class="step-num bg-[#c2637a]">4</span>
-            <div>
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Restricciones por metas (con desviaciones)</p>
               <div class="formula">
-                30x + 50y + d1⁻ − d1⁺ = 2200 &nbsp;<span class="key">(meta 1)</span><br/>
-                2x + 4y + d2⁻ − d2⁺ = 160 &nbsp;&nbsp;&nbsp;<span class="key">(meta 2)</span><br/>
-                5x + 8y + d3⁻ − d3⁺ = 300 &nbsp;&nbsp;&nbsp;<span class="key">(meta 3)</span>
+                <span class="key">Minimizar Z</span> = P1·(d1⁻) + P2·(d2⁻ + d2⁺) + P3·(d3⁺)<br><br>
+                <span class="gray">// P1 > P2 > P3 en importancia.</span><br>
+                <span class="gray">// Primero resolvemos para P1=0, luego para P2=0, luego P3.</span>
               </div>
             </div>
           </div>
 
-          <div class="step" style="background:#fff0f5"><span class="step-num bg-[#c2637a]">5</span>
-            <div>
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Función objetivo</p>
-              <div class="formula"><span class="key">Minimizar Z</span> = P1(d1⁻) + P2(d2⁻ + d2⁺) + P3(d3⁺)</div>
-              <p class="text-gray-500 text-xs font-body mt-2">No queremos que falte dinero, ni desviaciones en horas, ni exceso de energía.</p>
-            </div>
-          </div>
-
-          <div class="step" style="background:#fff0f5"><span class="step-num bg-[#c2637a]">6</span>
-            <div class="w-full">
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Solución por sustitución (asumiendo P1 y P2 = 0)</p>
+          <!-- PASO 5 -->
+          <div class="step" style="background:#fff0f5">
+            <span class="step-num bg-[#c2637a]">5</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Resolver el sistema (asumiendo P1 y P2 se cumplen)</p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-2">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-2">📋 ¿Cómo se resuelve?</p>
+                <p>Asumimos que <strong>P1 y P2 se cumplen perfectamente</strong> (d1⁻ = 0 y d2⁻ = d2⁺ = 0). Esto nos da un sistema de 2 ecuaciones con 2 incógnitas que resolvemos algebraicamente.</p>
+              </div>
               <div class="formula text-xs">
-                Sistema: 30x + 50y = 2200 y 2x + 4y = 160<br/>
-                Simplificando: 3x + 5y = 220 y x + 2y = 80<br/>
-                Despejando: x = 80 − 2y<br/>
-                Sustituyendo: 3(80 − 2y) + 5y = 220<br/>
-                &nbsp;&nbsp;→ 240 − 6y + 5y = 220 → 240 − 220 = y → <span class="val">y = 20</span><br/>
-                &nbsp;&nbsp;→ x = 80 − 2(20) = <span class="val">x = 40</span>
+                <span class="gray">// Sistema cuando P1 y P2 se cumplen exactamente:</span><br>
+                30x + 50y = 2200 &nbsp;&nbsp;→ simplificando ÷10 → 3x + 5y = 220<br>
+                2x + 4y &nbsp;= 160 &nbsp;&nbsp;&nbsp;→ simplificando ÷2 → x + 2y = 80<br><br>
+                <span class="gray">// Despejamos x de la segunda ecuación:</span><br>
+                x = 80 − 2y<br><br>
+                <span class="gray">// Sustituimos en la primera:</span><br>
+                3(80 − 2y) + 5y = 220<br>
+                240 − 6y + 5y = 220<br>
+                240 − y = 220<br>
+                <span class="val">y = 20</span> lotes de repostería fina<br><br>
+                x = 80 − 2(20)<br>
+                <span class="val">x = 40</span> lotes de pan artesanal
               </div>
             </div>
           </div>
 
-          <div class="step" style="background:#fff0f5"><span class="step-num bg-[#c2637a]">7</span>
-            <div class="w-full">
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Evaluación de las metas</p>
-              <div class="space-y-2 text-sm font-body">
-                <div class="flex items-start gap-2">
-                  <span class="bg-green-100 text-green-700 font-bold text-xs px-2 py-0.5 rounded-full mt-0.5 flex-shrink-0">P1 ✓</span>
-                  <p class="text-gray-600">Ganancia: 30(40) + 50(20) = 1200 + 1000 = <strong>$2,200</strong>. Se cumple exactamente. d1⁻ = 0.</p>
+          <!-- PASO 6 -->
+          <div class="step" style="background:#fff0f5">
+            <span class="step-num bg-[#c2637a]">6</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Evaluar cada meta con la solución (x=40, y=20)</p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-1">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-2">📋 ¿Cómo se evalúa cada meta?</p>
+                <p>Sustituimos x=40, y=20 en cada restricción de meta y comparamos con el objetivo. El resultado dirá cuánto se cumplió y si hay desviación.</p>
+              </div>
+              <div class="space-y-3 text-sm font-body">
+                <div class="bg-green-50 rounded-xl p-4 border border-green-200">
+                  <div class="flex items-start gap-2">
+                    <span class="bg-green-500 text-white font-bold text-xs px-2 py-0.5 rounded-full mt-0.5 flex-shrink-0">P1 ✓</span>
+                    <div>
+                      <p class="font-bold text-green-800">Ganancia: 30(40) + 50(20) = 1,200 + 1,000 = <strong>$2,200</strong></p>
+                      <p class="text-green-700 text-xs mt-1">Cumple exactamente la meta. d1⁻ = 0 ✅ La panadería logra la rentabilidad mínima requerida.</p>
+                    </div>
+                  </div>
                 </div>
-                <div class="flex items-start gap-2">
-                  <span class="bg-green-100 text-green-700 font-bold text-xs px-2 py-0.5 rounded-full mt-0.5 flex-shrink-0">P2 ✓</span>
-                  <p class="text-gray-600">Horas: 2(40) + 4(20) = 80 + 80 = <strong>160 horas</strong>. Exactamente la meta. d2⁻ = d2⁺ = 0.</p>
+                <div class="bg-green-50 rounded-xl p-4 border border-green-200">
+                  <div class="flex items-start gap-2">
+                    <span class="bg-green-500 text-white font-bold text-xs px-2 py-0.5 rounded-full mt-0.5 flex-shrink-0">P2 ✓</span>
+                    <div>
+                      <p class="font-bold text-green-800">Horas: 2(40) + 4(20) = 80 + 80 = <strong>160 horas</strong></p>
+                      <p class="text-green-700 text-xs mt-1">Exactamente la meta del acuerdo laboral. d2⁻ = d2⁺ = 0 ✅ Ni un solo trabajador hace horas de más ni de menos.</p>
+                    </div>
+                  </div>
                 </div>
-                <div class="flex items-start gap-2">
-                  <span class="bg-red-100 text-red-700 font-bold text-xs px-2 py-0.5 rounded-full mt-0.5 flex-shrink-0">P3 ✗</span>
-                  <p class="text-gray-600">Energía: 5(40) + 8(20) = 200 + 160 = <strong>360 kWh</strong>. Excede el límite por <strong>60 kWh</strong>. d3⁺ = 60.</p>
+                <div class="bg-red-50 rounded-xl p-4 border border-red-200">
+                  <div class="flex items-start gap-2">
+                    <span class="bg-red-500 text-white font-bold text-xs px-2 py-0.5 rounded-full mt-0.5 flex-shrink-0">P3 ✗</span>
+                    <div>
+                      <p class="font-bold text-red-800">Energía: 5(40) + 8(20) = 200 + 160 = <strong>360 kWh</strong></p>
+                      <p class="text-red-700 text-xs mt-1">Excede el límite de 300 kWh por <strong>60 kWh</strong>. d3⁺ = 60. ⚠️ La política ambiental no se puede cumplir si se quieren satisfacer P1 y P2.</p>
+                    </div>
+                  </div>
                 </div>
+              </div>
+
+              <div class="key-box text-sm font-body text-gray-800 space-y-1">
+                <p class="font-bold text-purple-700 uppercase text-xs tracking-wider mb-2">🔑 Insight clave: ¿Por qué no se puede cumplir P3?</p>
+                <p>Para cumplir P1 ($2,200) y P2 (160h exactas) con x=40 y=20, el consumo de energía es matemáticamente inevitable: 360 kWh. Reducir la producción para consumir menos energía rompería P1 o P2. <strong>Este es un compromiso inherente del modelo</strong> — la empresa debe aceptar el exceso energético como consecuencia de priorizar la rentabilidad y el acuerdo laboral.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Tabla resumen QM -->
+        <!-- TABLA QM -->
         <div>
-          <p class="font-display text-sm uppercase text-[#c2637a] mb-3">Resultados (QM for Windows)</p>
-          <div class="overflow-x-auto rounded-xl border border-gray-200 mb-3">
+          <p class="font-display text-sm uppercase text-[#c2637a] mb-3">Resultados Consolidados</p>
+          <div class="overflow-x-auto rounded-xl border border-gray-200">
             <table>
-              <thead><tr><th>Análisis</th><th>Variable</th><th>Valor</th></tr></thead>
+              <thead><tr><th>Meta</th><th>Variable</th><th>Valor obtenido</th><th>Meta</th><th>Desviación</th><th>Estado</th></tr></thead>
               <tbody>
-                <tr><td>Decision variable</td><td>X1 (pan artesanal)</td><td><strong>40 lotes</strong></td></tr>
-                <tr><td>Decision variable</td><td>X2 (repostería fina)</td><td><strong>20 lotes</strong></td></tr>
-                <tr><td>Priority 1</td><td>Incumplimiento</td><td>0</td></tr>
-                <tr><td>Priority 2</td><td>Incumplimiento</td><td>0</td></tr>
-                <tr class="hl"><td>Priority 3</td><td>Incumplimiento (d3⁺)</td><td>60 kWh exceso</td></tr>
+                <tr><td><strong>P1 — Rentabilidad</strong></td><td>X1 Pan + X2 Repostería</td><td>40 lotes + 20 lotes</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td><strong>P1 — Ganancia</strong></td><td>d1⁻</td><td>$2,200 logrados</td><td>$2,200</td><td>d1⁻ = 0</td><td class="font-bold text-green-600">✅ Cumplida</td></tr>
+                <tr><td><strong>P2 — Horas</strong></td><td>d2⁻ + d2⁺</td><td>160 horas exactas</td><td>160 h</td><td>d2⁻=d2⁺=0</td><td class="font-bold text-green-600">✅ Cumplida</td></tr>
+                <tr class="hl"><td><strong>P3 — Energía</strong></td><td>d3⁺</td><td>360 kWh consumidos</td><td>300 kWh</td><td>d3⁺ = 60 kWh</td><td class="font-bold text-red-600">❌ Exceso inevitable</td></tr>
               </tbody>
             </table>
           </div>
@@ -483,121 +552,165 @@
 
         <div class="conclusion bg-[#c2637a]">
           <p class="font-display text-xs uppercase tracking-widest opacity-70 mb-1">Conclusión</p>
-          <p class="font-display text-xl mb-1">40 lotes de pan artesanal + 20 lotes de repostería</p>
-          <p class="text-sm font-body opacity-90">P1 ✓ $2,200 ganancia &nbsp;|&nbsp; P2 ✓ 160 horas exactas &nbsp;|&nbsp; P3 ✗ exceso inevitable de 60 kWh</p>
-          <p class="text-xs font-body opacity-70 mt-2">Al ser un modelo de compromisos, lograr P1 y P2 implica aceptar el exceso de energía en P3.</p>
+          <p class="font-display text-xl mb-1">40 lotes de pan artesanal + 20 lotes de repostería por semana</p>
+          <p class="text-sm font-body opacity-90">P1 ✅ $2,200 ganancia &nbsp;|&nbsp; P2 ✅ 160 horas exactas &nbsp;|&nbsp; P3 ❌ exceso de 60 kWh (inevitable)</p>
+          <p class="text-xs font-body opacity-70 mt-2">Al ser un modelo de compromisos, cumplir P1 y P2 implica aceptar el exceso de energía en P3. La gerencia deberá compensar con medidas de eficiencia energética en otros procesos.</p>
         </div>
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════
          MÉTODO 3: PROGRAMACIÓN NO LINEAL
-    ══════════════════════════════════════ -->
+    ══════════════════════════════ -->
     <div class="bg-white rounded-2xl shadow-xl overflow-hidden fade-up d5">
       <div class="bg-[#b5742a] px-8 py-5">
         <p class="font-display text-xs uppercase tracking-widest text-white/70 mb-1">Método 3</p>
         <h2 class="font-display text-2xl text-white uppercase">Programación No Lineal</h2>
       </div>
-      <div class="p-8 space-y-6">
+      <div class="p-8 space-y-8">
 
         <p class="text-gray-700 font-body leading-relaxed">
-          La programación no lineal se utiliza cuando la función objetivo o alguna restricción contiene <strong>relaciones no lineales</strong> (potencias, productos de variables, funciones exponenciales). Refleja situaciones reales donde los ingresos presentan <em>rendimientos decrecientes</em>, es decir, cada unidad adicional genera menos ingreso que la anterior.
+          La programación no lineal se utiliza cuando la función objetivo o alguna restricción contiene <strong>relaciones no lineales</strong> (potencias, productos de variables, funciones exponenciales). Refleja situaciones reales donde los ingresos presentan <em>rendimientos decrecientes</em>.
         </p>
 
-        <!-- Enunciado -->
+        <!-- POR QUÉ -->
+        <div class="why-box text-sm font-body text-gray-800 space-y-2">
+          <p class="font-bold text-amber-700 uppercase text-xs tracking-wider mb-2">🤔 ¿Por qué no sirve la PL normal aquí?</p>
+          <p>En la PL normal, cada unidad adicional genera la misma ganancia. Pero en la realidad, <strong>los precios caen a medida que vendes más</strong> (ley de la demanda): si produces 5 unidades las vendes a $40 c/u, pero si produces 20 la demanda baja y solo puedes cobrar $20 c/u.</p>
+          <p class="mt-1">Eso genera funciones cuadráticas (con x²) en lugar de lineales. La PL no puede manejarlas. La <strong>Programación No Lineal</strong> sí, usando cálculo diferencial (derivadas) para encontrar el máximo.</p>
+        </div>
+
+        <!-- ENUNCIADO -->
         <div class="bg-[#FFF8F0] rounded-xl p-6 border-l-4 border-[#F5C9A8]">
           <p class="font-display text-sm uppercase text-[#b5742a] mb-3">Problema — Fábrica de Productos A y B</p>
           <p class="text-gray-700 font-body text-sm leading-relaxed mb-4">
-            Una fábrica produce dos productos: <strong>A (x)</strong> y <strong>B (y)</strong>. Los ingresos presentan rendimientos decrecientes por la elasticidad de la demanda:
+            Una fábrica produce dos productos: <strong>A (x)</strong> y <strong>B (y)</strong>. Los ingresos presentan rendimientos decrecientes: mientras más se produce, el precio por unidad baja porque el mercado se satura.
           </p>
           <div class="overflow-x-auto rounded-xl border border-gray-200 mb-4">
             <table>
-              <thead><tr><th>Concepto</th><th>Producto A</th><th>Producto B</th></tr></thead>
+              <thead><tr><th>Concepto</th><th>Producto A (x)</th><th>Producto B (y)</th></tr></thead>
               <tbody>
-                <tr><td>Ingreso por ventas</td><td>40x − x²</td><td>50y − 2y²</td></tr>
+                <tr><td>Ingreso por ventas</td><td>40x − x² <span class="text-xs text-gray-500">(baja con x²)</span></td><td>50y − 2y² <span class="text-xs text-gray-500">(baja con 2y²)</span></td></tr>
                 <tr><td>Costo de producción</td><td>5x</td><td>8y</td></tr>
-                <tr><td>Beneficio neto</td><td>35x − x²</td><td>42y − 2y²</td></tr>
+                <tr><td>Beneficio neto</td><td><strong>35x − x²</strong></td><td><strong>42y − 2y²</strong></td></tr>
               </tbody>
             </table>
           </div>
-          <p class="text-gray-700 font-body text-sm leading-relaxed mb-3">Restricciones del problema:</p>
           <div class="formula text-sm">
-            2x + 3y ≤ 120 &nbsp;<span class="key">(horas de máquina)</span><br/>
-            x + 2y ≤ 80 &nbsp;&nbsp;&nbsp;<span class="key">(materia prima)</span><br/>
+            <span class="gray">// Restricciones de capacidad:</span><br>
+            2x + 3y ≤ 120 &nbsp;<span class="key">(horas de máquina disponibles)</span><br>
+            x + 2y &nbsp;≤ 80 &nbsp;&nbsp;<span class="key">(unidades de materia prima disponibles)</span><br>
             x ≥ 0, y ≥ 0
           </div>
         </div>
 
-        <!-- Pasos -->
-        <div class="space-y-3">
+        <!-- PASOS -->
+        <div class="space-y-4">
           <p class="font-display text-base uppercase text-[#b5742a]">Solución paso a paso</p>
 
-          <div class="step" style="background:#fff8f0"><span class="step-num bg-[#b5742a]">1</span>
-            <div>
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Función objetivo</p>
+          <!-- PASO 1 -->
+          <div class="step" style="background:#fff8f0">
+            <span class="step-num bg-[#b5742a]">1</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Construir la Función Objetivo</p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-1">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-2">📋 ¿Cómo se construye?</p>
+                <p>La función objetivo es el beneficio total = beneficio de A + beneficio de B. Combinamos los beneficios netos de cada producto en una sola función Z que vamos a maximizar.</p>
+              </div>
               <div class="formula">
-                Z(x,y) = (40x − x² − 5x) + (50y − 2y² − 8y)<br/>
+                <span class="gray">// Beneficio neto A: ingreso − costo = (40x − x²) − 5x = 35x − x²</span><br>
+                <span class="gray">// Beneficio neto B: ingreso − costo = (50y − 2y²) − 8y = 42y − 2y²</span><br><br>
+                Z(x,y) = (35x − x²) + (42y − 2y²)<br>
                 <span class="key">Z(x,y) = 35x − x² + 42y − 2y²</span>
               </div>
             </div>
           </div>
 
-          <div class="step" style="background:#fff8f0"><span class="step-num bg-[#b5742a]">2</span>
-            <div>
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Derivadas parciales e igualar a cero</p>
-              <p class="text-gray-600 text-xs font-body mb-2">Separamos la función en sus componentes y derivamos cada una para encontrar el máximo sin restricciones:</p>
+          <!-- PASO 2 -->
+          <div class="step" style="background:#fff8f0">
+            <span class="step-num bg-[#b5742a]">2</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Calcular las Derivadas Parciales e Igualarlas a Cero</p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-2">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-2">📋 ¿Por qué se usan derivadas? ¿Qué significan?</p>
+                <p>La derivada de una función mide cómo cambia su valor cuando cambias una variable. Cuando la derivada = 0, es porque la función está en su <strong>punto máximo o mínimo</strong> — como la cima de una montaña donde la pendiente es cero.</p>
+                <p class="mt-1">Como Z depende de dos variables (x e y), calculamos una derivada <em>parcial</em> para cada una: derivamos respecto a x tratando y como constante, y viceversa. Al igualar cada derivada a 0, encontramos los valores óptimos de x e y.</p>
+              </div>
               <div class="formula">
-                f(x) = 35x − x² &nbsp;&nbsp;&nbsp;→ <span class="key">f'(x) = 35 − 2x</span><br/>
-                f(y) = 42y − 2y² &nbsp;→ <span class="key">f'(y) = 42 − 4y</span><br/><br/>
-                Igualando a 0:<br/>
-                35 − 2x = 0 → x = 35/2 = <span class="val">17.5</span><br/>
-                42 − 4y = 0 → y = 42/4 = <span class="val">10.5</span>
+                <span class="gray">// Derivada parcial respecto a x (tratamos y como constante):</span><br>
+                f(x) = 35x − x² &nbsp;&nbsp;&nbsp;→ <span class="key">∂Z/∂x = 35 − 2x</span><br><br>
+                <span class="gray">// Derivada parcial respecto a y (tratamos x como constante):</span><br>
+                f(y) = 42y − 2y² → <span class="key">∂Z/∂y = 42 − 4y</span><br><br>
+                <span class="gray">// Igualamos cada derivada a 0 para encontrar el máximo:</span><br>
+                35 − 2x = 0 → 2x = 35 → <span class="val">x* = 17.5</span> unidades de Producto A<br>
+                42 − 4y = 0 → 4y = 42 → <span class="val">y* = 10.5</span> unidades de Producto B
+              </div>
+              <div class="example-box text-sm font-body text-gray-800 space-y-1">
+                <p class="font-bold text-green-700 uppercase text-xs tracking-wider mb-2">✅ ¿Qué significa x* = 17.5?</p>
+                <p>En 17.5 unidades de A, el beneficio marginal (lo que gana la próxima unidad) es exactamente cero: producir una unidad más ya no vale la pena porque el precio caería tanto que eliminaría la ganancia adicional. Es el punto exacto de máximo beneficio sin restricciones.</p>
               </div>
             </div>
           </div>
 
-          <div class="step" style="background:#fff8f0"><span class="step-num bg-[#b5742a]">3</span>
-            <div>
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Verificación de factibilidad</p>
-              <div class="space-y-2 text-sm font-body">
-                <div class="flex items-center gap-2">
-                  <span class="bg-green-100 text-green-700 font-bold text-xs px-2 py-0.5 rounded-full">R1 ✓</span>
-                  <p class="text-gray-600">Horas máquina: 2(17.5) + 3(10.5) = 35 + 31.5 = <strong>66.5 ≤ 120</strong></p>
-                </div>
-                <div class="flex items-center gap-2">
-                  <span class="bg-green-100 text-green-700 font-bold text-xs px-2 py-0.5 rounded-full">R2 ✓</span>
-                  <p class="text-gray-600">Materia prima: 17.5 + 2(10.5) = 17.5 + 21 = <strong>38.5 ≤ 80</strong></p>
-                </div>
+          <!-- PASO 3 -->
+          <div class="step" style="background:#fff8f0">
+            <span class="step-num bg-[#b5742a]">3</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Verificar que la solución es factible (cumple las restricciones)</p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-1">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-2">📋 ¿Por qué verificar si el punto óptimo "sin restricciones" podría no ser factible?</p>
+                <p>El punto x*=17.5, y*=10.5 lo encontramos ignorando las restricciones. Podría ocurrir que ese punto requiriera más horas o materia prima de las disponibles. En ese caso, habría que resolver con métodos más avanzados (multiplicadores de Lagrange o Solver).</p>
+                <p class="mt-1">Si el punto es factible, ¡ya está: es la solución óptima global!</p>
               </div>
-              <p class="text-gray-500 text-xs font-body mt-2">El punto sin restricciones cumple todas las restricciones → es directamente la solución óptima.</p>
+              <div class="formula text-sm">
+                Sustituyendo x=17.5, y=10.5 en las restricciones:<br><br>
+                Horas máquina: 2(17.5) + 3(10.5) = 35 + 31.5 = <span class="key">66.5 ≤ 120</span> <span class="ok">✓ Cumple (sobran 53.5h)</span><br>
+                Materia prima: &nbsp;&nbsp;17.5 + 2(10.5) = 17.5 + 21 = <span class="key">38.5 ≤ 80</span> &nbsp;<span class="ok">✓ Cumple (sobran 41.5u)</span>
+              </div>
+              <div class="key-box text-sm font-body text-gray-800">
+                <p class="font-bold text-purple-700 uppercase text-xs tracking-wider mb-2">🔑 Observación importante</p>
+                <p>Las restricciones tienen mucha holgura (sobran recursos). Esto significa que los recursos <em>no son el cuello de botella</em>: el proceso se limita a sí mismo por los rendimientos decrecientes. Producir más dañaría la ganancia aunque haya suficiente materia prima y tiempo.</p>
+              </div>
             </div>
           </div>
 
-          <div class="step" style="background:#fff8f0"><span class="step-num bg-[#b5742a]">4</span>
-            <div class="w-full">
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Cálculo del beneficio máximo Z*</p>
+          <!-- PASO 4 -->
+          <div class="step" style="background:#fff8f0">
+            <span class="step-num bg-[#b5742a]">4</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Calcular el Beneficio Máximo Z*</p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-1">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-2">📋 ¿Cómo se calcula?</p>
+                <p>Sustituimos x=17.5 e y=10.5 en la función objetivo Z = 35x − x² + 42y − 2y². Calculamos cada término por separado para mayor claridad.</p>
+              </div>
               <div class="formula">
-                Z* = 35(17.5) − (17.5)² + 42(10.5) − 2(10.5)²<br/>
-                Z* = 612.5 − 306.25 + 441 − 220.5<br/>
-                <span class="key">Z* = 526.75</span>
+                <span class="gray">// Beneficio de Producto A:</span><br>
+                35(17.5) − (17.5)² = 612.5 − 306.25 = <span class="val">306.25</span><br><br>
+                <span class="gray">// Beneficio de Producto B:</span><br>
+                42(10.5) − 2(10.5)² = 441.0 − 220.50 = <span class="val">220.50</span><br><br>
+                <span class="gray">// Beneficio total:</span><br>
+                Z* = 306.25 + 220.50<br>
+                <span class="key">Z* = $526.75 ← Beneficio máximo alcanzable</span>
               </div>
             </div>
           </div>
 
-          <div class="step" style="background:#fff8f0"><span class="step-num bg-[#b5742a]">5</span>
-            <div class="w-full">
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">Tabla resumen de la solución</p>
+          <!-- PASO 5 -->
+          <div class="step" style="background:#fff8f0">
+            <span class="step-num bg-[#b5742a]">5</span>
+            <div class="w-full space-y-3">
+              <p class="font-display text-sm uppercase text-gray-800">Tabla resumen de la solución óptima</p>
               <div class="overflow-x-auto rounded-xl border border-gray-200">
                 <table>
                   <thead><tr><th>Variable / Concepto</th><th>Valor Óptimo</th><th>Interpretación</th></tr></thead>
                   <tbody>
-                    <tr><td>x (Producto A)</td><td><strong>17.5 unidades</strong></td><td>Cantidad óptima de A</td></tr>
-                    <tr><td>y (Producto B)</td><td><strong>10.5 unidades</strong></td><td>Cantidad óptima de B</td></tr>
-                    <tr><td>Ingreso total A</td><td>$612.50</td><td>35 × 17.5</td></tr>
-                    <tr><td>Ingreso total B</td><td>$441.00</td><td>42 × 10.5</td></tr>
-                    <tr class="hl"><td>Beneficio total Z*</td><td><strong>$526.75</strong></td><td>Beneficio máximo alcanzable</td></tr>
-                    <tr><td>Horas máquina usadas</td><td>66.5 de 120</td><td>Recurso no saturado</td></tr>
-                    <tr><td>Materia prima usada</td><td>38.5 de 80</td><td>Recurso no saturado</td></tr>
+                    <tr><td>x (Producto A)</td><td><strong>17.5 unidades</strong></td><td>Cantidad que maximiza el beneficio de A individualmente</td></tr>
+                    <tr><td>y (Producto B)</td><td><strong>10.5 unidades</strong></td><td>Cantidad que maximiza el beneficio de B individualmente</td></tr>
+                    <tr><td>Beneficio neto de A</td><td>$306.25</td><td>35(17.5) − (17.5)²</td></tr>
+                    <tr><td>Beneficio neto de B</td><td>$220.50</td><td>42(10.5) − 2(10.5)²</td></tr>
+                    <tr class="hl"><td>Beneficio total Z*</td><td><strong>$526.75</strong></td><td>Beneficio máximo alcanzable con rendimiento decreciente</td></tr>
+                    <tr><td>Horas máquina usadas</td><td>66.5 de 120 disponibles</td><td>Recurso con holgura — no es el cuello de botella</td></tr>
+                    <tr><td>Materia prima usada</td><td>38.5 de 80 disponibles</td><td>Recurso con holgura — no es el cuello de botella</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -609,7 +722,10 @@
           <p class="font-display text-xs uppercase tracking-widest opacity-70 mb-1">Conclusión</p>
           <p class="font-display text-xl mb-1">Producir 17.5 unidades de A + 10.5 unidades de B</p>
           <p class="text-2xl font-display">$526.75 <span class="text-sm font-body font-normal opacity-80">de beneficio máximo</span></p>
-          <p class="text-xs font-body opacity-70 mt-2">Ambas restricciones tienen holgura — los recursos no están saturados en el óptimo.</p>
+          <div class="bg-white/10 rounded-xl p-4 mt-3 text-sm font-body">
+            <p class="font-bold mb-1">💡 ¿Por qué no producir más aunque hay recursos disponibles?</p>
+            <p>Porque con rendimientos decrecientes, producir más de 17.5 unidades de A significa que cada unidad adicional gana <em>menos</em> de lo que cuesta producirla. El beneficio marginal se vuelve negativo. Más producción = menos ganancia total.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -619,18 +735,26 @@
       <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
         <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Comparativa de los Tres Métodos</h2>
       </div>
+
+      <div class="why-box text-sm font-body text-gray-800 mb-6 space-y-1">
+        <p class="font-bold text-amber-700 uppercase text-xs tracking-wider mb-2">🤔 ¿Cuándo usar cada método?</p>
+        <p><strong>Programación Entera:</strong> cuando las decisiones no se pueden partir (prendas completas, camiones enteros, personas). Un objetivo claro a maximizar o minimizar.</p>
+        <p><strong>Por Metas:</strong> cuando hay múltiples objetivos que pueden contradecirse (ganar dinero, cuidar el ambiente, cumplir acuerdos laborales). Se prioriza y se acepta que no todo se puede cumplir perfectamente.</p>
+        <p><strong>No Lineal:</strong> cuando los ingresos o costos no crecen de forma constante (mercados con elasticidad, costos de desgaste, economías de escala). Se usan derivadas para encontrar el punto óptimo real.</p>
+      </div>
+
       <div class="grid md:grid-cols-3 gap-4 text-center">
         <div class="bg-[#EBF8FB] rounded-xl p-5 border-t-4 border-[#2B9FB5]">
           <p class="font-display text-xs uppercase text-[#2B9FB5] mb-2">Programación Entera</p>
           <p class="font-display text-3xl text-gray-900 mb-1">$390</p>
           <p class="text-gray-500 text-xs font-body">Taller textil: 4 camisas + 3 pantalones</p>
-          <p class="text-gray-400 text-xs mt-2">Variables enteras · 1 objetivo</p>
+          <p class="text-gray-400 text-xs mt-2">Variables enteras · 1 objetivo · Vértices</p>
         </div>
         <div class="bg-[#FFF0F5] rounded-xl p-5 border-t-4 border-[#c2637a]">
           <p class="font-display text-xs uppercase text-[#c2637a] mb-2">Por Metas</p>
           <p class="font-display text-3xl text-gray-900 mb-1">3 metas</p>
           <p class="text-gray-500 text-xs font-body">Panadería: 40 pan + 20 repostería</p>
-          <p class="text-gray-400 text-xs mt-2">Múltiples objetivos priorizados</p>
+          <p class="text-gray-400 text-xs mt-2">Múltiples objetivos · Prioridades · Desviaciones</p>
         </div>
         <div class="bg-[#FFF8F0] rounded-xl p-5 border-t-4 border-[#b5742a]">
           <p class="font-display text-xs uppercase text-[#b5742a] mb-2">No Lineal</p>
@@ -641,7 +765,7 @@
       </div>
     </div>
 
-    <!-- NAV PREV / NEXT -->
+    <!-- NAV -->
     <div class="flex justify-between gap-4 fade-up d6">
       <a href="./Tema1.html" class="flex-1 bg-white/20 hover:bg-white/30 text-white font-display text-sm uppercase rounded-xl px-6 py-4 text-center transition-colors">← Tema 1</a>
       <a href="./Tema3.html" class="flex-1 bg-white rounded-xl px-6 py-4 text-center font-display text-sm uppercase text-[#1E7A8A] hover:bg-[#D6EEF3] transition-colors shadow-lg">Tema 3 →</a>

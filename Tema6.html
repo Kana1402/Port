@@ -4,10 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tema 6 – Control Estadístico (Vasos de Helado)</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nunito:wght@400;600;700;800;900&display=swap"
-    rel="stylesheet" />
+  <title>Tema 6 – Control Estadístico (Alambre de Precisión)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -22,783 +20,480 @@
     }
   </script>
   <style>
-    body {
-      font-family: 'Nunito', sans-serif;
-    }
+    body { font-family: 'Nunito', sans-serif; }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(24px)
-      }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp .5s ease forwards; }
+    .d1{animation-delay:.05s;opacity:0} .d2{animation-delay:.15s;opacity:0} .d3{animation-delay:.25s;opacity:0}
+    .d4{animation-delay:.35s;opacity:0} .d5{animation-delay:.45s;opacity:0} .d6{animation-delay:.55s;opacity:0}
 
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
-    }
+    table { border-collapse: collapse; width: 100%; }
+    th { background: #2B9FB5; color: white; padding: 9px 12px; text-align: center; font-family: 'Black Han Sans', sans-serif; font-size: 12px; letter-spacing: .03em; }
+    th.left { text-align: left; }
+    td { padding: 8px 12px; border-bottom: 1px solid #e5e7eb; font-size: 12px; text-align: center; }
+    td.left { text-align: left; }
+    tr:nth-child(even) td { background: #f0fafc; }
 
-    .fade-up {
-      animation: fadeUp .5s ease forwards
-    }
+    .why-box { background: linear-gradient(135deg, #fef9e7, #fef3c7); border-left: 4px solid #f59e0b; border-radius: 12px; padding: 14px 18px; }
+    .how-box { background: linear-gradient(135deg, #eff6ff, #dbeafe); border-left: 4px solid #3b82f6; border-radius: 12px; padding: 14px 18px; }
+    .example-box { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-left: 4px solid #22c55e; border-radius: 12px; padding: 14px 18px; }
+    .key-box { background: linear-gradient(135deg, #fdf4ff, #f3e8ff); border-left: 4px solid #a855f7; border-radius: 12px; padding: 14px 18px; }
 
-    .d1 {
-      animation-delay: .05s;
-      opacity: 0
-    }
+    .step { display: flex; gap: 14px; align-items: flex-start; background: #f0fafc; border-radius: 12px; padding: 16px; }
+    .step-num { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Black Han Sans', sans-serif; font-size: 13px; color: white; }
 
-    .d2 {
-      animation-delay: .15s;
-      opacity: 0
-    }
+    .formula { background: #1a1a2e; color: #a8d8e0; font-family: monospace; font-size: 13px; padding: 14px 18px; border-radius: 10px; line-height: 2; }
+    .formula .k { color: #fef08a; font-weight: bold; }
+    .formula .v { color: #86efac; font-weight: bold; }
+    .formula .gray { color: #9ca3af; }
 
-    .d3 {
-      animation-delay: .25s;
-      opacity: 0
-    }
-
-    .d4 {
-      animation-delay: .35s;
-      opacity: 0
-    }
-
-    .d5 {
-      animation-delay: .45s;
-      opacity: 0
-    }
-
-    .d6 {
-      animation-delay: .55s;
-      opacity: 0
-    }
-
-    table {
-      border-collapse: collapse;
-      width: 100%
-    }
-
-    th {
-      background: #2B9FB5;
-      color: white;
-      padding: 9px 12px;
-      text-align: center;
-      font-family: 'Black Han Sans', sans-serif;
-      font-size: 12px;
-      letter-spacing: .03em
-    }
-
-    th.left {
-      text-align: left
-    }
-
-    td {
-      padding: 8px 12px;
-      border-bottom: 1px solid #e5e7eb;
-      font-size: 12px;
-      text-align: center
-    }
-
-    td.left {
-      text-align: left
-    }
-
-    tr:nth-child(even) td {
-      background: #f0fafc
-    }
-
-    .hl td {
-      background: #dcfce7 !important;
-      font-weight: 700
-    }
-
-    /* Fila resaltada (En control) */
-    .out td {
-      background: #fee2e2 !important;
-      color: #b91c1c;
-      font-weight: 700
-    }
-
-    /* Fila fuera de control */
-    .step {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      background: #f0fafc;
-      border-radius: 12px;
-      padding: 16px
-    }
-
-    .step-num {
-      flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Black Han Sans', sans-serif;
-      font-size: 12px;
-      color: white
-    }
-
-    .formula {
-      background: #1a1a2e;
-      color: #a8d8e0;
-      font-family: monospace;
-      font-size: 13px;
-      padding: 14px 18px;
-      border-radius: 10px;
-      line-height: 2
-    }
-
-    .formula span.k {
-      color: #f5a8b8
-    }
-
-    .formula span.v {
-      color: #fef9c3
-    }
-
-    .conclusion {
-      border-radius: 14px;
-      padding: 22px 24px;
-      color: white
-    }
+    .limit-bar { height: 8px; border-radius: 4px; }
+    .in-control { background: #22c55e; }
+    .out-control { background: #ef4444; }
   </style>
 </head>
 
 <body class="min-h-screen bg-[#2B9FB5] bg-grid">
-<nav class="sticky top-0 z-50 bg-[#1E7A8A]/90 backdrop-blur-md border-b border-white/20 shadow-lg">
 
+  <nav class="sticky top-0 z-50 bg-[#1E7A8A]/90 backdrop-blur-md border-b border-white/20 shadow-lg">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-
-        <!-- Logo -->
-        <a href="./index.html"
-            class="text-white font-display text-lg tracking-wide hover:text-[#A8D8E0] transition">
-            ← Portafolio
-        </a>
-
-        <!-- Menú desplegable -->
-        <div class="relative group">
-
-            <button
-                class="flex items-center gap-2 bg-white/10 hover:bg-white hover:text-[#1E7A8A] text-white font-bold px-5 py-2 rounded-full transition duration-300">
-
-                📚 Temas
-
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4 transition-transform group-hover:rotate-180"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-
-                    <path stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 9l-7 7-7-7"/>
-
-                </svg>
-
-            </button>
-
-            <!-- Dropdown -->
-
-            <div
-                class="absolute right-0 mt-3 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-
-                <a href="./Tema1.html"
-                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
-                    <p class="font-bold text-[#1E7A8A]">Tema 1</p>
-                    <p class="text-sm text-gray-500">
-                        Modelos de Transporte y Asignación
-                    </p>
-                </a>
-
-                <a href="./Tema2.html"
-                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
-                    <p class="font-bold text-[#1E7A8A]">Tema 2</p>
-                    <p class="text-sm text-gray-500">
-                        Programación por Metas y No Lineal
-                    </p>
-                </a>
-
-                <a href="./Tema3.html"
-                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
-                    <p class="font-bold text-[#1E7A8A]">Tema 3</p>
-                    <p class="text-sm text-gray-500">
-                        Modelo de Redes
-                    </p>
-                </a>
-
-                <a href="./Tema4.html"
-                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
-                    <p class="font-bold text-[#1E7A8A]">Tema 4</p>
-                    <p class="text-sm text-gray-500">
-                        Modelo de Simulación
-                    </p>
-                </a>
-
-                <a href="./Tema5.html"
-                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
-                    <p class="font-bold text-[#1E7A8A]">Tema 5</p>
-                    <p class="text-sm text-gray-500">
-                        Análisis de Markov
-                    </p>
-                </a>
-
-                <a href="./Tema6.html"
-                    class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition">
-                    <p class="font-bold text-[#1E7A8A]">Tema 6</p>
-                    <p class="text-sm text-gray-500">
-                        Control Estadístico
-                    </p>
-                </a>
-
-            </div>
-
+      <a href="./index.html" class="text-white font-display text-lg tracking-wide hover:text-[#A8D8E0] transition">← Portafolio</a>
+      <div class="relative group">
+        <button class="flex items-center gap-2 bg-white/10 hover:bg-white hover:text-[#1E7A8A] text-white font-bold px-5 py-2 rounded-full transition duration-300">
+          📚 Temas
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div class="absolute right-0 mt-3 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+          <a href="./Tema1.html" class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition"><p class="font-bold text-[#1E7A8A]">Tema 1</p><p class="text-sm text-gray-500">Modelos de Transporte y Asignación</p></a>
+          <a href="./Tema2.html" class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition"><p class="font-bold text-[#1E7A8A]">Tema 2</p><p class="text-sm text-gray-500">Programación por Metas y No Lineal</p></a>
+          <a href="./Tema3.html" class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition"><p class="font-bold text-[#1E7A8A]">Tema 3</p><p class="text-sm text-gray-500">Modelo de Redes</p></a>
+          <a href="./Tema4.html" class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition"><p class="font-bold text-[#1E7A8A]">Tema 4</p><p class="text-sm text-gray-500">Modelo de Simulación</p></a>
+          <a href="./Tema5.html" class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition"><p class="font-bold text-[#1E7A8A]">Tema 5</p><p class="text-sm text-gray-500">Análisis de Markov</p></a>
+          <a href="./Tema6.html" class="block px-6 py-4 hover:bg-[#A8D8E0]/30 transition"><p class="font-bold text-[#1E7A8A]">Tema 6</p><p class="text-sm text-gray-500">Control Estadístico</p></a>
         </div>
-
+      </div>
     </div>
+  </nav>
 
-</nav>
+  <div class="max-w-4xl mx-auto px-6 py-12 space-y-10">
 
-  <div class="max-w-4xl mx-auto px-6 py-12 space-y-8">
-
+    <!-- HEADER -->
     <div class="bg-white rounded-3xl shadow-2xl p-10 text-center fade-up d1">
       <div class="inline-block bg-[#A8D8E0] px-8 py-4 rounded-2xl mb-2">
         <p class="font-display text-sm uppercase tracking-widest text-[#1E7A8A] mb-1">Tema 6</p>
-        <h1 class="font-display text-3xl md:text-4xl text-gray-900 uppercase leading-tight">
-          Control Estadístico
-        </h1>
+        <h1 class="font-display text-3xl md:text-4xl text-gray-900 uppercase leading-tight">Control Estadístico</h1>
+      </div>
+      <p class="text-gray-500 text-sm font-body max-w-xl mx-auto mt-4">Ejercicio: Control Estadístico del Proceso de Corte de Precisión de Alambre</p>
+    </div>
+
+    <!-- CONTENIDO -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
+      <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
+        <h2 class="font-display text-xl text-gray-900 uppercase">Contenido</h2>
+      </div>
+      <div class="text-gray-700 font-body leading-relaxed space-y-4 text-justify">
+        <p>Esta presentación del curso de <strong>Control Estadístico</strong> se enfoca en algo clave en la industria: dejar de solo revisar el producto final y empezar a controlar el proceso mientras ocurre, para evitar errores antes de que se conviertan en pérdidas.</p>
+        <p>La calidad se entiende como el cumplimiento de estándares y la reducción de defectos para satisfacer al cliente. Para eso se usa el <strong>Control Estadístico de la Calidad (CEC)</strong>, que se basa en datos y gráficas para monitorear el comportamiento del proceso en tiempo real.</p>
+        <p>Un concepto central es la <strong>variabilidad</strong>, que puede venir de causas comunes (variación normal del proceso) o causas especiales (problemas puntuales que sí deben corregirse). Para detectarlas se usan <strong>gráficas de control</strong> con límites estadísticos que indican cuándo un proceso está bajo control o no.</p>
+        <p>Dependiendo del tipo de datos, se aplican gráficas para <strong>variables</strong> (como peso o tiempo) y para <strong>atributos</strong> (como defectos o piezas fallidas), lo que permite tomar decisiones más informadas dentro de la gestión del proceso.</p>
+        <p>En el ejercicio práctico, se analiza una empresa de corte de precisión de alambre durante 24 horas, tomando muestras de 4 piezas por hora. El objetivo es verificar si el proceso se encuentra bajo control estadístico.</p>
       </div>
     </div>
-    
-<div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
-  
-  <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
-    <h2 class="font-display text-xl text-gray-900 uppercase">Contenido</h2>
-  </div>
 
-  <div class="text-gray-700 font-body leading-relaxed space-y-4 text-justify">
-
-    <p>
-      Esta presentación del curso de <strong>Control Estadístico</strong> se enfoca en algo clave en la industria: dejar de solo revisar el producto final y empezar a controlar el proceso mientras ocurre, para evitar errores antes de que se conviertan en pérdidas.
-    </p>
-
-    <p>
-      La calidad se entiende como el cumplimiento de estándares y la reducción de defectos para satisfacer al cliente. Para eso se usa el <strong>Control Estadístico de la Calidad (CEC)</strong>, que se basa en datos y gráficas para monitorear el comportamiento del proceso en tiempo real.
-    </p>
-
-    <p>
-      Un concepto central es la <strong>variabilidad</strong>, que puede venir de causas comunes (variación normal del proceso) o causas especiales (problemas puntuales que sí deben corregirse). Para detectarlas se usan <strong>gráficas de control</strong> con límites estadísticos que indican cuándo un proceso está bajo control o no.
-    </p>
-
-    <p>
-      Dependiendo del tipo de datos, se aplican gráficas para <strong>variables</strong> (como peso o tiempo) y para <strong>atributos</strong> (como defectos o piezas fallidas), lo que permite tomar decisiones más informadas dentro de la gestión del proceso.
-    </p>
-
-    <p>
-      En la parte práctica, se analiza una empresa bananera en Matina, Limón, donde se controla el peso de las cajas de exportación. El objetivo es mantener un peso cercano a <strong>18.75 kg</strong>, con límites entre 18.50 kg y 19.05 kg debido a la pérdida de humedad durante el transporte.
-    </p>
-
-    <p>
-      Al analizar 25 subgrupos, se concluye que el proceso <strong>no está centrado ni es capaz</strong>, con un Cp de <strong>0.9889</strong> y un Cpk de <strong>0.8297</strong>, lo que indica que el proceso produce fuera de especificación.
-    </p>
-
-    <p>
-      Las gráficas también muestran problemas como descalibración de equipos, tendencias de desgaste y patrones anómalos que indican cambios no detectados en el proceso de producción.
-    </p>
-
-    <p>
-      Finalmente, el análisis por atributos muestra un promedio de rechazo del <strong>8.85%</strong> por defectos como magulladuras o problemas de calibre. En general, se concluye que el control estadístico es clave para mantener la calidad y competitividad en la industria.
-    </p>
-
-  </div>
-
-</div>
-
+    <!-- EJERCICIO -->
     <div class="bg-white rounded-2xl shadow-xl overflow-hidden fade-up d3">
       <div class="bg-[#2B9FB5] px-8 py-5">
         <p class="font-display text-xs uppercase tracking-widest text-white/70 mb-1">Ejercicio detallado</p>
-        <h2 class="font-display text-2xl text-white uppercase">
-          Control Estadístico del Proceso de Corte de Precisión de Alambre
-        </h2>
+        <h2 class="font-display text-2xl text-white uppercase">Control Estadístico del Proceso de Corte de Precisión de Alambre</h2>
       </div>
-      <div class="p-8 space-y-6">
 
+      <div class="p-8 space-y-10">
+
+        <!-- POR QUÉ -->
+        <div class="why-box text-sm font-body text-gray-800 space-y-2">
+          <p class="font-bold text-amber-700 uppercase text-xs tracking-wider mb-2">🤔 ¿Por qué hacemos este control?</p>
+          <p>En una fábrica de corte de alambre, cada pieza debería tener la misma longitud. Pero en la práctica, siempre hay pequeñas variaciones: la máquina se calienta, la materia prima cambia levemente, el operario ajusta la tensión, etc.</p>
+          <p class="mt-1">La pregunta clave es: <em>¿esas variaciones son normales o hay algo que está fallando?</em> Si la variación es <strong>demasiado grande</strong> o el promedio empieza a <strong>desviarse del centro</strong>, significa que algo salió mal y hay que corregirlo. El Control Estadístico nos da límites matemáticos precisos para responder esa pregunta.</p>
+        </div>
+
+        <!-- ENUNCIADO -->
         <div class="bg-[#f0fafc] rounded-xl p-6 border-l-4 border-[#2B9FB5]">
-
-          <p class="font-display text-sm uppercase text-[#1E7A8A] mb-3">
-            Enunciado
-          </p>
-
+          <p class="font-display text-sm uppercase text-[#1E7A8A] mb-3">Enunciado</p>
           <p class="text-gray-700 font-body text-sm leading-relaxed">
-
-            En una empresa dedicada al corte de precisión de alambre se desea verificar si el proceso
-            se encuentra bajo control estadístico.
-
-            Durante <strong>24 horas consecutivas</strong> se tomaron muestras de
-            <strong>4 piezas por hora</strong>. Para cada muestra se calculó el
-            <strong>promedio (X̄)</strong> y el
-            <strong>rango (R)</strong>.
-
-            Con la información obtenida se solicita construir los gráficos
-            <strong>X̄ y R</strong>, calcular sus límites de control y determinar si el
-            proceso está bajo control estadístico.
-
+            En una empresa dedicada al corte de precisión de alambre se desea verificar si el proceso se encuentra bajo control estadístico. Durante <strong>24 horas consecutivas</strong> se tomaron muestras de <strong>4 piezas por hora</strong>. Para cada muestra se calculó el <strong>promedio (X̄)</strong> y el <strong>rango (R)</strong>. Con la información obtenida se solicita construir los gráficos <strong>X̄ y R</strong>, calcular sus límites de control y determinar si el proceso está bajo control estadístico.
           </p>
-
         </div>
 
+        <!-- DATOS -->
         <div>
-          <p class="font-display text-sm uppercase text-[#2B9FB5] mb-3">
-            Datos recolectados — 24 muestras (n = 4)
-          </p>
-
+          <p class="font-display text-sm uppercase text-[#2B9FB5] mb-3">Datos recolectados — 24 muestras (n = 4)</p>
           <div class="overflow-x-auto rounded-xl border border-gray-200">
-
             <table>
-
               <thead>
-
                 <tr>
-
-                  <th>Hora</th>
-                  <th>X̄</th>
-                  <th>R</th>
-
-                  <th class="border-l-2 border-white/30">Hora</th>
-                  <th>X̄</th>
-                  <th>R</th>
-
+                  <th>Hora</th><th>X̄</th><th>R</th>
+                  <th class="border-l-2 border-white/30">Hora</th><th>X̄</th><th>R</th>
                 </tr>
-
               </thead>
-
               <tbody>
-
-                <tr>
-                  <td>1</td>
-                  <td>3.25</td>
-                  <td>0.71</td>
-                  <td class="border-l border-gray-200">13</td>
-                  <td>3.11</td>
-                  <td>0.85</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>3.11</td>
-                  <td>1.18</td>
-                  <td class="border-l border-gray-200">14</td>
-                  <td>2.83</td>
-                  <td>1.31</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>3.22</td>
-                  <td>1.43</td>
-                  <td class="border-l border-gray-200">15</td>
-                  <td>3.12</td>
-                  <td>1.06</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>3.39</td>
-                  <td>1.26</td>
-                  <td class="border-l border-gray-200">16</td>
-                  <td>2.86</td>
-                  <td>0.50</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>3.07</td>
-                  <td>1.17</td>
-                  <td class="border-l border-gray-200">17</td>
-                  <td>2.86</td>
-                  <td>1.43</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>2.86</td>
-                  <td>0.32</td>
-                  <td class="border-l border-gray-200">18</td>
-                  <td>2.74</td>
-                  <td>1.29</td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>3.05</td>
-                  <td>0.53</td>
-                  <td class="border-l border-gray-200">19</td>
-                  <td>3.13</td>
-                  <td>1.41</td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>2.65</td>
-                  <td>1.13</td>
-                  <td class="border-l border-gray-200">20</td>
-                  <td>2.89</td>
-                  <td>1.09</td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>3.02</td>
-                  <td>0.71</td>
-                  <td class="border-l border-gray-200">21</td>
-                  <td>2.65</td>
-                  <td>1.08</td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>2.85</td>
-                  <td>1.33</td>
-                  <td class="border-l border-gray-200">22</td>
-                  <td>3.28</td>
-                  <td>0.46</td>
-                </tr>
-                <tr>
-                  <td>11</td>
-                  <td>2.83</td>
-                  <td>1.17</td>
-                  <td class="border-l border-gray-200">23</td>
-                  <td>2.94</td>
-                  <td>1.58</td>
-                </tr>
-                <tr>
-                  <td>12</td>
-                  <td>2.97</td>
-                  <td>0.40</td>
-                  <td class="border-l border-gray-200">24</td>
-                  <td>2.64</td>
-                  <td>0.97</td>
-                </tr>
-
+                <tr><td>1</td><td>3.25</td><td>0.71</td><td class="border-l border-gray-200">13</td><td>3.11</td><td>0.85</td></tr>
+                <tr><td>2</td><td>3.11</td><td>1.18</td><td class="border-l border-gray-200">14</td><td>2.83</td><td>1.31</td></tr>
+                <tr><td>3</td><td>3.22</td><td>1.43</td><td class="border-l border-gray-200">15</td><td>3.12</td><td>1.06</td></tr>
+                <tr><td>4</td><td>3.39</td><td>1.26</td><td class="border-l border-gray-200">16</td><td>2.86</td><td>0.50</td></tr>
+                <tr><td>5</td><td>3.07</td><td>1.17</td><td class="border-l border-gray-200">17</td><td>2.86</td><td>1.43</td></tr>
+                <tr><td>6</td><td>2.86</td><td>0.32</td><td class="border-l border-gray-200">18</td><td>2.74</td><td>1.29</td></tr>
+                <tr><td>7</td><td>3.05</td><td>0.53</td><td class="border-l border-gray-200">19</td><td>3.13</td><td>1.41</td></tr>
+                <tr><td>8</td><td>2.65</td><td>1.13</td><td class="border-l border-gray-200">20</td><td>2.89</td><td>1.09</td></tr>
+                <tr><td>9</td><td>3.02</td><td>0.71</td><td class="border-l border-gray-200">21</td><td>2.65</td><td>1.08</td></tr>
+                <tr><td>10</td><td>2.85</td><td>1.33</td><td class="border-l border-gray-200">22</td><td>3.28</td><td>0.46</td></tr>
+                <tr><td>11</td><td>2.83</td><td>1.17</td><td class="border-l border-gray-200">23</td><td>2.94</td><td>1.58</td></tr>
+                <tr><td>12</td><td>2.97</td><td>0.40</td><td class="border-l border-gray-200">24</td><td>2.64</td><td>0.97</td></tr>
               </tbody>
-
             </table>
-
           </div>
-
         </div>
 
-        <div class="space-y-4">
-          <p class="font-display text-base uppercase text-[#2B9FB5]">Solución paso a paso explicada</p>
+        <!-- SOLUCIÓN PASO A PASO -->
+        <div class="space-y-6">
+          <p class="font-display text-base uppercase text-[#2B9FB5]">Solución paso a paso — Explicado</p>
 
+          <!-- PASO 1 -->
           <div class="step">
-
             <span class="step-num bg-[#2B9FB5]">1</span>
+            <div class="w-full space-y-4">
+              <p class="font-display text-sm uppercase text-gray-800">Identificar la información y las constantes estadísticas</p>
 
-            <div>
+              <div class="how-box text-sm font-body text-gray-800 space-y-2">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-2">📋 ¿Por qué usamos constantes (A₂, D₃, D₄)?</p>
+                <p>Los límites de control de una gráfica X̄-R no se calculan con la desviación estándar directamente (eso sería complicado). En cambio, los estadísticos desarrollaron unas <strong>constantes tabuladas</strong> que dependen únicamente del tamaño de muestra (n).</p>
+                <p class="mt-1">Estas constantes ya tienen integrado el factor estadístico de ±3 desviaciones estándar (que cubre el 99.73% de la variación normal). Solo necesitamos multiplicarlas por el rango promedio para obtener los límites.</p>
+              </div>
 
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">
-                Identificar la información del problema
-              </p>
-
-              <p class="text-gray-600 text-sm">
-
-                Antes de comenzar los cálculos debemos identificar los datos que nos proporciona el ejercicio.
-
-              </p>
-
-              <ul class="list-disc list-inside text-sm text-gray-600 mt-3 space-y-1">
-
-                <li><strong>24 muestras</strong> tomadas durante 24 horas.</li>
-
-                <li><strong>n = 4</strong> piezas por muestra.</li>
-
-                <li>Se conoce el promedio (X̄) y el rango (R) de cada muestra.</li>
-
-              </ul>
-
-              <p class="text-gray-600 text-sm mt-3">
-
-                Como el tamaño de muestra es 4, utilizaremos las constantes estadísticas:
-
-                <strong>A₂ = 0.729</strong>,
-                <strong>D₃ = 0</strong> y
-                <strong>D₄ = 2.282</strong>.
-
-              </p>
-
+              <div class="grid md:grid-cols-2 gap-4 text-sm font-body">
+                <div class="bg-white border border-gray-200 rounded-xl p-4 space-y-2">
+                  <p class="font-bold text-gray-700">Datos del problema:</p>
+                  <ul class="space-y-1 text-gray-600">
+                    <li>• <strong>k = 24</strong> muestras (horas)</li>
+                    <li>• <strong>n = 4</strong> piezas por muestra</li>
+                    <li>• Se conoce X̄ y R de cada hora</li>
+                  </ul>
+                </div>
+                <div class="bg-[#2B9FB5]/10 border border-[#2B9FB5]/30 rounded-xl p-4 space-y-2">
+                  <p class="font-bold text-[#1E7A8A]">Constantes para n = 4:</p>
+                  <ul class="space-y-1 text-gray-700">
+                    <li>• <strong>A₂ = 0.729</strong> → para gráfica X̄</li>
+                    <li>• <strong>D₃ = 0</strong> → LCI del gráfico R</li>
+                    <li>• <strong>D₄ = 2.282</strong> → LCS del gráfico R</li>
+                  </ul>
+                  <p class="text-xs text-gray-500 italic mt-1">Se obtienen de la tabla de constantes de control estadístico.</p>
+                </div>
+              </div>
             </div>
-
           </div>
 
+          <!-- PASO 2 -->
           <div class="step">
-
             <span class="step-num bg-[#2B9FB5]">2</span>
+            <div class="w-full space-y-4">
+              <p class="font-display text-sm uppercase text-gray-800">Calcular la Gran Media (X̄̄)</p>
 
-            <div>
-
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">
-
-                Calcular la Gran Media (X̄̄)
-
-              </p>
-
-              <p class="text-gray-600 text-sm">
-
-                La Gran Media representa el promedio general de todo el proceso.
-
-                Para obtenerla sumamos todos los promedios y dividimos entre las 24 muestras.
-
-              </p>
-
-              <div class="formula">
-
-                ΣX̄ = 71.32
-
-                <br><br>
-
-                X̄̄ = 71.32 / 24
-
-                <br><br>
-
-                X̄̄ = <span class="k">2.972</span>
-
+              <div class="how-box text-sm font-body text-gray-800 space-y-2">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-2">📋 ¿Qué es la Gran Media y cómo se calcula?</p>
+                <p>La <strong>Gran Media (X̄̄, pronunciado "X doble barra")</strong> es el promedio de todos los promedios. Representa el centro del proceso — el valor alrededor del cual debería oscilar todo.</p>
+                <p class="mt-1">Se calcula sumando todos los 24 promedios (X̄ de cada hora) y dividiendo entre 24. Será la <strong>línea central (LC)</strong> de la gráfica X̄.</p>
               </div>
 
-            </div>
+              <div class="formula">
+                <span class="gray">// Sumamos los 24 promedios X̄ de cada hora</span><br>
+                ΣX̄ = 3.25 + 3.11 + 3.22 + ... + 2.94 + 2.64<br>
+                ΣX̄ = <span class="k">71.32</span><br><br>
+                <span class="gray">// Dividimos entre el número de muestras (k = 24)</span><br>
+                X̄̄ = 71.32 ÷ 24<br><br>
+                X̄̄ = <span class="v">2.972</span> &nbsp;← Esta es la Línea Central de la gráfica X̄
+              </div>
 
+              <div class="example-box text-sm font-body text-gray-800">
+                <p class="font-bold text-green-700 uppercase text-xs tracking-wider mb-2">✅ ¿Qué significa 2.972?</p>
+                <p>Significa que en promedio general, el alambre cortado mide <strong>2.972 unidades</strong>. Si el proceso estuviera perfectamente centrado, todos los promedios deberían oscilar cerca de este valor. Los límites se construirán alrededor de este centro.</p>
+              </div>
+            </div>
           </div>
 
+          <!-- PASO 3 -->
           <div class="step">
-
             <span class="step-num bg-[#2B9FB5]">3</span>
+            <div class="w-full space-y-4">
+              <p class="font-display text-sm uppercase text-gray-800">Calcular el Rango Promedio (R̄)</p>
 
-            <div>
-
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">
-
-                Calcular el Rango Promedio
-
-              </p>
-
-              <p class="text-gray-600 text-sm">
-
-                El rango promedio indica la variación promedio entre las piezas de cada muestra.
-
-              </p>
-
-              <div class="formula">
-
-                ΣR = 24.37
-
-                <br><br>
-
-                R̄ = 24.37 / 24
-
-                <br><br>
-
-                R̄ = <span class="k">1.015</span>
-
+              <div class="how-box text-sm font-body text-gray-800 space-y-2">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-2">📋 ¿Qué es el Rango Promedio y por qué lo necesitamos?</p>
+                <p>El <strong>rango (R)</strong> de una muestra = valor máximo − valor mínimo de las 4 piezas de esa hora. Mide la <strong>variabilidad dentro</strong> de cada muestra.</p>
+                <p class="mt-1">El <strong>Rango Promedio (R̄)</strong> es el promedio de todos los rangos. Lo necesitamos porque las fórmulas de los límites de control de ambas gráficas (X̄ y R) dependen de R̄. Es la manera de estimar la variación natural del proceso.</p>
               </div>
 
+              <div class="formula">
+                <span class="gray">// Sumamos los 24 rangos R de cada hora</span><br>
+                ΣR = 0.71 + 1.18 + 1.43 + ... + 1.58 + 0.97<br>
+                ΣR = <span class="k">24.37</span><br><br>
+                <span class="gray">// Dividimos entre el número de muestras (k = 24)</span><br>
+                R̄ = 24.37 ÷ 24<br><br>
+                R̄ = <span class="v">1.015</span> &nbsp;← Esta es la Línea Central de la gráfica R
+              </div>
             </div>
-
           </div>
 
+          <!-- PASO 4 -->
           <div class="step">
-
             <span class="step-num bg-[#2B9FB5]">4</span>
-
-            <div>
-
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">
-
-                Calcular los límites del gráfico X̄
-
-              </p>
-
-              <p class="text-gray-600 text-sm">
-
-                Ahora utilizamos la constante A₂ para construir los límites de control.
-
-              </p>
-
-              <div class="formula">
-
-                LCS = X̄̄ + A₂R̄
-
-                <br>
-
-                LCS = 2.972 + (0.729 × 1.015)
-
-                <br><br>
-
-                <span class="k">LCS = 3.712</span>
-
-                <br><br>
-
-                LC = 2.972
-
-                <br><br>
-
-                LCI = 2.972 − (0.729 × 1.015)
-
-                <br><br>
-
-                <span class="k">LCI = 2.231</span>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="step">
-
-            <span class="step-num bg-[#2B9FB5]">5</span>
-
-            <div>
-
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">
-
-                Calcular los límites del gráfico R
-
-              </p>
-
-              <p class="text-gray-600 text-sm">
-
-                Con las constantes D₃ y D₄ calculamos los límites del gráfico de rangos.
-
-              </p>
-
-              <div class="formula">
-
-                LCS = D₄ × R̄
-
-                <br>
-
-                LCS = 2.282 × 1.015
-
-                <br><br>
-
-                <span class="k">LCS = 2.317</span>
-
-                <br><br>
-
-                LC = 1.015
-
-                <br><br>
-
-                LCI = 0 × 1.015
-
-                <br><br>
-
-                <span class="k">LCI = 0</span>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="step">
-
-            <span class="step-num bg-[#2B9FB5]">6</span>
-
-            <div>
-
-              <p class="font-display text-sm uppercase text-gray-800 mb-2">
-
-                Verificar si el proceso está bajo control
-
-              </p>
-
-              <p class="text-gray-600 text-sm">
-
-                Finalmente se comparan todos los valores de X̄ y R con sus respectivos límites de control.
-
-              </p>
-
-              <div class="bg-green-50 rounded-xl border border-green-200 p-5 mt-4">
-
-                <p class="font-bold text-green-700 mb-2">
-
-                  Resultado
-
-                </p>
-
-                <ul class="list-disc list-inside text-sm text-gray-700 space-y-2">
-
-                  <li>El menor promedio observado fue <strong>2.64</strong>.</li>
-
-                  <li>El mayor promedio observado fue <strong>3.39</strong>.</li>
-
-                  <li>Todos los promedios se encuentran entre <strong>2.231 y 3.712</strong>.</li>
-
-                  <li>Todos los rangos también permanecen entre <strong>0 y 2.317</strong>.</li>
-
+            <div class="w-full space-y-4">
+              <p class="font-display text-sm uppercase text-gray-800">Calcular los límites del gráfico X̄ (Promedios)</p>
+
+              <div class="how-box text-sm font-body text-gray-800 space-y-2">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-2">📋 ¿Cómo se calculan y qué significan los límites?</p>
+                <p>Los límites del gráfico X̄ definen el rango dentro del cual deberían caer los promedios de cada hora si el proceso está <strong>bajo control</strong>.</p>
+                <ul class="list-disc list-inside ml-2 mt-1 space-y-1">
+                  <li><strong>LCS (Límite de Control Superior)</strong> = X̄̄ + A₂ × R̄ → la "barrera superior"</li>
+                  <li><strong>LC (Línea Central)</strong> = X̄̄ → el centro esperado del proceso</li>
+                  <li><strong>LCI (Límite de Control Inferior)</strong> = X̄̄ − A₂ × R̄ → la "barrera inferior"</li>
                 </ul>
-
-                <p class="mt-3 text-sm text-gray-700">
-
-                  Como ningún punto supera los límites de control, el proceso se considera estable.
-
-                </p>
-
+                <p class="mt-1 text-gray-500 italic">Si algún promedio cae fuera de estas barreras → 🚨 señal de alarma: algo anormal ocurrió en ese momento.</p>
               </div>
 
-            </div>
+              <div class="formula">
+                <span class="gray">// Fórmula: LCS = X̄̄ + (A₂ × R̄)</span><br>
+                LCS = 2.972 + (0.729 × 1.015)<br>
+                LCS = 2.972 + 0.740<br>
+                <span class="k">LCS = 3.712</span> &nbsp;← Todo X̄ debe estar BAJO este valor<br><br>
+                <span class="v">LC &nbsp;= 2.972</span> &nbsp;← Centro del proceso<br><br>
+                <span class="gray">// Fórmula: LCI = X̄̄ - (A₂ × R̄)</span><br>
+                LCI = 2.972 − (0.729 × 1.015)<br>
+                LCI = 2.972 − 0.740<br>
+                <span class="k">LCI = 2.231</span> &nbsp;← Todo X̄ debe estar SOBRE este valor
+              </div>
 
+              <!-- DIAGRAMA VISUAL DE LÍMITES -->
+              <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 space-y-3">
+                <p class="font-bold text-sm text-gray-700 mb-3">📊 Visualización de límites — Gráfica X̄:</p>
+                <div class="space-y-2 text-xs font-mono">
+                  <div class="flex items-center gap-3">
+                    <span class="text-rose-600 font-bold w-10 text-right">3.712</span>
+                    <div class="flex-1 h-1.5 bg-rose-400 rounded"></div>
+                    <span class="text-rose-600 text-xs">← LCS (tope superior)</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-gray-400 w-10 text-right text-[10px]">3.39</span>
+                    <div class="flex-1 flex gap-1">
+                      <div class="h-2 w-2 rounded-full bg-green-500"></div>
+                      <span class="text-green-600 text-[10px]">Mayor X̄ observada (Hora 4) → dentro de límites ✅</span>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-[#2B9FB5] font-bold w-10 text-right">2.972</span>
+                    <div class="flex-1 h-1.5 bg-[#2B9FB5] rounded"></div>
+                    <span class="text-[#2B9FB5] text-xs">← LC (línea central)</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-gray-400 w-10 text-right text-[10px]">2.64</span>
+                    <div class="flex-1 flex gap-1">
+                      <div class="h-2 w-2 rounded-full bg-green-500"></div>
+                      <span class="text-green-600 text-[10px]">Menor X̄ observada (Hora 24) → dentro de límites ✅</span>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-rose-600 font-bold w-10 text-right">2.231</span>
+                    <div class="flex-1 h-1.5 bg-rose-400 rounded"></div>
+                    <span class="text-rose-600 text-xs">← LCI (tope inferior)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
+          <!-- PASO 5 -->
+          <div class="step">
+            <span class="step-num bg-[#2B9FB5]">5</span>
+            <div class="w-full space-y-4">
+              <p class="font-display text-sm uppercase text-gray-800">Calcular los límites del gráfico R (Rangos)</p>
 
-          <div class="conclusion bg-[#e11d48]">
-            <p class="font-display text-xs uppercase tracking-widest opacity-80 mb-1">
-              Conclusión
-            </p>
+              <div class="how-box text-sm font-body text-gray-800 space-y-2">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-2">📋 ¿Para qué sirve el gráfico R y cómo se calcula?</p>
+                <p>Mientras el gráfico X̄ controla el <strong>centro</strong> del proceso, el gráfico R controla la <strong>variabilidad</strong>. Aunque el promedio esté bien, si los rangos son muy grandes significa que las piezas de una misma muestra son muy diferentes entre sí (proceso inestable).</p>
+                <ul class="list-disc list-inside ml-2 mt-1 space-y-1">
+                  <li><strong>LCS = D₄ × R̄</strong> → si un rango supera este valor, hubo variabilidad excesiva en esa hora.</li>
+                  <li><strong>LCI = D₃ × R̄</strong> → para n=4, D₃ = 0, entonces LCI = 0. No puede haber rango negativo.</li>
+                </ul>
+              </div>
 
-            <p class="font-display text-xl mb-4">
-              El proceso SÍ está bajo control estadístico ✅
-            </p>
+              <div class="formula">
+                <span class="gray">// Fórmula: LCS_R = D₄ × R̄ &nbsp;(D₄ = 2.282 para n=4)</span><br>
+                LCS = 2.282 × 1.015<br>
+                <span class="k">LCS = 2.317</span> &nbsp;← Todo R debe estar BAJO este valor<br><br>
+                <span class="v">LC &nbsp;= 1.015</span> &nbsp;← Rango promedio esperado<br><br>
+                <span class="gray">// Fórmula: LCI_R = D₃ × R̄ &nbsp;(D₃ = 0 para n=4)</span><br>
+                LCI = 0 × 1.015<br>
+                <span class="k">LCI = 0</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← No existe límite inferior real (rango ≥ 0 siempre)
+              </div>
 
-            <div class="bg-white/10 rounded-xl p-4">
-
-              <p class="font-bold mb-2">
-
-                Interpretación
-
-              </p>
-
-              <p>
-
-                Al comparar todos los promedios (X̄) y todos los rangos (R) con sus respectivos límites de control, se
-                observa que ningún valor sobrepasa los límites establecidos.
-
-                Esto significa que las variaciones observadas son propias del funcionamiento normal del proceso y no
-                existen evidencias de causas especiales que afecten la producción.
-
-                En consecuencia, el proceso de corte de precisión de alambre puede considerarse estable y bajo control
-                estadístico.
-
-              </p>
-
+              <!-- DIAGRAMA VISUAL RANGOS -->
+              <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 space-y-3">
+                <p class="font-bold text-sm text-gray-700 mb-3">📊 Visualización de límites — Gráfica R:</p>
+                <div class="space-y-2 text-xs font-mono">
+                  <div class="flex items-center gap-3">
+                    <span class="text-rose-600 font-bold w-10 text-right">2.317</span>
+                    <div class="flex-1 h-1.5 bg-rose-400 rounded"></div>
+                    <span class="text-rose-600 text-xs">← LCS (límite de variabilidad)</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-gray-400 w-10 text-right text-[10px]">1.58</span>
+                    <div class="flex-1 flex gap-1">
+                      <div class="h-2 w-2 rounded-full bg-green-500"></div>
+                      <span class="text-green-600 text-[10px]">Mayor R observado (Hora 23) → dentro de límites ✅</span>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-[#2B9FB5] font-bold w-10 text-right">1.015</span>
+                    <div class="flex-1 h-1.5 bg-[#2B9FB5] rounded"></div>
+                    <span class="text-[#2B9FB5] text-xs">← LC (rango promedio)</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-gray-400 w-10 text-right text-[10px]">0.32</span>
+                    <div class="flex-1 flex gap-1">
+                      <div class="h-2 w-2 rounded-full bg-green-500"></div>
+                      <span class="text-green-600 text-[10px]">Menor R observado (Hora 6) → dentro de límites ✅</span>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-rose-600 font-bold w-10 text-right">0</span>
+                    <div class="flex-1 h-1.5 bg-rose-400 rounded"></div>
+                    <span class="text-rose-600 text-xs">← LCI (teórico = 0)</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-        </div>
-      </div>
+          <!-- PASO 6 -->
+          <div class="step">
+            <span class="step-num bg-[#2B9FB5]">6</span>
+            <div class="w-full space-y-4">
+              <p class="font-display text-sm uppercase text-gray-800">Verificar si el proceso está bajo control</p>
 
+              <div class="how-box text-sm font-body text-gray-800 space-y-2">
+                <p class="font-bold text-blue-700 uppercase text-xs tracking-wider mb-2">📋 ¿Cómo se verifica y qué significa "bajo control"?</p>
+                <p>Comparamos cada uno de los 24 valores de X̄ contra los límites del gráfico X̄, y cada uno de los 24 valores de R contra los límites del gráfico R.</p>
+                <p class="mt-1"><strong>Regla:</strong> Si NINGÚN punto supera los límites → el proceso está bajo control estadístico (solo hay variación normal). Si ALGÚN punto supera los límites → hay una <em>causa especial</em> que debe investigarse.</p>
+              </div>
 
+              <!-- RESUMEN DE VERIFICACIÓN -->
+              <div class="grid md:grid-cols-2 gap-4 text-sm font-body">
+                <div class="bg-white border border-gray-200 rounded-xl p-4 space-y-3">
+                  <p class="font-bold text-gray-800">Gráfica X̄ — Verificación:</p>
+                  <div class="space-y-2 text-xs">
+                    <div class="flex justify-between items-center bg-gray-50 rounded-lg px-3 py-2">
+                      <span>LCS (máximo permitido)</span>
+                      <span class="font-bold text-rose-600">3.712</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-gray-50 rounded-lg px-3 py-2">
+                      <span>Mayor X̄ observada (Hora 4)</span>
+                      <span class="font-bold text-green-600">3.39 ✅</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-gray-50 rounded-lg px-3 py-2">
+                      <span>LCI (mínimo permitido)</span>
+                      <span class="font-bold text-rose-600">2.231</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-gray-50 rounded-lg px-3 py-2">
+                      <span>Menor X̄ observada (Hora 24)</span>
+                      <span class="font-bold text-green-600">2.64 ✅</span>
+                    </div>
+                  </div>
+                  <p class="text-xs text-green-700 font-bold">→ Todos los 24 promedios están dentro del rango [2.231 – 3.712] ✅</p>
+                </div>
 
-    </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-4 space-y-3">
+                  <p class="font-bold text-gray-800">Gráfica R — Verificación:</p>
+                  <div class="space-y-2 text-xs">
+                    <div class="flex justify-between items-center bg-gray-50 rounded-lg px-3 py-2">
+                      <span>LCS (máximo permitido)</span>
+                      <span class="font-bold text-rose-600">2.317</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-gray-50 rounded-lg px-3 py-2">
+                      <span>Mayor R observado (Hora 23)</span>
+                      <span class="font-bold text-green-600">1.58 ✅</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-gray-50 rounded-lg px-3 py-2">
+                      <span>LCI (mínimo permitido)</span>
+                      <span class="font-bold text-rose-600">0</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-gray-50 rounded-lg px-3 py-2">
+                      <span>Menor R observado (Hora 6)</span>
+                      <span class="font-bold text-green-600">0.32 ✅</span>
+                    </div>
+                  </div>
+                  <p class="text-xs text-green-700 font-bold">→ Todos los 24 rangos están dentro del rango [0 – 2.317] ✅</p>
+                </div>
+              </div>
+
+              <!-- TABLA RESUMEN LÍMITES -->
+              <div class="overflow-x-auto rounded-xl border border-gray-200">
+                <table>
+                  <thead>
+                    <tr><th class="left">Gráfica</th><th>LCI</th><th>LC (Centro)</th><th>LCS</th><th>¿Todos dentro?</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="left font-bold">X̄ (Promedios)</td>
+                      <td class="font-bold text-rose-600">2.231</td>
+                      <td class="font-bold text-[#2B9FB5]">2.972</td>
+                      <td class="font-bold text-rose-600">3.712</td>
+                      <td class="font-bold text-green-600">✅ Sí</td>
+                    </tr>
+                    <tr>
+                      <td class="left font-bold">R (Rangos)</td>
+                      <td class="font-bold text-rose-600">0</td>
+                      <td class="font-bold text-[#2B9FB5]">1.015</td>
+                      <td class="font-bold text-rose-600">2.317</td>
+                      <td class="font-bold text-green-600">✅ Sí</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONCLUSIÓN -->
+          <div class="rounded-2xl p-6 space-y-4" style="background: #e11d48;">
+            <p class="font-display text-xs uppercase tracking-widest text-white/70">Conclusión Final</p>
+            <p class="font-display text-2xl text-white">El proceso SÍ está bajo control estadístico ✅</p>
+
+            <div class="bg-white/10 rounded-xl p-5 space-y-3 text-white text-sm font-body">
+              <p class="font-bold">📌 Interpretación detallada:</p>
+              <p>Al comparar todos los promedios (X̄) y rangos (R) con sus respectivos límites de control, <strong>ningún valor supera los límites establecidos</strong>. Esto nos dice dos cosas importantes:</p>
+              <ul class="list-disc list-inside space-y-2 ml-2">
+                <li><strong>El proceso está centrado</strong> alrededor de 2.972 y no presenta tendencias hacia arriba o abajo.</li>
+                <li><strong>La variabilidad es normal</strong>: los rangos oscilan sin patrones anómalos, dentro de lo esperado para un proceso estable.</li>
+              </ul>
+              <p class="mt-2">Las variaciones observadas son propias del funcionamiento normal del equipo (<em>causas comunes</em>). No se detectaron causas especiales (como un operario distinto, una materia prima diferente, o una falla mecánica) que requieran intervención.</p>
+              <p class="mt-2 font-bold text-yellow-200">➡️ Recomendación gerencial: El proceso puede continuar sin ajustes. Sin embargo, se sugiere implementar una revisión preventiva periódica del equipo de corte para mantener este nivel de estabilidad a largo plazo.</p>
+            </div>
+          </div>
+
+        </div><!-- /solución -->
+      </div><!-- /p-8 -->
+    </div><!-- /ejercicio -->
+
+    <!-- NAVEGACIÓN -->
     <div class="flex justify-between gap-4 fade-up d6">
-      <a href="./Tema5.html"
-        class="flex-1 bg-white/20 hover:bg-white/30 text-white font-display text-sm uppercase rounded-xl px-6 py-4 text-center transition-colors">←
-        Tema 5</a>
-      <a href="./index.html"
-        class="flex-1 bg-white rounded-xl px-6 py-4 text-center font-display text-sm uppercase text-[#1E7A8A] hover:bg-[#D6EEF3] transition-colors shadow-lg">Portafolio
-        →</a>
+      <a href="./Tema5.html" class="flex-1 bg-white/20 hover:bg-white/30 text-white font-display text-sm uppercase rounded-xl px-6 py-4 text-center transition-colors">← Tema 5</a>
+      <a href="./index.html" class="flex-1 bg-white rounded-xl px-6 py-4 text-center font-display text-sm uppercase text-[#1E7A8A] hover:bg-[#D6EEF3] transition-colors shadow-lg">Portafolio →</a>
     </div>
-   
+
   </div>
+
   <footer class="bg-[#1E7A8A]/50 border-t border-white/20 py-6 text-center">
     <p class="text-white/70 text-sm font-body">Keinth Viales Reyes · C28373 · Métodos Cuantitativos 2024–2025</p>
   </footer>
 
 </body>
-
 </html>
