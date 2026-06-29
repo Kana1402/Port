@@ -25,7 +25,6 @@
     .d1{animation-delay:.05s;opacity:0}.d2{animation-delay:.15s;opacity:0}.d3{animation-delay:.25s;opacity:0}
     .d4{animation-delay:.35s;opacity:0}.d5{animation-delay:.45s;opacity:0}.d6{animation-delay:.55s;opacity:0}
 
-    /* Tablas */
     table{border-collapse:collapse;width:100%}
     th{background:#2B9FB5;color:white;padding:9px 12px;text-align:center;font-family:'Black Han Sans',sans-serif;font-size:12px;letter-spacing:.03em}
     th.left{text-align:left}
@@ -33,27 +32,43 @@
     td.left{text-align:left;font-weight:600}
     tr:nth-child(even) td{background:#f8fffe}
     .hl td{background:#fef9c3!important;font-weight:700}
-    .assigned td{background:#dcfce7!important;font-weight:700;color:#166534}
-    .danger td{background:#fee2e2!important;color:#991b1b}
-    td.assigned-cell{background:#dcfce7;font-weight:700;color:#166534;border-radius:4px}
-    td.empty-cell{color:#9ca3af;font-size:11px}
-    td.penal{background:#fef3c7;font-weight:700;font-size:11px;color:#92400e}
+    td.green{background:#dcfce7;font-weight:700;color:#166534}
+    td.blue{background:#dbeafe;font-weight:700;color:#1e40af}
+    td.gray{color:#9ca3af;font-size:11px}
+    td.penal{background:#fef3c7;font-weight:700;font-size:11px;color:#78350f}
     td.chosen{background:#2B9FB5!important;color:white!important;font-weight:700}
+    td.assigned-cell{background:#dcfce7;font-weight:700;color:#166534}
+    tr.assigned td{background:#dcfce7;font-weight:700;color:#166534}
 
-    /* Pasos */
-    .step{display:flex;gap:14px;align-items:flex-start;background:#f0fafc;border-radius:14px;padding:18px}
-    .step-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Black Han Sans',sans-serif;font-size:13px;color:white}
+    /* Cajas explicativas */
+    .why-box{background:#fffbeb;border-left:4px solid #f59e0b;border-radius:0 12px 12px 0;padding:14px 18px;margin:12px 0}
+    .how-box{background:#eff6ff;border-left:4px solid #3b82f6;border-radius:0 12px 12px 0;padding:14px 18px;margin:12px 0}
+    .result-box{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 12px 12px 0;padding:14px 18px;margin:12px 0}
+    .warn-box{background:#fef2f2;border-left:4px solid #ef4444;border-radius:0 12px 12px 0;padding:14px 18px;margin:12px 0}
+    .why-box p:first-child,.how-box p:first-child,.result-box p:first-child,.warn-box p:first-child{font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+    .why-box p:first-child{color:#92400e}
+    .how-box p:first-child{color:#1e40af}
+    .result-box p:first-child{color:#166534}
+    .warn-box p:first-child{color:#991b1b}
+
     .formula{background:#0f172a;color:#93c5fd;font-family:monospace;font-size:12px;padding:14px 18px;border-radius:10px;line-height:2.2;overflow-x:auto}
     .formula span.k{color:#f9a8d4}
     .formula span.v{color:#fde68a}
     .formula span.g{color:#86efac}
+
+    .step-block{border:2px solid #e5e7eb;border-radius:16px;overflow:hidden;margin-bottom:8px}
+    .step-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#f8fafc;border-bottom:2px solid #e5e7eb}
+    .step-num{flex-shrink:0;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Black Han Sans',sans-serif;font-size:13px;color:white}
+    .step-body{padding:18px}
+
+    .iter-tag{display:inline-block;background:#1E7A8A;color:white;font-family:'Black Han Sans',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:12px}
+    .delta-pos{display:inline-block;background:#dcfce7;color:#166534;font-weight:800;border-radius:6px;padding:2px 8px;font-size:12px}
+    .delta-zero{display:inline-block;background:#fef9c3;color:#78350f;font-weight:800;border-radius:6px;padding:2px 8px;font-size:12px}
+    .delta-neg{display:inline-block;background:#fee2e2;color:#991b1b;font-weight:800;border-radius:6px;padding:2px 8px;font-size:12px}
     .conclusion{border-radius:16px;padding:24px;color:white}
-    .note{background:#fefce8;border:1px solid #fde047;border-radius:12px;padding:14px 16px;font-size:12px;color:#713f12}
-    .info-box{background:#f0fafc;border:1px solid #a8d8e0;border-radius:12px;padding:14px 16px;font-size:12px;color:#1e4e5f}
-    .iter-header{background:#1E7A8A;color:white;border-radius:10px;padding:10px 16px;font-family:'Black Han Sans',sans-serif;font-size:13px;letter-spacing:.04em;display:flex;align-items:center;gap:8px}
-    .delta-pos{background:#dcfce7;color:#166534;font-weight:700;border-radius:6px;padding:2px 8px}
-    .delta-zero{background:#fef9c3;color:#78350f;font-weight:700;border-radius:6px;padding:2px 8px}
-    .delta-neg{background:#fee2e2;color:#991b1b;font-weight:700;border-radius:6px;padding:2px 8px}
+
+    .part-header{padding:22px 32px}
+    .number-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-family:'Black Han Sans',sans-serif;font-size:12px;color:white;flex-shrink:0;margin-right:8px}
   </style>
 </head>
 <body class="min-h-screen bg-[#2B9FB5] bg-grid">
@@ -153,9 +168,10 @@
 
 </nav>
 
+
   <div class="max-w-4xl mx-auto px-6 py-12 space-y-8">
 
-    <!-- ══ HERO ══ -->
+    <!-- HERO -->
     <div class="bg-white rounded-3xl shadow-2xl p-10 text-center fade-up d1">
       <div class="inline-block bg-[#F5A8B8] px-8 py-4 rounded-2xl mb-3">
         <p class="font-display text-sm uppercase tracking-widest text-gray-600 mb-1">Tema 1</p>
@@ -163,16 +179,16 @@
           Modelos de Transporte<br/>y Asignación
         </h1>
       </div>
+      <p class="text-gray-500 text-sm font-body mt-3">Distribución de mercancía en Limón — Empresa portuaria de Moín</p>
       <div class="flex flex-wrap justify-center gap-3 mt-4">
-        <span class="bg-[#2B9FB5] text-white text-xs font-bold px-4 py-1.5 rounded-full">Vogel (VAM)</span>
-        <span class="bg-[#1E7A8A] text-white text-xs font-bold px-4 py-1.5 rounded-full">Salto de Piedra</span>
-        <span class="bg-[#b5742a] text-white text-xs font-bold px-4 py-1.5 rounded-full">Método Húngaro</span>
-        <span class="bg-[#F5A8B8] text-gray-800 text-xs font-bold px-4 py-1.5 rounded-full">Maximización</span>
+        <span class="bg-[#2B9FB5] text-white text-xs font-bold px-4 py-1.5 rounded-full">① Vogel</span>
+        <span class="bg-[#1E7A8A] text-white text-xs font-bold px-4 py-1.5 rounded-full">② Salto de Piedra</span>
+        <span class="bg-[#b5742a] text-white text-xs font-bold px-4 py-1.5 rounded-full">③ Método Húngaro</span>
       </div>
     </div>
 
-    <!-- ══ CONTENIDO TEÓRICO ══ -->
-<div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
+    <!-- ══ QUÉ ES UN MODELO DE TRANSPORTE ══ -->
+  <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
   
   <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
     <h2 class="font-display text-xl text-gray-900 uppercase">Contenido</h2>
@@ -196,477 +212,634 @@
       Para resolver este tipo de problemas seguimos un proceso de dos etapas. Primero utilizamos el <strong>método de Aproximación de Vogel</strong>, que permite obtener una muy buena solución inicial utilizando penalizaciones para decidir las mejores asignaciones. Después aplicamos el <strong>método del Salto de Piedra</strong>, que sirve para comprobar si esa solución ya es la óptima o si todavía existe una forma de mejorarla.
     </p>
 
+
+  </div>
   </div>
 
-</div>
     <!-- ══ DATOS DEL PROBLEMA ══ -->
     <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
       <div class="inline-block bg-[#F5C9A8] rounded-xl px-6 py-2 mb-6">
-        <h2 class="font-display text-xl text-gray-900 uppercase">Datos del Problema</h2>
+        <h2 class="font-display text-xl text-gray-900 uppercase">El Problema — Datos</h2>
       </div>
+
       <p class="text-gray-700 font-body text-sm leading-relaxed mb-5">
-        Una empresa distribuidora en <strong>Limón</strong> recibe mercancía importada en la zona portuaria de Moín. La almacena en tres bodegas y debe abastecer cuatro centros de distribución. La tabla muestra la <strong>ganancia en miles de ₡ por tonelada</strong> enviada de cada bodega a cada destino. El objetivo es <strong>maximizar la ganancia total</strong>.
+        Una empresa distribuidora en <strong>Limón</strong> recibe mercancía en el puerto de Moín. La guarda en 3 bodegas y la debe llevar a 4 centros de distribución. La tabla muestra cuántos <strong>miles de colones gana</strong> por cada tonelada que envía de cada bodega a cada destino.
       </p>
 
       <div class="grid md:grid-cols-2 gap-4 mb-5">
         <div>
-          <p class="font-display text-xs uppercase text-[#1E7A8A] tracking-widest mb-2">Orígenes (bodegas)</p>
+          <p class="font-display text-xs uppercase text-[#1E7A8A] tracking-widest mb-2">¿Cuánto tiene cada bodega? (Oferta)</p>
           <div class="overflow-x-auto rounded-xl border border-gray-200">
             <table>
-              <thead><tr><th class="left">Cód.</th><th class="left">Bodega</th><th>Oferta (ton)</th></tr></thead>
+              <thead><tr><th class="left">Bodega</th><th>Toneladas disponibles</th></tr></thead>
               <tbody>
-                <tr><td class="left">O1</td><td class="left">Moín</td><td>120</td></tr>
-                <tr><td class="left">O2</td><td class="left">Cieneguita</td><td>100</td></tr>
-                <tr><td class="left">O3</td><td class="left">Liverpool</td><td>80</td></tr>
-                <tr class="hl"><td colspan="2" class="left">Total</td><td>300</td></tr>
+                <tr><td class="left">O1 — Moín</td><td class="font-bold text-[#2B9FB5]">120 ton</td></tr>
+                <tr><td class="left">O2 — Cieneguita</td><td class="font-bold text-[#2B9FB5]">100 ton</td></tr>
+                <tr><td class="left">O3 — Liverpool</td><td class="font-bold text-[#2B9FB5]">80 ton</td></tr>
+                <tr class="hl"><td class="left">Total oferta</td><td class="font-bold">300 ton</td></tr>
               </tbody>
             </table>
           </div>
         </div>
         <div>
-          <p class="font-display text-xs uppercase text-[#1E7A8A] tracking-widest mb-2">Destinos (centros)</p>
+          <p class="font-display text-xs uppercase text-[#1E7A8A] tracking-widest mb-2">¿Cuánto necesita cada destino? (Demanda)</p>
           <div class="overflow-x-auto rounded-xl border border-gray-200">
             <table>
-              <thead><tr><th class="left">Cód.</th><th class="left">Lugar</th><th>Demanda (ton)</th></tr></thead>
+              <thead><tr><th class="left">Destino</th><th>Toneladas requeridas</th></tr></thead>
               <tbody>
-                <tr><td class="left">D1</td><td class="left">Limón Centro</td><td>70</td></tr>
-                <tr><td class="left">D2</td><td class="left">Siquirres</td><td>90</td></tr>
-                <tr><td class="left">D3</td><td class="left">Guápiles</td><td>80</td></tr>
-                <tr><td class="left">D4</td><td class="left">Talamanca</td><td>60</td></tr>
-                <tr class="hl"><td colspan="2" class="left">Total</td><td>300</td></tr>
+                <tr><td class="left">D1 — Limón Centro</td><td class="font-bold text-[#F5A8B8]">70 ton</td></tr>
+                <tr><td class="left">D2 — Siquirres</td><td class="font-bold text-[#F5A8B8]">90 ton</td></tr>
+                <tr><td class="left">D3 — Guápiles</td><td class="font-bold text-[#F5A8B8]">80 ton</td></tr>
+                <tr><td class="left">D4 — Talamanca</td><td class="font-bold text-[#F5A8B8]">60 ton</td></tr>
+                <tr class="hl"><td class="left">Total demanda</td><td class="font-bold">300 ton</td></tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
 
-      <div class="note mb-5">
-        ✅ <strong>Modelo BALANCEADO:</strong> Oferta total (120+100+80) = Demanda total (70+90+80+60) = <strong>300 toneladas</strong>. No se requieren filas ni columnas ficticias.
+      <div class="result-box mb-5">
+        <p>✅ El modelo está BALANCEADO</p>
+        <p class="text-gray-700 text-sm">Oferta total (120+100+80) = Demanda total (70+90+80+60) = <strong>300 ton</strong>. Esto significa que toda la mercancía disponible será enviada y todos los destinos quedan satisfechos exactamente. No sobra ni falta nada — no hay que agregar filas ni columnas ficticias.</p>
       </div>
 
-      <!-- Matriz ganancias -->
-      <p class="font-display text-xs uppercase text-[#1E7A8A] tracking-widest mb-2">Matriz de ganancia (miles de ₡/tonelada)</p>
-      <div class="overflow-x-auto rounded-xl border border-gray-200 mb-5">
+      <p class="font-display text-xs uppercase text-[#1E7A8A] tracking-widest mb-3">Tabla de ganancias (miles de ₡ por tonelada enviada)</p>
+      <div class="overflow-x-auto rounded-xl border border-gray-200 mb-4">
         <table>
-          <thead><tr><th class="left">Origen / Destino</th><th>D1 Limón C.</th><th>D2 Siquirres</th><th>D3 Guápiles</th><th>D4 Talamanca</th><th>Oferta</th></tr></thead>
+          <thead><tr><th class="left">De \ A</th><th>D1 Limón C.</th><th>D2 Siquirres</th><th>D3 Guápiles</th><th>D4 Talamanca</th><th>Oferta</th></tr></thead>
           <tbody>
-            <tr><td class="left">O1 Moín</td><td>16</td><td>11</td><td>8</td><td>5</td><td class="font-bold">120</td></tr>
+            <tr><td class="left">O1 Moín</td><td class="font-bold text-green-700">16</td><td>11</td><td>8</td><td>5</td><td class="font-bold">120</td></tr>
             <tr><td class="left">O2 Cieneguita</td><td>15</td><td>12</td><td>9</td><td>6</td><td class="font-bold">100</td></tr>
             <tr><td class="left">O3 Liverpool</td><td>14</td><td>13</td><td>10</td><td>7</td><td class="font-bold">80</td></tr>
             <tr class="hl"><td class="left">Demanda</td><td>70</td><td>90</td><td>80</td><td>60</td><td>300</td></tr>
           </tbody>
         </table>
       </div>
+      <p class="text-gray-400 text-xs font-body">Ejemplo: si mandamos 1 tonelada de Moín a Limón Centro, ganamos ₡16,000. Si mandamos 70 ton, ganamos 70×16 = ₡1,120,000.</p>
 
-      <!-- Función objetivo y restricciones -->
-      <p class="font-display text-xs uppercase text-[#1E7A8A] tracking-widest mb-2">Modelo matemático</p>
-      <div class="formula">
-        <span class="k">Max Z</span> = 16X₁₁ + 11X₁₂ + 8X₁₃ + 5X₁₄ + 15X₂₁ + 12X₂₂ + 9X₂₃ + 6X₂₄ + 14X₃₁ + 13X₃₂ + 10X₃₃ + 7X₃₄<br/><br/>
-        <span class="k">Oferta:</span><br/>
-        Moín:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X₁₁ + X₁₂ + X₁₃ + X₁₄ = 120<br/>
-        Cieneguita: X₂₁ + X₂₂ + X₂₃ + X₂₄ = 100<br/>
-        Liverpool:&nbsp; X₃₁ + X₃₂ + X₃₃ + X₃₄ = 80<br/><br/>
-        <span class="k">Demanda:</span><br/>
-        Limón Centro: X₁₁+X₂₁+X₃₁ = 70 &nbsp;|&nbsp; Siquirres: X₁₂+X₂₂+X₃₂ = 90<br/>
-        Guápiles:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X₁₃+X₂₃+X₃₃ = 80 &nbsp;|&nbsp; Talamanca: X₁₄+X₂₄+X₃₄ = 60<br/><br/>
-        <span class="k">No negatividad:</span> Xᵢⱼ ≥ 0
+      <div class="formula mt-4">
+        <span class="k">Función objetivo (lo que queremos maximizar):</span><br/>
+        Max Z = 16X₁₁ + 11X₁₂ + 8X₁₃ + 5X₁₄<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 15X₂₁ + 12X₂₂ + 9X₂₃ + 6X₂₄<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 14X₃₁ + 13X₃₂ + 10X₃₃ + 7X₃₄<br/><br/>
+        <span class="k">Donde Xᵢⱼ = toneladas enviadas desde la bodega i al destino j</span>
       </div>
     </div>
 
-    <!-- ══════════════════════════════
+    <!-- ══════════════════════════════════
          PARTE 1: VOGEL
-    ══════════════════════════════ -->
+    ══════════════════════════════════ -->
     <div class="bg-white rounded-2xl shadow-xl overflow-hidden fade-up d3">
-      <div class="bg-[#2B9FB5] px-8 py-6">
+      <div class="part-header bg-[#2B9FB5]">
         <p class="font-display text-xs uppercase tracking-widest text-white/60 mb-1">Parte 1 de 3</p>
-        <h2 class="font-display text-2xl text-white uppercase">Método de Aproximación de Vogel</h2>
-        <p class="text-white/70 text-xs font-body mt-1">Objetivo: obtener una solución inicial de alta calidad usando penalizaciones</p>
+        <h2 class="font-display text-2xl text-white uppercase">Método de Aproximación de Vogel (VAM)</h2>
       </div>
-      <div class="p-8 space-y-6">
+      <div class="p-8">
 
-        <!-- Qué es una penalización -->
-        <div class="info-box">
-          <p class="font-bold mb-1">¿Qué es una penalización?</p>
-          <p>Es la diferencia entre los dos <strong>costos de oportunidad más bajos</strong> de cada fila o columna. Indica cuánto "perdemos" si no elegimos la mejor opción. Siempre se asigna en la fila/columna de <strong>mayor penalización</strong>, en la celda de <strong>menor costo de oportunidad</strong>.</p>
+        <!-- Qué es -->
+        <div class="why-box mb-6">
+          <p>¿Qué es el método de Vogel?</p>
+          <p class="text-gray-700 text-sm">Es una técnica para encontrar <strong>una primera distribución inteligente</strong>. No va a ciegas — usa "penalizaciones" para priorizar las asignaciones más importantes. Funciona como una estrategia: primero cubre donde más perdés si no lo hacés.</p>
         </div>
 
-        <!-- Paso A: Convertir -->
-        <div class="step"><span class="step-num bg-[#2B9FB5]">A</span>
-          <div class="w-full">
-            <p class="font-display text-sm uppercase text-gray-800 mb-2">Convertir a Costo de Oportunidad</p>
-            <p class="text-gray-600 text-xs font-body mb-3">Como es <strong>maximización</strong>, convertimos usando: <strong>Costo de oportunidad = 16 (mayor ganancia) − ganancia de la celda</strong>. Así el costo más bajo = mayor ganancia original.</p>
-            <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <!-- Concepto de penalización -->
+        <div class="step-block mb-6">
+          <div class="step-header">
+            <span class="step-num bg-[#2B9FB5]">A</span>
+            <div>
+              <p class="font-bold text-gray-800 text-sm">¿Qué es una penalización y por qué se calcula?</p>
+            </div>
+          </div>
+          <div class="step-body">
+            <div class="why-box">
+              <p>¿Por qué calcular penalizaciones?</p>
+              <p class="text-gray-700 text-sm">La penalización de una fila o columna te dice: "<em>Si no aprovecho la mejor opción aquí y uso la segunda mejor, ¿cuánto pierdo?</em>" Mientras más alta la penalización, más urgente es asignar en esa fila/columna — porque postergarla sale más caro.</p>
+            </div>
+            <div class="how-box">
+              <p>¿Cómo se calcula?</p>
+              <p class="text-gray-700 text-sm"><strong>Penalización = 2º costo más bajo − 1º costo más bajo</strong> (de la misma fila o columna en la tabla de costos de oportunidad). Siempre se elige la fila/columna con la penalización <strong>más alta</strong>, y dentro de ella, la celda de <strong>menor costo</strong>.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso previo: convertir a costo de oportunidad -->
+        <div class="step-block mb-6">
+          <div class="step-header">
+            <span class="step-num bg-[#2B9FB5]">B</span>
+            <div>
+              <p class="font-bold text-gray-800 text-sm">Paso previo: Convertir la tabla de ganancias en tabla de Costo de Oportunidad</p>
+            </div>
+          </div>
+          <div class="step-body">
+            <div class="why-box">
+              <p>¿Por qué hay que convertirla?</p>
+              <p class="text-gray-700 text-sm">Vogel funciona sobre <strong>costos</strong> (minimización). Como nuestro problema es de <strong>maximización</strong> (ganancias), debemos "invertirlo". Lo hacemos restando cada ganancia del valor máximo de la tabla (16). Así la celda con ganancia más alta queda con costo 0 — la más atractiva — y la de menor ganancia queda con el costo más alto.</p>
+            </div>
+            <div class="how-box">
+              <p>¿Cómo se hace?</p>
+              <p class="text-gray-700 text-sm font-bold">Costo de oportunidad = 16 (máx. de la tabla) − ganancia de esa celda</p>
+            </div>
+            <div class="overflow-x-auto rounded-xl border border-gray-200 mt-4">
               <table>
-                <thead><tr><th class="left">Origen / Destino</th><th>D1</th><th>D2</th><th>D3</th><th>D4</th><th>Oferta</th></tr></thead>
+                <thead><tr><th class="left">Bodega \ Destino</th><th>D1 Limón C.</th><th>D2 Siquirres</th><th>D3 Guápiles</th><th>D4 Talamanca</th><th>Oferta</th></tr></thead>
                 <tbody>
-                  <tr><td class="left">O1 Moín</td><td class="chosen">0</td><td>5</td><td>8</td><td>11</td><td>120</td></tr>
-                  <tr><td class="left">O2 Cieneguita</td><td>1</td><td>4</td><td>7</td><td>10</td><td>100</td></tr>
-                  <tr><td class="left">O3 Liverpool</td><td>2</td><td>3</td><td>6</td><td>9</td><td>80</td></tr>
+                  <tr>
+                    <td class="left">O1 Moín</td>
+                    <td class="chosen">16−16 = <strong>0</strong></td>
+                    <td>16−11 = 5</td>
+                    <td>16−8 = 8</td>
+                    <td>16−5 = 11</td>
+                    <td>120</td>
+                  </tr>
+                  <tr>
+                    <td class="left">O2 Cieneguita</td>
+                    <td>16−15 = 1</td>
+                    <td>16−12 = 4</td>
+                    <td>16−9 = 7</td>
+                    <td>16−6 = 10</td>
+                    <td>100</td>
+                  </tr>
+                  <tr>
+                    <td class="left">O3 Liverpool</td>
+                    <td>16−14 = 2</td>
+                    <td>16−13 = 3</td>
+                    <td>16−10 = 6</td>
+                    <td>16−7 = 9</td>
+                    <td>80</td>
+                  </tr>
                   <tr class="hl"><td class="left">Demanda</td><td>70</td><td>90</td><td>80</td><td>60</td><td>300</td></tr>
                 </tbody>
               </table>
             </div>
-            <p class="text-gray-400 text-xs font-body mt-2">El costo 0 en O1-D1 corresponde a la mayor ganancia de la tabla (₡16,000/ton).</p>
-          </div>
-        </div>
-
-        <!-- Iteración 1 -->
-        <div class="space-y-3">
-          <div class="iter-header">📍 Iteración 1</div>
-          <div class="step"><span class="step-num bg-[#2B9FB5]">1</span>
-            <div class="w-full">
-              <p class="font-display text-xs uppercase text-gray-700 mb-2">Calcular penalizaciones (diferencia entre los 2 costos más bajos de cada fila/columna)</p>
-              <div class="overflow-x-auto rounded-xl border border-gray-200 mb-3">
-                <table>
-                  <thead><tr><th class="left">Fila / Columna</th><th>2 menores costos</th><th class="penal">Penalización</th></tr></thead>
-                  <tbody>
-                    <tr><td class="left">O1 Moín (fila)</td><td>0 y 5</td><td class="penal">5 − 0 = <strong>5</strong> ← MAYOR</td></tr>
-                    <tr><td class="left">O2 Cieneguita (fila)</td><td>1 y 4</td><td class="penal">4 − 1 = 3</td></tr>
-                    <tr><td class="left">O3 Liverpool (fila)</td><td>2 y 3</td><td class="penal">3 − 2 = 1</td></tr>
-                    <tr><td class="left">D1 Limón C. (col)</td><td>0 y 1</td><td class="penal">1 − 0 = 1</td></tr>
-                    <tr><td class="left">D2 Siquirres (col)</td><td>3 y 4</td><td class="penal">4 − 3 = 1</td></tr>
-                    <tr><td class="left">D3 Guápiles (col)</td><td>6 y 7</td><td class="penal">7 − 6 = 1</td></tr>
-                    <tr><td class="left">D4 Talamanca (col)</td><td>9 y 10</td><td class="penal">10 − 9 = 1</td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="formula text-xs">
-                Mayor penalización = <span class="v">5</span> (fila O1 Moín)<br/>
-                Menor costo en O1 → D1 (costo 0 = ganancia 16 ← la más alta)<br/>
-                Asignación: min(oferta 120, demanda 70) = <span class="g">70 toneladas</span><br/>
-                Oferta O1 restante: 120 − 70 = <span class="v">50</span> &nbsp;|&nbsp; Demanda D1 satisfecha: <span class="k">D1 se cierra ✗</span>
-              </div>
+            <div class="result-box mt-3">
+              <p>Resultado</p>
+              <p class="text-gray-700 text-sm">La celda O1-D1 (Moín→Limón Centro) tiene costo de oportunidad <strong>0</strong> porque es la más rentable (₡16,000/ton). La celda O1-D4 tiene costo <strong>11</strong> porque es la menos rentable (₡5,000/ton).</p>
             </div>
           </div>
         </div>
 
-        <!-- Iteración 2 -->
-        <div class="space-y-3">
-          <div class="iter-header">📍 Iteración 2 — Se elimina columna D1</div>
-          <div class="step"><span class="step-num bg-[#2B9FB5]">2</span>
-            <div class="w-full">
-              <p class="font-display text-xs uppercase text-gray-700 mb-2">Penalizaciones sin D1</p>
-              <div class="overflow-x-auto rounded-xl border border-gray-200 mb-3">
-                <table>
-                  <thead><tr><th class="left">Fila / Columna</th><th>2 menores costos</th><th class="penal">Penalización</th></tr></thead>
-                  <tbody>
-                    <tr><td class="left">O1 Moín (fila)</td><td>5 y 8</td><td class="penal">8 − 5 = 3</td></tr>
-                    <tr><td class="left">O2 Cieneguita (fila)</td><td>4 y 7</td><td class="penal">7 − 4 = 3</td></tr>
-                    <tr><td class="left">O3 Liverpool (fila)</td><td>3 y 6</td><td class="penal">6 − 3 = 3</td></tr>
-                    <tr><td class="left">D2 Siquirres (col)</td><td>3 y 4</td><td class="penal">4 − 3 = 1</td></tr>
-                    <tr><td class="left">D3 Guápiles (col)</td><td>6 y 7</td><td class="penal">7 − 6 = 1</td></tr>
-                    <tr><td class="left">D4 Talamanca (col)</td><td>9 y 10</td><td class="penal">10 − 9 = 1</td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="formula text-xs">
-                Mayor penalización = <span class="v">3</span> (empate en filas O1, O2, O3)<br/>
-                <span class="k">Criterio de desempate:</span> se elige la celda de menor costo disponible = O3-D2 (costo 3)<br/>
-                Asignación: min(oferta O3=80, demanda D2=90) = <span class="g">80 toneladas</span><br/>
-                Oferta O3 agotada: <span class="k">O3 se cierra ✗</span> &nbsp;|&nbsp; Demanda D2 restante: 90 − 80 = <span class="v">10</span>
-              </div>
+        <!-- ITERACIONES -->
+        <p class="font-display text-base uppercase text-[#2B9FB5] mb-4">Iteraciones de Vogel</p>
+
+        <!-- ITER 1 -->
+        <div class="step-block mb-4">
+          <div class="step-header">
+            <span class="iter-tag">Iteración 1</span>
+          </div>
+          <div class="step-body space-y-4">
+            <div class="how-box">
+              <p>¿Qué hacemos?</p>
+              <p class="text-gray-700 text-sm">Calculamos la penalización de cada fila y columna. Elegimos la fila/columna con la <strong>penalización más alta</strong> y asignamos el máximo posible en su celda de menor costo.</p>
+            </div>
+
+            <div class="overflow-x-auto rounded-xl border border-gray-200">
+              <table>
+                <thead><tr><th class="left">Fila / Columna</th><th>Costo más bajo</th><th>2º costo más bajo</th><th class="penal">Penalización</th></tr></thead>
+                <tbody>
+                  <tr><td class="left">Fila O1 Moín</td><td>0 (D1)</td><td>5 (D2)</td><td class="chosen">5 − 0 = <strong>5 ← MAYOR</strong></td></tr>
+                  <tr><td class="left">Fila O2 Cieneguita</td><td>1 (D1)</td><td>4 (D2)</td><td class="penal">4 − 1 = 3</td></tr>
+                  <tr><td class="left">Fila O3 Liverpool</td><td>2 (D1)</td><td>3 (D2)</td><td class="penal">3 − 2 = 1</td></tr>
+                  <tr><td class="left">Columna D1</td><td>0 (O1)</td><td>1 (O2)</td><td class="penal">1 − 0 = 1</td></tr>
+                  <tr><td class="left">Columna D2</td><td>3 (O3)</td><td>4 (O2)</td><td class="penal">4 − 3 = 1</td></tr>
+                  <tr><td class="left">Columna D3</td><td>6 (O3)</td><td>7 (O2)</td><td class="penal">7 − 6 = 1</td></tr>
+                  <tr><td class="left">Columna D4</td><td>9 (O3)</td><td>10 (O2)</td><td class="penal">10 − 9 = 1</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="why-box">
+              <p>¿Por qué elegimos la fila O1?</p>
+              <p class="text-gray-700 text-sm">Tiene la penalización más alta (5). Eso significa que si no aprovechamos la mejor opción de Moín ahora, la siguiente mejor nos costaría 5 puntos más. Es la fila más "urgente" de atender.</p>
+            </div>
+
+            <div class="formula text-xs">
+              Fila elegida: <span class="v">O1 Moín</span> (penalización 5)<br/>
+              Celda de menor costo en O1: <span class="v">D1 — costo 0</span> (= ganancia ₡16,000/ton)<br/><br/>
+              Asignación = min(oferta O1, demanda D1) = min(120, 70) = <span class="g">70 toneladas</span><br/><br/>
+              Oferta O1 restante: 120 − 70 = <span class="v">50 ton</span><br/>
+              Demanda D1 cubierta: 70 − 70 = <span class="k">0 → D1 queda cerrada ✗</span>
+            </div>
+            <div class="result-box">
+              <p>Resultado Iteración 1</p>
+              <p class="text-gray-700 text-sm"><strong>X₁₁ = 70</strong> — Moín envía 70 toneladas a Limón Centro. Se cierra la columna D1 (ya satisfecha). O1 todavía tiene 50 ton disponibles.</p>
             </div>
           </div>
         </div>
 
-        <!-- Iteración 3 -->
-        <div class="space-y-3">
-          <div class="iter-header">📍 Iteración 3 — Se elimina fila O3</div>
-          <div class="step"><span class="step-num bg-[#2B9FB5]">3</span>
-            <div class="w-full">
-              <p class="font-display text-xs uppercase text-gray-700 mb-2">Penalizaciones sin D1 ni O3</p>
-              <div class="overflow-x-auto rounded-xl border border-gray-200 mb-3">
-                <table>
-                  <thead><tr><th class="left">Fila / Columna</th><th>2 menores costos</th><th class="penal">Penalización</th></tr></thead>
-                  <tbody>
-                    <tr><td class="left">O1 Moín (fila)</td><td>5 y 8</td><td class="penal">8 − 5 = 3</td></tr>
-                    <tr><td class="left">O2 Cieneguita (fila)</td><td>4 y 7</td><td class="penal">7 − 4 = 3</td></tr>
-                    <tr><td class="left">D2 Siquirres (col)</td><td>4 y 5</td><td class="penal">5 − 4 = 1</td></tr>
-                    <tr><td class="left">D3 Guápiles (col)</td><td>7 y 8</td><td class="penal">8 − 7 = 1</td></tr>
-                    <tr><td class="left">D4 Talamanca (col)</td><td>10 y 11</td><td class="penal">11 − 10 = 1</td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="formula text-xs">
-                Mayor penalización = <span class="v">3</span> (empate O1 y O2)<br/>
-                Menor costo disponible = O2-D2 (costo 4)<br/>
-                Asignación: min(oferta O2=100, demanda D2 restante=10) = <span class="g">10 toneladas</span><br/>
-                Demanda D2 satisfecha: <span class="k">D2 se cierra ✗</span> &nbsp;|&nbsp; Oferta O2 restante: 100 − 10 = <span class="v">90</span>
-              </div>
+        <!-- ITER 2 -->
+        <div class="step-block mb-4">
+          <div class="step-header">
+            <span class="iter-tag">Iteración 2 — D1 eliminada</span>
+          </div>
+          <div class="step-body space-y-4">
+            <div class="overflow-x-auto rounded-xl border border-gray-200">
+              <table>
+                <thead><tr><th class="left">Fila / Columna</th><th>Costo más bajo</th><th>2º más bajo</th><th class="penal">Penalización</th></tr></thead>
+                <tbody>
+                  <tr><td class="left">Fila O1 (50 ton)</td><td>5 (D2)</td><td>8 (D3)</td><td class="penal">8 − 5 = 3</td></tr>
+                  <tr><td class="left">Fila O2 (100 ton)</td><td>4 (D2)</td><td>7 (D3)</td><td class="penal">7 − 4 = 3</td></tr>
+                  <tr><td class="left">Fila O3 (80 ton)</td><td>3 (D2)</td><td>6 (D3)</td><td class="penal">6 − 3 = 3</td></tr>
+                  <tr><td class="left">Columna D2</td><td>3 (O3)</td><td>4 (O2)</td><td class="penal">4 − 3 = 1</td></tr>
+                  <tr><td class="left">Columna D3</td><td>6 (O3)</td><td>7 (O2)</td><td class="penal">7 − 6 = 1</td></tr>
+                  <tr><td class="left">Columna D4</td><td>9 (O3)</td><td>10 (O2)</td><td class="penal">10 − 9 = 1</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="why-box">
+              <p>¿Qué hacemos con el empate?</p>
+              <p class="text-gray-700 text-sm">Hay empate en 3 para las tres filas. Cuando hay empate, el criterio de desempate es elegir la celda con el <strong>menor costo de oportunidad disponible</strong> en toda la tabla. Revisando: O3-D2 tiene costo <strong>3</strong>, que es el menor entre todas las celdas con penalización 3.</p>
+            </div>
+            <div class="formula text-xs">
+              Empate en penalización 3 → desempate: celda de menor costo = <span class="v">O3-D2 (costo 3)</span><br/><br/>
+              Asignación = min(oferta O3=80, demanda D2=90) = <span class="g">80 toneladas</span><br/><br/>
+              Oferta O3 agotada: 80 − 80 = <span class="k">0 → O3 queda cerrada ✗</span><br/>
+              Demanda D2 restante: 90 − 80 = <span class="v">10 ton</span>
+            </div>
+            <div class="result-box">
+              <p>Resultado Iteración 2</p>
+              <p class="text-gray-700 text-sm"><strong>X₃₂ = 80</strong> — Liverpool envía 80 toneladas a Siquirres. O3 se agota. Siquirres aún necesita 10 ton más.</p>
             </div>
           </div>
         </div>
 
-        <!-- Iteración 4 -->
-        <div class="space-y-3">
-          <div class="iter-header">📍 Iteración 4 — Se elimina columna D2</div>
-          <div class="step"><span class="step-num bg-[#2B9FB5]">4</span>
-            <div class="w-full">
-              <p class="font-display text-xs uppercase text-gray-700 mb-2">Penalizaciones sin D1, D2 ni O3</p>
-              <div class="overflow-x-auto rounded-xl border border-gray-200 mb-3">
-                <table>
-                  <thead><tr><th class="left">Fila / Columna</th><th>2 menores costos</th><th class="penal">Penalización</th></tr></thead>
-                  <tbody>
-                    <tr><td class="left">O1 Moín (fila)</td><td>8 y 11</td><td class="penal">11 − 8 = 3</td></tr>
-                    <tr><td class="left">O2 Cieneguita (fila)</td><td>7 y 10</td><td class="penal">10 − 7 = 3</td></tr>
-                    <tr><td class="left">D3 Guápiles (col)</td><td>7 y 8</td><td class="penal">8 − 7 = 1</td></tr>
-                    <tr><td class="left">D4 Talamanca (col)</td><td>10 y 11</td><td class="penal">11 − 10 = 1</td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="formula text-xs">
-                Mayor penalización = <span class="v">3</span> (empate O1 y O2)<br/>
-                Menor costo disponible = O2-D3 (costo 7)<br/>
-                Asignación: min(oferta O2=90, demanda D3=80) = <span class="g">80 toneladas</span><br/>
-                Demanda D3 satisfecha: <span class="k">D3 se cierra ✗</span> &nbsp;|&nbsp; Oferta O2 restante: 90 − 80 = <span class="v">10</span>
-              </div>
+        <!-- ITER 3 -->
+        <div class="step-block mb-4">
+          <div class="step-header">
+            <span class="iter-tag">Iteración 3 — O3 eliminada</span>
+          </div>
+          <div class="step-body space-y-4">
+            <div class="overflow-x-auto rounded-xl border border-gray-200">
+              <table>
+                <thead><tr><th class="left">Fila / Columna</th><th>Costo más bajo</th><th>2º más bajo</th><th class="penal">Penalización</th></tr></thead>
+                <tbody>
+                  <tr><td class="left">Fila O1 (50 ton)</td><td>5 (D2)</td><td>8 (D3)</td><td class="penal">8 − 5 = 3</td></tr>
+                  <tr><td class="left">Fila O2 (100 ton)</td><td>4 (D2)</td><td>7 (D3)</td><td class="penal">7 − 4 = 3</td></tr>
+                  <tr><td class="left">Columna D2 (10 ton)</td><td>4 (O2)</td><td>5 (O1)</td><td class="penal">5 − 4 = 1</td></tr>
+                  <tr><td class="left">Columna D3 (80 ton)</td><td>7 (O2)</td><td>8 (O1)</td><td class="penal">8 − 7 = 1</td></tr>
+                  <tr><td class="left">Columna D4 (60 ton)</td><td>10 (O2)</td><td>11 (O1)</td><td class="penal">11 − 10 = 1</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="formula text-xs">
+              Empate en 3 (O1 y O2) → menor costo = <span class="v">O2-D2 (costo 4)</span><br/><br/>
+              Asignación = min(oferta O2=100, demanda D2 restante=10) = <span class="g">10 toneladas</span><br/><br/>
+              Demanda D2 cubierta: <span class="k">D2 queda cerrada ✗</span><br/>
+              Oferta O2 restante: 100 − 10 = <span class="v">90 ton</span>
+            </div>
+            <div class="result-box">
+              <p>Resultado Iteración 3</p>
+              <p class="text-gray-700 text-sm"><strong>X₂₂ = 10</strong> — Cieneguita envía 10 toneladas a Siquirres (las 10 que faltaban). D2 queda completamente satisfecha.</p>
             </div>
           </div>
         </div>
 
-        <!-- Iteración 5 -->
-        <div class="space-y-3">
-          <div class="iter-header">📍 Iteración 5 — Solo queda D4 disponible</div>
-          <div class="step"><span class="step-num bg-[#2B9FB5]">5</span>
-            <div class="w-full">
-              <p class="font-display text-xs uppercase text-gray-700 mb-2">Distribuir los restantes en D4</p>
-              <div class="formula text-xs">
-                Oferta O2 restante: 10 ton → asignar a D4: <span class="g">X₂₄ = 10</span> → O2 agotada<br/>
-                Oferta O1 restante: 50 ton → asignar a D4: <span class="g">X₁₄ = 50</span> → O1 agotada, D4 satisfecha<br/>
-                <span class="k">Todas las filas y columnas satisfechas → Vogel completo</span>
-              </div>
+        <!-- ITER 4 -->
+        <div class="step-block mb-4">
+          <div class="step-header">
+            <span class="iter-tag">Iteración 4 — D2 eliminada</span>
+          </div>
+          <div class="step-body space-y-4">
+            <div class="overflow-x-auto rounded-xl border border-gray-200">
+              <table>
+                <thead><tr><th class="left">Fila / Columna</th><th>Costo más bajo</th><th>2º más bajo</th><th class="penal">Penalización</th></tr></thead>
+                <tbody>
+                  <tr><td class="left">Fila O1 (50 ton)</td><td>8 (D3)</td><td>11 (D4)</td><td class="penal">11 − 8 = 3</td></tr>
+                  <tr><td class="left">Fila O2 (90 ton)</td><td>7 (D3)</td><td>10 (D4)</td><td class="penal">10 − 7 = 3</td></tr>
+                  <tr><td class="left">Columna D3 (80 ton)</td><td>7 (O2)</td><td>8 (O1)</td><td class="penal">8 − 7 = 1</td></tr>
+                  <tr><td class="left">Columna D4 (60 ton)</td><td>10 (O2)</td><td>11 (O1)</td><td class="penal">11 − 10 = 1</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="formula text-xs">
+              Empate en 3 → menor costo = <span class="v">O2-D3 (costo 7)</span><br/><br/>
+              Asignación = min(oferta O2=90, demanda D3=80) = <span class="g">80 toneladas</span><br/><br/>
+              Demanda D3 cubierta: <span class="k">D3 queda cerrada ✗</span><br/>
+              Oferta O2 restante: 90 − 80 = <span class="v">10 ton</span>
+            </div>
+            <div class="result-box">
+              <p>Resultado Iteración 4</p>
+              <p class="text-gray-700 text-sm"><strong>X₂₃ = 80</strong> — Cieneguita envía 80 toneladas a Guápiles. D3 queda satisfecha. O2 aún tiene 10 ton.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ITER 5 -->
+        <div class="step-block mb-6">
+          <div class="step-header">
+            <span class="iter-tag">Iteración 5 — Solo queda D4</span>
+          </div>
+          <div class="step-body space-y-4">
+            <div class="how-box">
+              <p>¿Qué pasa aquí?</p>
+              <p class="text-gray-700 text-sm">Solo queda un destino abierto (D4 Talamanca) y dos bodegas con mercancía restante (O1 con 50 ton y O2 con 10 ton). La única opción es asignarlas todas a D4. No hay que calcular penalizaciones — es la última columna.</p>
+            </div>
+            <div class="formula text-xs">
+              O2 restante (10 ton) → D4: <span class="g">X₂₄ = 10</span> → O2 agotada<br/>
+              O1 restante (50 ton) → D4: <span class="g">X₁₄ = 50</span> → O1 agotada, D4 satisfecha<br/><br/>
+              <span class="k">Todas las bodegas vacías y todos los destinos satisfechos → Vogel completado ✓</span>
+            </div>
+            <div class="result-box">
+              <p>Resultado Iteración 5</p>
+              <p class="text-gray-700 text-sm"><strong>X₂₄ = 10</strong> y <strong>X₁₄ = 50</strong> — Las toneladas restantes van todas a Talamanca.</p>
             </div>
           </div>
         </div>
 
         <!-- Tabla resultado Vogel -->
-        <div>
-          <p class="font-display text-sm uppercase text-[#2B9FB5] mb-3">Tabla resultado — Solución inicial de Vogel</p>
-          <div class="overflow-x-auto rounded-xl border border-gray-200 mb-4">
-            <table>
-              <thead><tr><th class="left">Origen / Destino</th><th>D1 Limón C.</th><th>D2 Siquirres</th><th>D3 Guápiles</th><th>D4 Talamanca</th><th>Oferta</th></tr></thead>
-              <tbody>
-                <tr>
-                  <td class="left">O1 Moín</td>
-                  <td class="assigned-cell">70</td>
-                  <td class="empty-cell">—</td>
-                  <td class="empty-cell">—</td>
-                  <td class="assigned-cell">50</td>
-                  <td>120 ✓</td>
-                </tr>
-                <tr>
-                  <td class="left">O2 Cieneguita</td>
-                  <td class="empty-cell">—</td>
-                  <td class="assigned-cell">10</td>
-                  <td class="assigned-cell">80</td>
-                  <td class="assigned-cell">10</td>
-                  <td>100 ✓</td>
-                </tr>
-                <tr>
-                  <td class="left">O3 Liverpool</td>
-                  <td class="empty-cell">—</td>
-                  <td class="assigned-cell">80</td>
-                  <td class="empty-cell">—</td>
-                  <td class="empty-cell">—</td>
-                  <td>80 ✓</td>
-                </tr>
-                <tr class="hl"><td class="left">Demanda</td><td>70 ✓</td><td>90 ✓</td><td>80 ✓</td><td>60 ✓</td><td>300</td></tr>
-              </tbody>
-            </table>
+        <div class="step-block mb-6">
+          <div class="step-header">
+            <span class="step-num bg-[#2B9FB5]">C</span>
+            <p class="font-bold text-gray-800 text-sm">Tabla final de distribución y cálculo de ganancia</p>
           </div>
-          <div class="formula text-xs">
-            Z = <span class="v">16</span>(70) + <span class="v">5</span>(50) + <span class="v">12</span>(10) + <span class="v">9</span>(80) + <span class="v">6</span>(10) + <span class="v">13</span>(80)<br/>
-            Z = 1,120 + 250 + 120 + 720 + 60 + 1,040<br/>
-            <span class="k">Z = 3,310</span> → <span class="g">₡3,310,000 de ganancia total</span>
-          </div>
-        </div>
-
-        <div class="conclusion bg-[#2B9FB5]">
-          <p class="font-display text-xs uppercase tracking-widest opacity-60 mb-2">Resultado Vogel</p>
-          <div class="grid md:grid-cols-2 gap-4 mb-3 text-sm font-body">
-            <div class="bg-white/10 rounded-xl p-3">
-              <p class="font-bold mb-1">Moín (O1)</p>
-              <p>→ 70 ton a Limón Centro</p>
-              <p>→ 50 ton a Talamanca</p>
-            </div>
-            <div class="bg-white/10 rounded-xl p-3">
-              <p class="font-bold mb-1">Cieneguita (O2)</p>
-              <p>→ 10 ton a Siquirres</p>
-              <p>→ 80 ton a Guápiles</p>
-              <p>→ 10 ton a Talamanca</p>
-            </div>
-            <div class="bg-white/10 rounded-xl p-3">
-              <p class="font-bold mb-1">Liverpool (O3)</p>
-              <p>→ 80 ton a Siquirres</p>
-            </div>
-            <div class="bg-white/10 rounded-xl p-3 flex flex-col justify-center text-center">
-              <p class="font-display text-2xl">₡3,310,000</p>
-              <p class="text-xs opacity-80">Ganancia total inicial</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══════════════════════════════
-         PARTE 2: SALTO DE PIEDRA
-    ══════════════════════════════ -->
-    <div class="bg-white rounded-2xl shadow-xl overflow-hidden fade-up d4">
-      <div class="bg-[#1E7A8A] px-8 py-6">
-        <p class="font-display text-xs uppercase tracking-widest text-white/60 mb-1">Parte 2 de 3</p>
-        <h2 class="font-display text-2xl text-white uppercase">Método del Salto de Piedra</h2>
-        <p class="text-white/70 text-xs font-body mt-1">Objetivo: verificar si la solución de Vogel puede mejorar</p>
-      </div>
-      <div class="p-8 space-y-6">
-
-        <div class="info-box">
-          <p class="font-bold mb-2">¿Cómo funciona?</p>
-          <p class="mb-2">Para cada celda <strong>vacía</strong>, formamos un "circuito cerrado": empezamos en la celda vacía (+), saltamos solo por celdas <strong>ocupadas</strong> alternando entre filas y columnas, alternando los signos + y −, hasta volver al inicio.</p>
-          <p>Calculamos <strong>Δ = suma de ganancias con esos signos</strong>. Si algún Δ &gt; 0 conviene reasignar (mejora la ganancia). Si todos Δ ≤ 0, la solución es <strong>óptima</strong>.</p>
-        </div>
-
-        <!-- Verificación celdas ocupadas -->
-        <div class="step" style="background:#f0fdf4"><span class="step-num bg-[#1E7A8A]">1</span>
-          <div class="w-full">
-            <p class="font-display text-xs uppercase text-gray-800 mb-2">Verificar requisito previo</p>
-            <div class="formula text-xs">
-              Fórmula: m + n − 1 = celdas ocupadas<br/>
-              3 orígenes + 4 destinos − 1 = <span class="v">6</span><br/>
-              Celdas ocupadas en Vogel: X₁₁, X₁₄, X₂₂, X₂₃, X₂₄, X₃₂ = <span class="v">6</span> ✓<br/>
-              <span class="g">Se puede aplicar el método</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tabla con circuitos -->
-        <div class="step" style="background:#f0fdf4"><span class="step-num bg-[#1E7A8A]">2</span>
-          <div class="w-full">
-            <p class="font-display text-xs uppercase text-gray-800 mb-3">Evaluación de todas las celdas vacías</p>
-            <div class="overflow-x-auto rounded-xl border border-gray-200 mb-3">
+          <div class="step-body">
+            <p class="text-gray-600 text-xs font-body mb-3">Las celdas verdes son las asignaciones. Las guiones (—) son rutas que no se usan.</p>
+            <div class="overflow-x-auto rounded-xl border border-gray-200 mb-4">
               <table>
-                <thead><tr><th class="left">Celda vacía</th><th class="left">Circuito cerrado (+ / −)</th><th>Cálculo Δ</th><th>Δ</th><th>Interpretación</th></tr></thead>
+                <thead><tr><th class="left">De \ A</th><th>D1 Limón C.</th><th>D2 Siquirres</th><th>D3 Guápiles</th><th>D4 Talamanca</th><th>Total enviado</th></tr></thead>
                 <tbody>
                   <tr>
-                    <td class="left font-bold">X₁₂ (O1→D2)</td>
-                    <td class="left text-xs">+X₁₂ −X₁₄ +X₂₄ −X₂₂</td>
-                    <td class="text-xs">+11 −5 +6 −12</td>
-                    <td><span class="delta-zero">0</span></td>
-                    <td class="text-xs left">Solución alternativa igual</td>
+                    <td class="left">O1 Moín</td>
+                    <td class="assigned-cell">70 ton</td>
+                    <td class="gray">—</td>
+                    <td class="gray">—</td>
+                    <td class="assigned-cell">50 ton</td>
+                    <td class="font-bold text-[#2B9FB5]">120 ✓</td>
                   </tr>
                   <tr>
-                    <td class="left font-bold">X₁₃ (O1→D3)</td>
-                    <td class="left text-xs">+X₁₃ −X₁₄ +X₂₄ −X₂₃</td>
-                    <td class="text-xs">+8 −5 +6 −9</td>
-                    <td><span class="delta-zero">0</span></td>
-                    <td class="text-xs left">Solución alternativa igual</td>
+                    <td class="left">O2 Cieneguita</td>
+                    <td class="gray">—</td>
+                    <td class="assigned-cell">10 ton</td>
+                    <td class="assigned-cell">80 ton</td>
+                    <td class="assigned-cell">10 ton</td>
+                    <td class="font-bold text-[#2B9FB5]">100 ✓</td>
                   </tr>
                   <tr>
-                    <td class="left font-bold">X₂₁ (O2→D1)</td>
-                    <td class="left text-xs">+X₂₁ −X₁₁ +X₁₄ −X₂₄</td>
-                    <td class="text-xs">+15 −16 +5 −6</td>
-                    <td><span class="delta-neg">−2</span></td>
-                    <td class="text-xs left">No conviene: baja ganancia</td>
+                    <td class="left">O3 Liverpool</td>
+                    <td class="gray">—</td>
+                    <td class="assigned-cell">80 ton</td>
+                    <td class="gray">—</td>
+                    <td class="gray">—</td>
+                    <td class="font-bold text-[#2B9FB5]">80 ✓</td>
                   </tr>
-                  <tr>
-                    <td class="left font-bold">X₃₁ (O3→D1)</td>
-                    <td class="left text-xs">+X₃₁ −X₁₁ +X₁₄ −X₂₄ +X₂₂ −X₃₂</td>
-                    <td class="text-xs">+14 −16 +5 −6 +12 −13</td>
-                    <td><span class="delta-neg">−4</span></td>
-                    <td class="text-xs left">No conviene: baja ganancia</td>
-                  </tr>
-                  <tr>
-                    <td class="left font-bold">X₃₃ (O3→D3)</td>
-                    <td class="left text-xs">+X₃₃ −X₂₃ +X₂₂ −X₃₂</td>
-                    <td class="text-xs">+10 −9 +12 −13</td>
-                    <td><span class="delta-zero">0</span></td>
-                    <td class="text-xs left">Solución alternativa igual</td>
-                  </tr>
-                  <tr>
-                    <td class="left font-bold">X₃₄ (O3→D4)</td>
-                    <td class="left text-xs">+X₃₄ −X₂₄ +X₂₂ −X₃₂</td>
-                    <td class="text-xs">+7 −6 +12 −13</td>
-                    <td><span class="delta-zero">0</span></td>
-                    <td class="text-xs left">Solución alternativa igual</td>
+                  <tr class="hl">
+                    <td class="left">Total recibido</td>
+                    <td>70 ✓</td><td>90 ✓</td><td>80 ✓</td><td>60 ✓</td><td>300</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <div class="note">
-              <strong>Leyenda:</strong> Los celdas con Δ = 0 (X₁₂, X₁₃, X₃₃, X₃₄) significan que existe otra distribución diferente que da exactamente la misma ganancia de ₡3,310,000. Esto le da <strong>flexibilidad operativa</strong> a la empresa — puede ajustar rutas ante cambios de disponibilidad sin perder rentabilidad.
+            <div class="how-box mb-4">
+              <p>¿Cómo se calcula la ganancia total?</p>
+              <p class="text-gray-700 text-sm">Multiplicamos cada cantidad asignada por su ganancia original (de la primera tabla), y sumamos todo.</p>
+            </div>
+            <div class="formula">
+              Z = (Moín→L.Centro) + (Moín→Talamanca) + (Cieneguita→Siquirres) + (Cieneguita→Guápiles) + (Cieneguita→Talamanca) + (Liverpool→Siquirres)<br/><br/>
+              Z = <span class="v">16</span>×70 + <span class="v">5</span>×50 + <span class="v">12</span>×10 + <span class="v">9</span>×80 + <span class="v">6</span>×10 + <span class="v">13</span>×80<br/>
+              Z = 1,120 + 250 + 120 + 720 + 60 + 1,040<br/>
+              <span class="k">Z = 3,310 miles de ₡ = ₡3,310,000</span>
             </div>
           </div>
         </div>
 
-        <!-- Ejemplo circuito X12 -->
-        <div class="step" style="background:#f0fdf4"><span class="step-num bg-[#1E7A8A]">3</span>
-          <div class="w-full">
-            <p class="font-display text-xs uppercase text-gray-800 mb-2">Ejemplo detallado — Circuito de X₁₂ (O1→Siquirres)</p>
-            <div class="formula text-xs">
-              Circuito: <span class="g">+X₁₂</span> → <span class="k">−X₁₄</span> → <span class="g">+X₂₄</span> → <span class="k">−X₂₂</span> → vuelve a X₁₂<br/>
-              Signos:    +11 (Moín→Siquirres)  −5 (Moín→Talamanca)  +6 (Cieneguita→Talamanca)  −12 (Cieneguita→Siquirres)<br/>
-              Δ = 11 − 5 + 6 − 12 = <span class="v">0</span><br/><br/>
-              Distribución alternativa equivalente:<br/>
-              O1→D1=70 · <span class="g">O1→D2=50</span> · O2→D2=40 · O2→D3=60 · O3→D3=20 · O3→D4=60<br/>
-              Z alternativa = 16(70)+11(50)+12(40)+9(60)+10(20)+7(60) = <span class="v">₡3,310,000</span> ← misma ganancia
+        <div class="conclusion bg-[#2B9FB5]">
+          <p class="font-display text-xs uppercase tracking-widest opacity-60 mb-3">Conclusión de Vogel</p>
+          <div class="grid md:grid-cols-3 gap-3 mb-4 text-sm font-body">
+            <div class="bg-white/15 rounded-xl p-3">
+              <p class="font-bold mb-2">Moín (O1)</p>
+              <p>70 ton → Limón Centro</p>
+              <p>50 ton → Talamanca</p>
             </div>
+            <div class="bg-white/15 rounded-xl p-3">
+              <p class="font-bold mb-2">Cieneguita (O2)</p>
+              <p>10 ton → Siquirres</p>
+              <p>80 ton → Guápiles</p>
+              <p>10 ton → Talamanca</p>
+            </div>
+            <div class="bg-white/15 rounded-xl p-3">
+              <p class="font-bold mb-2">Liverpool (O3)</p>
+              <p>80 ton → Siquirres</p>
+              <p class="opacity-60 text-xs mt-2">Todo lo de Liverpool va a Siquirres</p>
+            </div>
+          </div>
+          <p class="text-2xl font-display">₡3,310,000 — ganancia inicial de Vogel</p>
+          <p class="text-xs opacity-70 font-body mt-1">Pero… ¿es esta la ganancia máxima posible? El Salto de Piedra nos lo confirma.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+         PARTE 2: SALTO DE PIEDRA
+    ══════════════════════════════════ -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden fade-up d4">
+      <div class="part-header bg-[#1E7A8A]">
+        <p class="font-display text-xs uppercase tracking-widest text-white/60 mb-1">Parte 2 de 3</p>
+        <h2 class="font-display text-2xl text-white uppercase">Método del Salto de Piedra</h2>
+      </div>
+      <div class="p-8">
+
+        <div class="why-box mb-6">
+          <p>¿Para qué sirve este método?</p>
+          <p class="text-gray-700 text-sm">Vogel nos da una buena solución inicial, pero no garantiza que sea la <strong>mejor posible</strong>. El Salto de Piedra revisa cada ruta que <em>no se está usando</em> y pregunta: "<em>¿Si empezara a usar esta ruta, ganaría más o menos?</em>" Si la respuesta es "más" en alguna, cambiamos. Si la respuesta es "igual o menos" en todas, entonces Vogel ya era óptimo.</p>
+        </div>
+
+        <!-- Verificación m+n-1 -->
+        <div class="step-block mb-4">
+          <div class="step-header">
+            <span class="step-num bg-[#1E7A8A]">A</span>
+            <div>
+              <p class="font-bold text-gray-800 text-sm">Verificar que el método se puede aplicar</p>
+            </div>
+          </div>
+          <div class="step-body">
+            <div class="how-box">
+              <p>¿Por qué hay que verificar esto?</p>
+              <p class="text-gray-700 text-sm">El Salto de Piedra necesita exactamente <strong>m + n − 1 celdas ocupadas</strong> para poder trazar los circuitos cerrados. Si hay más o menos, el método no funciona correctamente. Aquí: 3 orígenes + 4 destinos − 1 = <strong>6</strong>.</p>
+            </div>
+            <div class="formula text-xs">
+              m (orígenes) + n (destinos) − 1 = celdas ocupadas<br/>
+              3 + 4 − 1 = <span class="v">6</span><br/>
+              Celdas ocupadas en Vogel: X₁₁=70, X₁₄=50, X₂₂=10, X₂₃=80, X₂₄=10, X₃₂=80 = <span class="g">6 ✓</span><br/>
+              <span class="k">Se puede aplicar el método</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Concepto circuito -->
+        <div class="step-block mb-4">
+          <div class="step-header">
+            <span class="step-num bg-[#1E7A8A]">B</span>
+            <p class="font-bold text-gray-800 text-sm">¿Cómo funciona un circuito cerrado?</p>
+          </div>
+          <div class="step-body">
+            <div class="how-box">
+              <p>La mecánica paso a paso</p>
+              <p class="text-gray-700 text-sm mb-2">Para evaluar una celda vacía:</p>
+              <ol class="text-gray-700 text-sm space-y-1 list-decimal list-inside">
+                <li>Partimos de la celda vacía con signo <strong>+</strong></li>
+                <li>Nos movemos solo en <strong>líneas rectas</strong> (fila o columna) hacia celdas <strong>ocupadas</strong></li>
+                <li>En cada giro alternamos el signo: <strong>+ → − → + → −</strong></li>
+                <li>Cerramos el circuito volviendo a la celda vacía</li>
+                <li>Calculamos <strong>Δ = suma de ganancias originales con esos signos</strong></li>
+              </ol>
+            </div>
+            <div class="grid md:grid-cols-3 gap-3 mt-3">
+              <div class="bg-green-50 border border-green-300 rounded-xl p-3 text-center">
+                <p class="font-display text-lg text-green-700">Δ &gt; 0</p>
+                <p class="text-green-700 text-xs font-bold">Conviene usar esa ruta</p>
+                <p class="text-gray-500 text-xs font-body mt-1">La ganancia aumentaría. Hay que reasignar.</p>
+              </div>
+              <div class="bg-yellow-50 border border-yellow-300 rounded-xl p-3 text-center">
+                <p class="font-display text-lg text-yellow-700">Δ = 0</p>
+                <p class="text-yellow-700 text-xs font-bold">Solución alternativa</p>
+                <p class="text-gray-500 text-xs font-body mt-1">Distinta distribución, misma ganancia.</p>
+              </div>
+              <div class="bg-red-50 border border-red-300 rounded-xl p-3 text-center">
+                <p class="font-display text-lg text-red-700">Δ &lt; 0</p>
+                <p class="text-red-700 text-xs font-bold">No conviene</p>
+                <p class="text-gray-500 text-xs font-body mt-1">La ganancia bajaría. Se descarta.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evaluación de celdas -->
+        <div class="step-block mb-6">
+          <div class="step-header">
+            <span class="step-num bg-[#1E7A8A]">C</span>
+            <p class="font-bold text-gray-800 text-sm">Evaluación de todas las celdas vacías</p>
+          </div>
+          <div class="step-body space-y-4">
+            <p class="text-gray-600 text-xs font-body">Las celdas vacías son: X₁₂, X₁₃, X₂₁, X₃₁, X₃₃, X₃₄. Evaluamos cada una:</p>
+
+            <!-- X12 -->
+            <div class="bg-yellow-50 rounded-xl p-4 border border-yellow-200">
+              <p class="font-display text-xs uppercase text-yellow-700 mb-2">Celda X₁₂ — Moín → Siquirres</p>
+              <div class="formula text-xs mb-2">
+                Circuito: <span class="g">+X₁₂</span>(Moín-Siquirres) → <span class="k">−X₁₄</span>(Moín-Talamanca) → <span class="g">+X₂₄</span>(Cieneguita-Talamanca) → <span class="k">−X₂₂</span>(Cieneguita-Siquirres)<br/>
+                Δ = +11 − 5 + 6 − 12 = <span class="delta-zero">0</span>
+              </div>
+              <p class="text-yellow-700 text-xs font-body">Hay una distribución alternativa distinta con la misma ganancia ₡3,310,000. Esto le da flexibilidad a la empresa.</p>
+            </div>
+
+            <!-- X13 -->
+            <div class="bg-yellow-50 rounded-xl p-4 border border-yellow-200">
+              <p class="font-display text-xs uppercase text-yellow-700 mb-2">Celda X₁₃ — Moín → Guápiles</p>
+              <div class="formula text-xs mb-2">
+                Circuito: <span class="g">+X₁₃</span> → <span class="k">−X₁₄</span> → <span class="g">+X₂₄</span> → <span class="k">−X₂₃</span><br/>
+                Δ = +8 − 5 + 6 − 9 = <span class="delta-zero">0</span>
+              </div>
+              <p class="text-yellow-700 text-xs font-body">Otra solución alternativa equivalente.</p>
+            </div>
+
+            <!-- X21 -->
+            <div class="bg-red-50 rounded-xl p-4 border border-red-200">
+              <p class="font-display text-xs uppercase text-red-700 mb-2">Celda X₂₁ — Cieneguita → Limón Centro</p>
+              <div class="formula text-xs mb-2">
+                Circuito: <span class="g">+X₂₁</span> → <span class="k">−X₁₁</span> → <span class="g">+X₁₄</span> → <span class="k">−X₂₄</span><br/>
+                Δ = +15 − 16 + 5 − 6 = <span class="delta-neg">−2</span>
+              </div>
+              <p class="text-red-700 text-xs font-body">Si usáramos esta ruta, la ganancia bajaría ₡2,000 por tonelada. No conviene.</p>
+            </div>
+
+            <!-- X31 -->
+            <div class="bg-red-50 rounded-xl p-4 border border-red-200">
+              <p class="font-display text-xs uppercase text-red-700 mb-2">Celda X₃₁ — Liverpool → Limón Centro</p>
+              <div class="formula text-xs mb-2">
+                Circuito: <span class="g">+X₃₁</span> → <span class="k">−X₁₁</span> → <span class="g">+X₁₄</span> → <span class="k">−X₂₄</span> → <span class="g">+X₂₂</span> → <span class="k">−X₃₂</span><br/>
+                Δ = +14 − 16 + 5 − 6 + 12 − 13 = <span class="delta-neg">−4</span>
+              </div>
+              <p class="text-red-700 text-xs font-body">Si usáramos esta ruta, la ganancia bajaría ₡4,000 por tonelada. No conviene.</p>
+            </div>
+
+            <!-- X33 -->
+            <div class="bg-yellow-50 rounded-xl p-4 border border-yellow-200">
+              <p class="font-display text-xs uppercase text-yellow-700 mb-2">Celda X₃₃ — Liverpool → Guápiles</p>
+              <div class="formula text-xs mb-2">
+                Circuito: <span class="g">+X₃₃</span> → <span class="k">−X₂₃</span> → <span class="g">+X₂₂</span> → <span class="k">−X₃₂</span><br/>
+                Δ = +10 − 9 + 12 − 13 = <span class="delta-zero">0</span>
+              </div>
+              <p class="text-yellow-700 text-xs font-body">Otra solución alternativa equivalente.</p>
+            </div>
+
+            <!-- X34 -->
+            <div class="bg-yellow-50 rounded-xl p-4 border border-yellow-200">
+              <p class="font-display text-xs uppercase text-yellow-700 mb-2">Celda X₃₄ — Liverpool → Talamanca</p>
+              <div class="formula text-xs mb-2">
+                Circuito: <span class="g">+X₃₄</span> → <span class="k">−X₂₄</span> → <span class="g">+X₂₂</span> → <span class="k">−X₃₂</span><br/>
+                Δ = +7 − 6 + 12 − 13 = <span class="delta-zero">0</span>
+              </div>
+              <p class="text-yellow-700 text-xs font-body">Otra solución alternativa equivalente.</p>
+            </div>
+
           </div>
         </div>
 
         <div class="conclusion bg-[#1E7A8A]">
-          <p class="font-display text-xs uppercase tracking-widest opacity-60 mb-2">Conclusión Salto de Piedra</p>
-          <p class="font-display text-xl mb-2">✓ La solución de Vogel ES ÓPTIMA</p>
-          <p class="text-sm font-body opacity-90 mb-1">Ninguna celda vacía tiene Δ &gt; 0 → no hay forma de aumentar la ganancia.</p>
-          <p class="text-sm font-body opacity-90">Los Δ = 0 en X₁₂, X₁₃, X₃₃ y X₃₄ confirman <strong>4 distribuciones alternativas equivalentes</strong> con la misma ganancia máxima.</p>
-          <p class="text-2xl font-display mt-3">₡3,310,000 — Ganancia máxima confirmada ✓</p>
+          <p class="font-display text-xs uppercase tracking-widest opacity-60 mb-3">Conclusión del Salto de Piedra</p>
+          <p class="font-display text-xl mb-3">✓ La solución de Vogel YA ES ÓPTIMA</p>
+          <div class="grid md:grid-cols-2 gap-4 text-sm font-body mb-4">
+            <div class="bg-white/15 rounded-xl p-3">
+              <p class="font-bold mb-1">Ningún Δ &gt; 0</p>
+              <p class="opacity-90">No existe ninguna ruta que, si la activáramos, aumentara la ganancia. No hay nada que mejorar.</p>
+            </div>
+            <div class="bg-white/15 rounded-xl p-3">
+              <p class="font-bold mb-1">4 celdas con Δ = 0</p>
+              <p class="opacity-90">X₁₂, X₁₃, X₃₃ y X₃₄ tienen distribuciones alternativas con la misma ganancia — flexibilidad operativa para la empresa.</p>
+            </div>
+          </div>
+          <p class="text-2xl font-display">₡3,310,000 — Ganancia máxima confirmada ✓</p>
         </div>
+
       </div>
     </div>
 
-    <!-- ══════════════════════════════
-         PARTE 3: ASIGNACIÓN
-    ══════════════════════════════ -->
+    <!-- ══════════════════════════════════
+         PARTE 3: ASIGNACIÓN (HÚNGARO)
+    ══════════════════════════════════ -->
     <div class="bg-white rounded-2xl shadow-xl overflow-hidden fade-up d5">
-      <div class="bg-[#b5742a] px-8 py-6">
+      <div class="part-header bg-[#b5742a]">
         <p class="font-display text-xs uppercase tracking-widest text-white/60 mb-1">Parte 3 de 3</p>
         <h2 class="font-display text-2xl text-white uppercase">Modelo de Asignación — Método Húngaro</h2>
-        <p class="text-white/70 text-xs font-body mt-1">Objetivo: asignar cada camión a exactamente una ruta maximizando el rendimiento total</p>
       </div>
-      <div class="p-8 space-y-6">
+      <div class="p-8">
 
-        <div class="info-box">
-          <p class="font-bold mb-1">¿Qué es el Método Húngaro?</p>
-          <p>Es una variante del modelo de transporte donde cada <strong>recurso</strong> (camión) se asigna a exactamente <strong>una actividad</strong> (ruta). Se convierte a costo de oportunidad, se reducen filas y columnas, y se busca una asignación donde cada fila y columna tenga exactamente un cero independiente.</p>
+        <div class="why-box mb-5">
+          <p>¿Qué es diferente aquí?</p>
+          <p class="text-gray-700 text-sm">El modelo de transporte distribuía <em>toneladas</em> de muchas bodegas a muchos destinos. El modelo de asignación es más estricto: hay <strong>4 camiones y 4 rutas</strong>, y cada camión debe cubrir <strong>exactamente una ruta</strong>. El objetivo es asignar de forma que el rendimiento total sea el máximo posible.</p>
         </div>
 
-        <!-- Datos asignación -->
-        <div>
-          <p class="font-display text-xs uppercase text-[#b5742a] tracking-widest mb-2">Matriz de rendimiento (puntos por camión en cada ruta)</p>
-          <div class="overflow-x-auto rounded-xl border border-gray-200">
-            <table>
-              <thead><tr><th class="left">Camión / Ruta</th><th>R1 Limón C.</th><th>R2 Siquirres</th><th>R3 Guápiles</th><th>R4 Talamanca</th></tr></thead>
-              <tbody>
-                <tr><td class="left">Camión 1</td><td>90</td><td>75</td><td>70</td><td>60</td></tr>
-                <tr><td class="left">Camión 2</td><td>80</td><td>88</td><td>82</td><td>74</td></tr>
-                <tr><td class="left">Camión 3</td><td>70</td><td>78</td><td>92</td><td>85</td></tr>
-                <tr><td class="left">Camión 4</td><td>75</td><td>80</td><td>86</td><td class="font-bold text-[#b5742a]">95 ← máx</td></tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="overflow-x-auto rounded-xl border border-gray-200 mb-5">
+          <table>
+            <thead><tr><th class="left">Camión \ Ruta</th><th>R1 Limón C.</th><th>R2 Siquirres</th><th>R3 Guápiles</th><th>R4 Talamanca</th></tr></thead>
+            <tbody>
+              <tr><td class="left">Camión 1</td><td>90</td><td>75</td><td>70</td><td>60</td></tr>
+              <tr><td class="left">Camión 2</td><td>80</td><td>88</td><td>82</td><td>74</td></tr>
+              <tr><td class="left">Camión 3</td><td>70</td><td>78</td><td>92</td><td>85</td></tr>
+              <tr><td class="left">Camión 4</td><td>75</td><td>80</td><td>86</td><td class="font-bold text-[#b5742a]">95 ← máximo</td></tr>
+            </tbody>
+          </table>
         </div>
 
         <!-- Paso 1 -->
-        <div class="step" style="background:#fff8f0"><span class="step-num bg-[#b5742a]">1</span>
-          <div class="w-full">
-            <p class="font-display text-xs uppercase text-gray-800 mb-2">Convertir a Costo de Oportunidad</p>
-            <p class="text-gray-600 text-xs font-body mb-3">Fórmula: <strong>Costo = Valor máximo (95) − rendimiento</strong>. El cero resultante indica la mayor oportunidad.</p>
-            <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <div class="step-block mb-4">
+          <div class="step-header">
+            <span class="step-num bg-[#b5742a]">1</span>
+            <p class="font-bold text-gray-800 text-sm">Convertir a Costo de Oportunidad</p>
+          </div>
+          <div class="step-body">
+            <div class="why-box">
+              <p>¿Por qué hay que hacer esto?</p>
+              <p class="text-gray-700 text-sm">El método Húngaro también trabaja sobre costos (minimización). Como queremos maximizar rendimiento, convertimos: <strong>Costo = máximo (95) − rendimiento</strong>. El camión con costo 0 es el que rinde más en esa ruta.</p>
+            </div>
+            <div class="overflow-x-auto rounded-xl border border-gray-200 mt-3">
               <table>
-                <thead><tr><th class="left">Camión / Ruta</th><th>R1</th><th>R2</th><th>R3</th><th>R4</th></tr></thead>
+                <thead><tr><th class="left">Camión</th><th>R1</th><th>R2</th><th>R3</th><th>R4</th></tr></thead>
                 <tbody>
                   <tr><td class="left">Camión 1</td><td>95−90=5</td><td>95−75=20</td><td>95−70=25</td><td>95−60=35</td></tr>
                   <tr><td class="left">Camión 2</td><td>95−80=15</td><td>95−88=7</td><td>95−82=13</td><td>95−74=21</td></tr>
                   <tr><td class="left">Camión 3</td><td>95−70=25</td><td>95−78=17</td><td>95−92=3</td><td>95−85=10</td></tr>
-                  <tr><td class="left">Camión 4</td><td>95−75=20</td><td>95−80=15</td><td>95−86=9</td><td>95−95=0</td></tr>
+                  <tr><td class="left">Camión 4</td><td>95−75=20</td><td>95−80=15</td><td>95−86=9</td><td class="bg-green-100 font-bold text-green-800">95−95=0</td></tr>
                 </tbody>
               </table>
             </div>
@@ -674,18 +847,25 @@
         </div>
 
         <!-- Paso 2 -->
-        <div class="step" style="background:#fff8f0"><span class="step-num bg-[#b5742a]">2</span>
-          <div class="w-full">
-            <p class="font-display text-xs uppercase text-gray-800 mb-2">Reducción por filas — Restar el mínimo de cada fila</p>
-            <p class="text-gray-600 text-xs font-body mb-3">Mínimos: C1=<strong>5</strong>, C2=<strong>7</strong>, C3=<strong>3</strong>, C4=<strong>0</strong>. Se resta de cada fila respectivamente.</p>
+        <div class="step-block mb-4">
+          <div class="step-header">
+            <span class="step-num bg-[#b5742a]">2</span>
+            <p class="font-bold text-gray-800 text-sm">Reducción por filas — Restar el mínimo de cada fila</p>
+          </div>
+          <div class="step-body">
+            <div class="why-box">
+              <p>¿Para qué sirve la reducción?</p>
+              <p class="text-gray-700 text-sm">Queremos que cada fila tenga al menos un cero — así identificamos cuál es la "mejor opción relativa" de cada camión. Para lograrlo, restamos el valor más pequeño de cada fila a todos los valores de esa fila. Esto no cambia cuál es la asignación óptima, solo facilita encontrarla.</p>
+            </div>
+            <p class="text-gray-600 text-xs font-body mt-3 mb-2">Mínimos: Camión 1 = <strong>5</strong>, Camión 2 = <strong>7</strong>, Camión 3 = <strong>3</strong>, Camión 4 = <strong>0</strong></p>
             <div class="overflow-x-auto rounded-xl border border-gray-200">
               <table>
-                <thead><tr><th class="left">Camión / Ruta</th><th>R1</th><th>R2</th><th>R3</th><th>R4</th><th class="left">Mín restado</th></tr></thead>
+                <thead><tr><th class="left">Camión</th><th>R1</th><th>R2</th><th>R3</th><th>R4</th><th class="left">Mín. restado</th></tr></thead>
                 <tbody>
-                  <tr><td class="left">Camión 1</td><td class="bg-green-100 font-bold text-green-800">0</td><td>15</td><td>20</td><td>30</td><td class="left text-gray-400 text-xs">5−5=0, 20−5=15…</td></tr>
-                  <tr><td class="left">Camión 2</td><td>8</td><td class="bg-green-100 font-bold text-green-800">0</td><td>6</td><td>14</td><td class="left text-gray-400 text-xs">15−7=8, 7−7=0…</td></tr>
-                  <tr><td class="left">Camión 3</td><td>22</td><td>14</td><td class="bg-green-100 font-bold text-green-800">0</td><td>7</td><td class="left text-gray-400 text-xs">25−3=22, 3−3=0…</td></tr>
-                  <tr><td class="left">Camión 4</td><td>20</td><td>15</td><td>9</td><td class="bg-green-100 font-bold text-green-800">0</td><td class="left text-gray-400 text-xs">20−0=20, 0−0=0</td></tr>
+                  <tr><td class="left">Camión 1</td><td class="bg-green-100 font-bold text-green-800">5−5=0</td><td>20−5=15</td><td>25−5=20</td><td>35−5=30</td><td class="left text-gray-400 text-xs">−5</td></tr>
+                  <tr><td class="left">Camión 2</td><td>15−7=8</td><td class="bg-green-100 font-bold text-green-800">7−7=0</td><td>13−7=6</td><td>21−7=14</td><td class="left text-gray-400 text-xs">−7</td></tr>
+                  <tr><td class="left">Camión 3</td><td>25−3=22</td><td>17−3=14</td><td class="bg-green-100 font-bold text-green-800">3−3=0</td><td>10−3=7</td><td class="left text-gray-400 text-xs">−3</td></tr>
+                  <tr><td class="left">Camión 4</td><td>20−0=20</td><td>15−0=15</td><td>9−0=9</td><td class="bg-green-100 font-bold text-green-800">0−0=0</td><td class="left text-gray-400 text-xs">−0</td></tr>
                 </tbody>
               </table>
             </div>
@@ -693,71 +873,82 @@
         </div>
 
         <!-- Paso 3 -->
-        <div class="step" style="background:#fff8f0"><span class="step-num bg-[#b5742a]">3</span>
-          <div class="w-full">
-            <p class="font-display text-xs uppercase text-gray-800 mb-2">Reducción por columnas</p>
-            <p class="text-gray-600 text-xs font-body mb-2">Mínimos de columna: R1=<strong>0</strong>, R2=<strong>0</strong>, R3=<strong>0</strong>, R4=<strong>0</strong>. Como todos los mínimos son 0, la matriz <strong>no cambia</strong>. Cada columna ya tiene al menos un cero.</p>
-            <div class="bg-green-50 border border-green-200 rounded-xl p-3 text-xs text-green-700 font-body">
-              ✓ Todos los mínimos de columna son 0 → la reducción no modifica la tabla.
+        <div class="step-block mb-4">
+          <div class="step-header">
+            <span class="step-num bg-[#b5742a]">3</span>
+            <p class="font-bold text-gray-800 text-sm">Reducción por columnas</p>
+          </div>
+          <div class="step-body">
+            <div class="how-box">
+              <p>¿Qué revisamos aquí?</p>
+              <p class="text-gray-700 text-sm">Ahora revisamos cada columna. Si alguna no tiene un cero, restamos su mínimo para que tenga uno. En este caso, los mínimos de todas las columnas ya son <strong>0</strong> — todas ya tienen al menos un cero gracias a la reducción por filas.</p>
+            </div>
+            <div class="result-box mt-3">
+              <p>Resultado</p>
+              <p class="text-gray-700 text-sm">Mínimos de columna: R1=0, R2=0, R3=0, R4=0. La matriz <strong>no cambia</strong>. Ya está lista para asignar.</p>
             </div>
           </div>
         </div>
 
         <!-- Paso 4 -->
-        <div class="step" style="background:#fff8f0"><span class="step-num bg-[#b5742a]">4</span>
-          <div class="w-full">
-            <p class="font-display text-xs uppercase text-gray-800 mb-2">Prueba de optimalidad y asignación final</p>
-            <p class="text-gray-600 text-xs font-body mb-3">Se cubren los ceros con el mínimo número de líneas. Hay exactamente <strong>4 ceros independientes</strong> (uno por fila y uno por columna) = n = 4 líneas → <strong>la asignación es óptima en una sola iteración</strong>.</p>
-            <div class="overflow-x-auto rounded-xl border border-gray-200 mb-4">
+        <div class="step-block mb-6">
+          <div class="step-header">
+            <span class="step-num bg-[#b5742a]">4</span>
+            <p class="font-bold text-gray-800 text-sm">Asignación óptima — Encontrar un cero independiente por fila y columna</p>
+          </div>
+          <div class="step-body">
+            <div class="how-box">
+              <p>¿Cómo se asigna?</p>
+              <p class="text-gray-700 text-sm">Necesitamos elegir un cero por cada fila <em>y</em> que no repita columna. Si esto es posible, la asignación es óptima. En este caso, los ceros están perfectamente distribuidos — cada fila tiene su cero en una columna distinta. Asignación directa.</p>
+            </div>
+            <div class="overflow-x-auto rounded-xl border border-gray-200 mt-3 mb-4">
               <table>
-                <thead><tr><th class="left">Camión / Ruta</th><th>R1 Limón C.</th><th>R2 Siquirres</th><th>R3 Guápiles</th><th>R4 Talamanca</th></tr></thead>
+                <thead><tr><th class="left">Camión</th><th>R1 Limón C.</th><th>R2 Siquirres</th><th>R3 Guápiles</th><th>R4 Talamanca</th></tr></thead>
                 <tbody>
-                  <tr class="assigned"><td class="left">Camión 1</td><td>✓ [0] → Asignado</td><td>15</td><td>20</td><td>30</td></tr>
-                  <tr class="assigned"><td class="left">Camión 2</td><td>8</td><td>✓ [0] → Asignado</td><td>6</td><td>14</td></tr>
-                  <tr class="assigned"><td class="left">Camión 3</td><td>22</td><td>14</td><td>✓ [0] → Asignado</td><td>7</td></tr>
-                  <tr class="assigned"><td class="left">Camión 4</td><td>20</td><td>15</td><td>9</td><td>✓ [0] → Asignado</td></tr>
+                  <tr class="assigned"><td class="left">Camión 1</td><td>✅ [0] asignado</td><td>15</td><td>20</td><td>30</td></tr>
+                  <tr class="assigned"><td class="left">Camión 2</td><td>8</td><td>✅ [0] asignado</td><td>6</td><td>14</td></tr>
+                  <tr class="assigned"><td class="left">Camión 3</td><td>22</td><td>14</td><td>✅ [0] asignado</td><td>7</td></tr>
+                  <tr class="assigned"><td class="left">Camión 4</td><td>20</td><td>15</td><td>9</td><td>✅ [0] asignado</td></tr>
                 </tbody>
               </table>
             </div>
-            <p class="font-display text-xs uppercase text-[#b5742a] mb-2">Rendimiento total con los valores originales</p>
-            <div class="overflow-x-auto rounded-xl border border-gray-200 mb-3">
+            <p class="font-display text-xs uppercase text-[#b5742a] tracking-widest mb-2">Rendimiento real con los valores originales</p>
+            <div class="overflow-x-auto rounded-xl border border-gray-200">
               <table>
                 <thead><tr><th>Camión</th><th>Ruta asignada</th><th>Rendimiento original</th></tr></thead>
                 <tbody>
-                  <tr><td class="font-bold">Camión 1</td><td>R1 → Limón Centro</td><td class="font-bold text-[#2B9FB5]">90</td></tr>
-                  <tr><td class="font-bold">Camión 2</td><td>R2 → Siquirres</td><td class="font-bold text-[#2B9FB5]">88</td></tr>
-                  <tr><td class="font-bold">Camión 3</td><td>R3 → Guápiles</td><td class="font-bold text-[#2B9FB5]">92</td></tr>
-                  <tr><td class="font-bold">Camión 4</td><td>R4 → Talamanca</td><td class="font-bold text-[#2B9FB5]">95</td></tr>
-                  <tr class="hl"><td colspan="2" class="left font-bold">TOTAL Z</td><td class="font-bold text-lg">365</td></tr>
+                  <tr><td class="font-bold">Camión 1</td><td>R1 → Limón Centro</td><td class="font-bold text-[#2B9FB5] text-base">90</td></tr>
+                  <tr><td class="font-bold">Camión 2</td><td>R2 → Siquirres</td><td class="font-bold text-[#2B9FB5] text-base">88</td></tr>
+                  <tr><td class="font-bold">Camión 3</td><td>R3 → Guápiles</td><td class="font-bold text-[#2B9FB5] text-base">92</td></tr>
+                  <tr><td class="font-bold">Camión 4</td><td>R4 → Talamanca</td><td class="font-bold text-[#2B9FB5] text-base">95</td></tr>
+                  <tr class="hl"><td colspan="2" class="left font-bold text-base">TOTAL Z</td><td class="font-bold text-xl text-[#b5742a]">365</td></tr>
                 </tbody>
               </table>
-            </div>
-            <div class="formula text-xs">
-              Z = 90 + 88 + 92 + 95 = <span class="k">365</span> → <span class="g">Rendimiento máximo total</span>
             </div>
           </div>
         </div>
 
         <div class="conclusion bg-[#b5742a]">
-          <p class="font-display text-xs uppercase tracking-widest opacity-60 mb-2">Conclusión — Modelo de Asignación</p>
-          <p class="font-display text-xl mb-2">Camión 1→Limón · Camión 2→Siquirres · Camión 3→Guápiles · Camión 4→Talamanca</p>
-          <p class="text-2xl font-display mt-1">Z = 365 <span class="text-sm font-body font-normal opacity-70">rendimiento máximo total</span></p>
-          <p class="text-xs font-body opacity-70 mt-2">La reducción por filas generó ceros perfectamente distribuidos (uno por fila y columna), permitiendo una asignación óptima directa sin iteraciones adicionales.</p>
+          <p class="font-display text-xs uppercase tracking-widest opacity-60 mb-3">Conclusión — Modelo de Asignación</p>
+          <p class="font-display text-xl mb-2">C1→Limón Centro · C2→Siquirres · C3→Guápiles · C4→Talamanca</p>
+          <p class="text-2xl font-display mb-3">Z = 365 puntos de rendimiento máximo</p>
+          <p class="text-xs font-body opacity-80">La reducción por filas generó 4 ceros perfectamente distribuidos (uno en cada fila y columna diferente), permitiendo asignación óptima directa en una sola iteración.</p>
         </div>
+
       </div>
     </div>
 
     <!-- ══ RESUMEN FINAL ══ -->
     <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d6">
       <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
-        <h2 class="font-display text-xl text-gray-900 uppercase">Resumen de Resultados</h2>
+        <h2 class="font-display text-xl text-gray-900 uppercase">Resumen Final de Resultados</h2>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-4 mb-6">
+      <div class="grid md:grid-cols-2 gap-5 mb-6">
         <div class="bg-[#EBF8FB] border-2 border-[#2B9FB5] rounded-xl p-6">
-          <p class="font-display text-xs uppercase text-[#2B9FB5] tracking-widest mb-3">Modelo de Transporte</p>
-          <p class="font-display text-3xl text-gray-900 mb-3">₡3,310,000</p>
-          <div class="space-y-1 text-xs font-body text-gray-600">
+          <p class="font-display text-xs uppercase text-[#2B9FB5] tracking-widest mb-3">📦 Distribución de Mercancía</p>
+          <p class="font-display text-3xl text-gray-900 mb-4">₡3,310,000</p>
+          <div class="space-y-1 text-sm font-body text-gray-700">
             <p>• Moín → Limón Centro: <strong>70 ton</strong></p>
             <p>• Moín → Talamanca: <strong>50 ton</strong></p>
             <p>• Cieneguita → Siquirres: <strong>10 ton</strong></p>
@@ -765,24 +956,28 @@
             <p>• Cieneguita → Talamanca: <strong>10 ton</strong></p>
             <p>• Liverpool → Siquirres: <strong>80 ton</strong></p>
           </div>
-          <p class="text-[#1E7A8A] text-xs font-bold mt-3">Verificado por Salto de Piedra ✓</p>
+          <div class="mt-4 bg-white rounded-xl p-3 text-xs font-body text-[#1E7A8A]">
+            ✓ Verificado por Salto de Piedra — solución óptima con 4 distribuciones alternativas equivalentes
+          </div>
         </div>
         <div class="bg-[#FFF8F0] border-2 border-[#b5742a] rounded-xl p-6">
-          <p class="font-display text-xs uppercase text-[#b5742a] tracking-widest mb-3">Modelo de Asignación</p>
-          <p class="font-display text-3xl text-gray-900 mb-3">Z = 365</p>
-          <div class="space-y-1 text-xs font-body text-gray-600">
-            <p>• Camión 1 → Limón Centro (rend. 90)</p>
-            <p>• Camión 2 → Siquirres (rend. 88)</p>
-            <p>• Camión 3 → Guápiles (rend. 92)</p>
-            <p>• Camión 4 → Talamanca (rend. 95)</p>
+          <p class="font-display text-xs uppercase text-[#b5742a] tracking-widest mb-3">🚛 Asignación de Camiones</p>
+          <p class="font-display text-3xl text-gray-900 mb-4">Z = 365</p>
+          <div class="space-y-2 text-sm font-body text-gray-700">
+            <p>• Camión 1 → Limón Centro <span class="text-[#2B9FB5] font-bold">(rend. 90)</span></p>
+            <p>• Camión 2 → Siquirres <span class="text-[#2B9FB5] font-bold">(rend. 88)</span></p>
+            <p>• Camión 3 → Guápiles <span class="text-[#2B9FB5] font-bold">(rend. 92)</span></p>
+            <p>• Camión 4 → Talamanca <span class="text-[#2B9FB5] font-bold">(rend. 95)</span></p>
           </div>
-          <p class="text-[#b5742a] text-xs font-bold mt-3">Método Húngaro — 1 iteración ✓</p>
+          <div class="mt-4 bg-white rounded-xl p-3 text-xs font-body text-[#b5742a]">
+            ✓ Método Húngaro — óptimo en 1 sola iteración
+          </div>
         </div>
       </div>
 
-      <div class="bg-[#f0fdf4] border border-green-300 rounded-xl p-5 text-center">
-        <p class="font-display text-sm uppercase text-green-700 mb-1">Decisión Óptima Final</p>
-        <p class="text-gray-600 text-sm font-body">El uso de los modelos cuantitativos permitió distribuir las <strong>300 toneladas de mercancía</strong> de forma óptima, logrando una ganancia máxima de <strong>₡3,310,000</strong>, y asignar cada camión a su ruta de mayor rendimiento con un total de <strong>365 puntos</strong>. La solución tiene múltiples distribuciones alternativas equivalentes, lo que brinda <strong>flexibilidad operativa</strong> ante cambios en la disponibilidad de recursos.</p>
+      <div class="bg-[#f0fdf4] border-2 border-green-400 rounded-xl p-5 text-center">
+        <p class="font-display text-sm uppercase text-green-700 mb-2">Conclusión Gerencial</p>
+        <p class="text-gray-600 text-sm font-body leading-relaxed">Aplicando los modelos cuantitativos se distribuyeron las <strong>300 toneladas</strong> de manera óptima logrando <strong>₡3,310,000 de ganancia</strong>, y se asignó cada camión a su ruta de mayor rendimiento totalizando <strong>365 puntos</strong>. Las 4 soluciones alternativas equivalentes detectadas por el Salto de Piedra ofrecen <strong>flexibilidad operativa</strong> — si un camión o una ruta no está disponible, la empresa puede ajustar sin perder rentabilidad.</p>
       </div>
     </div>
 
