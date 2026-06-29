@@ -172,35 +172,33 @@
     </div>
 
     <!-- ══ CONTENIDO TEÓRICO ══ -->
-    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
-      <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
-        <h2 class="font-display text-xl text-gray-900 uppercase">Contenido</h2>
-      </div>
-      <p class="text-gray-700 font-body leading-relaxed mb-4">
-        Un <strong>modelo de transporte</strong> es una técnica de programación lineal para distribuir bienes desde múltiples <em>orígenes</em> (bodegas) hacia múltiples <em>destinos</em> (centros de distribución). Se representa como una <strong>matriz</strong>: filas = orígenes, columnas = destinos, celdas = ganancia o costo unitario por tonelada.
-      </p>
-      <p class="text-gray-700 font-body leading-relaxed mb-5">
-        El objetivo puede ser <strong>minimizar costos</strong> o <strong>maximizar ganancias</strong>. Cuando la oferta total iguala a la demanda total el modelo es <em>balanceado</em> — el caso ideal. Si no coinciden se agregan filas o columnas ficticias.
-      </p>
-      <div class="grid md:grid-cols-3 gap-3">
-        <div class="bg-[#f0fafc] rounded-xl p-4 border-t-4 border-[#2B9FB5] text-center">
-          <p class="font-display text-sm text-[#1E7A8A] uppercase mb-2">Paso 1</p>
-          <p class="font-display text-base text-gray-800 uppercase mb-1">Vogel</p>
-          <p class="text-gray-500 text-xs font-body">Obtiene una solución inicial de alta calidad usando penalizaciones por fila y columna.</p>
-        </div>
-        <div class="bg-[#f0fafc] rounded-xl p-4 border-t-4 border-[#1E7A8A] text-center">
-          <p class="font-display text-sm text-[#1E7A8A] uppercase mb-2">Paso 2</p>
-          <p class="font-display text-base text-gray-800 uppercase mb-1">Salto de Piedra</p>
-          <p class="text-gray-500 text-xs font-body">Verifica si la solución de Vogel es óptima formando circuitos cerrados en celdas vacías.</p>
-        </div>
-        <div class="bg-[#f0fafc] rounded-xl p-4 border-t-4 border-[#b5742a] text-center">
-          <p class="font-display text-sm text-[#b5742a] uppercase mb-2">Paso 3</p>
-          <p class="font-display text-base text-gray-800 uppercase mb-1">Asignación</p>
-          <p class="text-gray-500 text-xs font-body">Asigna cada camión a exactamente una ruta para maximizar el rendimiento total.</p>
-        </div>
-      </div>
-    </div>
+<div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
+  
+  <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
+    <h2 class="font-display text-xl text-gray-900 uppercase">Contenido</h2>
+  </div>
 
+  <div class="text-gray-700 font-body leading-relaxed space-y-4 text-justify">
+
+    <p>
+      En este tema aprendí sobre los <strong>modelos de transporte y asignación</strong>, que básicamente sirven para encontrar la mejor forma de distribuir recursos de un lugar a otro, buscando obtener el mejor resultado posible. Dependiendo del problema, el objetivo puede ser minimizar costos, tiempos o distancias, o también maximizar beneficios o el impacto que genera una determinada distribución.
+    </p>
+
+    <p>
+      También vimos que existen modelos <strong>balanceados</strong>, cuando la oferta total es igual a la demanda total, y <strong>desbalanceados</strong>, cuando estas cantidades no coinciden. En esos casos es necesario agregar una fila o columna ficticia para poder resolver correctamente el problema.
+    </p>
+
+    <p>
+      Otro concepto importante fue el <strong>modelo de asignación</strong>, que es un caso especial del modelo de transporte. Aquí cada origen solo puede asignarse a un único destino y viceversa, como cuando se asigna un trabajador a una máquina o un camión a una ruta específica.
+    </p>
+
+    <p>
+      Para resolver este tipo de problemas seguimos un proceso de dos etapas. Primero utilizamos el <strong>método de Aproximación de Vogel</strong>, que permite obtener una muy buena solución inicial utilizando penalizaciones para decidir las mejores asignaciones. Después aplicamos el <strong>método del Salto de Piedra</strong>, que sirve para comprobar si esa solución ya es la óptima o si todavía existe una forma de mejorarla.
+    </p>
+
+  </div>
+
+</div>
     <!-- ══ DATOS DEL PROBLEMA ══ -->
     <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
       <div class="inline-block bg-[#F5C9A8] rounded-xl px-6 py-2 mb-6">

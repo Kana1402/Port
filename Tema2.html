@@ -152,32 +152,49 @@
     </div>
 
     <!-- CONTENIDO GENERAL -->
-    <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
-      <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
-        <h2 class="font-display text-xl text-gray-900 uppercase tracking-wide">Contenido</h2>
-      </div>
-      <p class="text-gray-700 font-body leading-relaxed mb-4">
-        La presentación abordó los fundamentos de la programación matemática avanzada, incluyendo la <strong>programación entera</strong>, <strong>por metas</strong> y <strong>no lineal</strong>. Se explicó cómo estos modelos permiten resolver problemas de toma de decisiones en entornos empresariales, considerando diferentes restricciones y objetivos.
-      </p>
-      <p class="text-gray-700 font-body leading-relaxed mb-6">
-        Además, se presentaron métodos y conceptos para encontrar soluciones óptimas, así como herramientas computacionales que facilitan su resolución. A través de casos prácticos reales se mostró cómo aplicar cada técnica para optimizar recursos, mejorar la rentabilidad y equilibrar distintos objetivos organizacionales.
-      </p>
-      <!-- Tres badges -->
-      <div class="grid grid-cols-3 gap-3 text-center">
-        <div class="bg-[#2B9FB5] text-white rounded-xl py-4 px-2">
-          <p class="font-display text-xs uppercase tracking-wide mb-1">Método 1</p>
-          <p class="font-display text-sm">Programación<br/>Entera</p>
-        </div>
-        <div class="bg-[#F5A8B8] text-gray-800 rounded-xl py-4 px-2">
-          <p class="font-display text-xs uppercase tracking-wide mb-1">Método 2</p>
-          <p class="font-display text-sm">Programación<br/>por Metas</p>
-        </div>
-        <div class="bg-[#F5C9A8] text-gray-800 rounded-xl py-4 px-2">
-          <p class="font-display text-xs uppercase tracking-wide mb-1">Método 3</p>
-          <p class="font-display text-sm">Programación<br/>No Lineal</p>
-        </div>
-      </div>
-    </div>
+  <div class="bg-white rounded-2xl shadow-xl p-8 fade-up d2">
+  
+  <div class="inline-block bg-[#A8D8E0] rounded-xl px-6 py-2 mb-6">
+    <h2 class="font-display text-xl text-gray-900 uppercase">Contenido</h2>
+  </div>
+
+  <div class="text-gray-700 font-body leading-relaxed space-y-4 text-justify">
+
+    <p>
+      En esta presentación se explora cómo se pueden usar modelos matemáticos para tomar mejores decisiones en logística dentro de una empresa real (Transportes Logísticos del Caribe S.A. en Limón). La idea general es ver cómo la investigación de operaciones ayuda a resolver problemas complejos de transporte de forma más estructurada.
+    </p>
+
+    <p>
+      Se trabajaron tres enfoques principales: <strong>programación entera</strong>, <strong>programación por metas</strong> y <strong>programación no lineal</strong>. Cada uno aborda el problema desde una perspectiva diferente dependiendo de lo que se quiera priorizar.
+    </p>
+
+    <p>
+      La programación entera se usa cuando las decisiones deben ser números reales del mundo (por ejemplo, cantidad de viajes completos). Aquí se aplican métodos como <strong>Branch and Bound</strong> o <strong>Gomory</strong> para encontrar soluciones válidas y prácticas.
+    </p>
+
+    <p>
+      En la programación por metas la idea cambia un poco: no se busca una sola “mejor” solución, sino cumplir varias metas al mismo tiempo (ganancias, horas de trabajo, ambiente, etc.). Se usan prioridades y desviaciones para ver qué tan lejos o cerca se está de cada objetivo.
+    </p>
+
+    <p>
+      La programación no lineal se vuelve más realista porque los costos no siempre crecen de forma constante. Por ejemplo, el desgaste de los camiones o el mantenimiento. Para resolver esto se usan herramientas como el Solver con el método GRG Nonlinear.
+    </p>
+
+    <p>
+      En el caso práctico, se analiza el transporte de contenedores desde Matina hasta Moín. Con programación entera se obtiene una ganancia de aproximadamente <strong>$2,350</strong> con una combinación de viajes secos y refrigerados.
+    </p>
+
+    <p>
+      Con programación por metas, en cambio, se prioriza cumplir objetivos como rentabilidad y horas de trabajo, ajustando la solución aunque implique superar un poco otros límites como el consumo de combustible.
+    </p>
+
+    <p>
+      Finalmente, la programación no lineal muestra una visión más conservadora al incluir costos de desgaste, dando una utilidad menor pero más realista. Al final, la idea clave es que no existe una única respuesta correcta: todo depende de qué se quiera priorizar en la toma de decisiones.
+    </p>
+
+  </div>
+
+</div>
 
     <!-- ══════════════════════════════════════
          MÉTODO 1: PROGRAMACIÓN ENTERA
